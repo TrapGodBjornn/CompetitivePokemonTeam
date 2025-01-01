@@ -1,0 +1,89 @@
+
+
+import json
+
+# Load the Pokémon data from pokedex.json
+with open('pokedex.json', 'r', encoding='utf-8') as f:
+    pokemon_data = json.load(f)
+
+def type_effectiveness():
+    weaknesses = {
+        "Water": ["Electric", "Grass"],
+        "Fire": ["Water", "Rock", "Ground"],
+        "Grass": ["Fire", "Flying", "Bug", "Poison", "Ice"],
+        "Electric": ["Ground"],
+        "Rock": ["Water", "Grass", "Fighting", "Ground", "Steel"],
+        "Ground": ["Water", "Grass", "Ice"],
+        "Steel": ["Fire", "Fighting", "Ground"],
+        "Fighting": ["Flying", "Psychic", "Fairy"],
+        "Flying": ["Electric", "Ice", "Rock"],
+        "Bug": ["Fire", "Flying", "Rock"],
+        "Poison": ["Ground", "Psychic"],
+        "Ice": ["Fire", "Fighting", "Rock", "Steel"],
+        "Psychic": ["Bug", "Ghost", "Dark"],
+        "Ghost": ["Ghost", "Dark"],
+        "Dark": ["Fighting", "Bug", "Fairy"],
+        "Dragon": ["Ice", "Dragon", "Fairy"],
+        "Fairy": ["Poison", "Steel"],
+        "Normal": ["Fighting"],
+    }
+
+    strengths = {
+        "Water": ["Fire", "Rock", "Ground"],
+        "Fire": ["Grass", "Bug", "Ice", "Steel"],
+        "Grass": ["Water", "Ground", "Rock"],
+        "Electric": ["Water", "Flying"],
+        "Rock": ["Fire", "Ice", "Flying", "Bug"],
+        "Ground": ["Fire", "Electric", "Poison", "Rock", "Steel"],
+        "Steel": ["Ice", "Rock", "Fairy"],
+        "Fighting": ["Normal", "Ice", "Rock", "Dark", "Steel"],
+        "Flying": ["Grass", "Fighting", "Bug"],
+        "Bug": ["Grass", "Psychic", "Dark"],
+        "Poison": ["Grass", "Fairy"],
+        "Ice": ["Grass", "Flying", "Dragon", "Ground"],
+        "Psychic": ["Fighting", "Poison"],
+        "Ghost": ["Psychic", "Ghost"],
+        "Dark": ["Psychic", "Ghost"],
+        "Dragon": ["Dragon"],
+        "Fairy": ["Fighting", "Dragon", "Dark"],
+        "Normal": [],
+    }
+
+    return weaknesses, strengths
+
+# Function to get weaknesses
+def get_weaknesses(pokemon_name, pokemon_data):
+    weaknesses_chart, _ = type_effectiveness()  # Unpack the weaknesses and strengths
+    
+    # Retrieve Pokémon data
+    pokemon = pokemon_data.get(pokemon_name.lower())
+    if not pokemon:
+        return f"{pokemon_name} not found in data."
+
+    # Extract types from the Pokémon data
+    pokemon_types = pokemon.get('types', [])
+    if not pokemon_types:
+        return f"No types found for {pokemon_name}."
+
+    # Debug: Print Pokémon data and types
+    print("Pokemon Data:", pokemon)  # Debugging
+    print("Pokemon Types:", pokemon_types)  # Debugging
+    
+    # Calculate weaknesses
+    pokemon_weaknesses = []
+    for poke_type in pokemon_types:
+        print(f"Checking weaknesses for type: {poke_type}")  # Debugging
+        if poke_type in weaknesses_chart:
+            print(f"Weaknesses for {poke_type}: {weaknesses_chart[poke_type]}")  # Debugging
+            pokemon_weaknesses.extend(weaknesses_chart[poke_type])
+
+    return set(pokemon_weaknesses)  # Remove duplicates
+
+# Test the function
+pokemon_name = input("Enter a Pokémon name: ").strip()
+weaknesses = get_weaknesses(pokemon_name, pokemon_data)
+
+if isinstance(weaknesses, str):  # Error message
+    print(weaknesses)
+else:
+    print(f"Weaknesses for {pokemon_name}: {', '.join(weaknesses)}")
