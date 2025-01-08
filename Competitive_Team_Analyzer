@@ -169,15 +169,64 @@ def get_weaknesses(pokemon_name, pokemon_data):
     }
 
 
-# Test the thang
-pokemon_name = input("Enter a Pokémon name: ").strip()
-results = get_weaknesses(pokemon_name, pokemon_data)
 
-if isinstance(results, str):
-    print(results)  
-else:
-    print(f"4x weaknesses: {', '.join(results['4x'])}")
-    print(f"2x weaknesses: {', '.join(results['2x'])}")
-    print(f"0x immunities: {', '.join(results['0x'])}")
-    print(f"0.5x resistances: {', '.join(results['0.5x'])}")
+
+def all_combos(pokemon_data, team_size=6):
+    from collections import defaultdict
+
+    resultys = []
+
+    totals = {
+        "4x": defaultdict(int),
+        "2x": defaultdict(int),
+        "0x": defaultdict(int),
+        "0.5x": defaultdict(int),
+    } 
+
+    for i in range(team_size):
+        name = input(f"Enter name of Pokemon {i+1} :").strip()
+        resultado = get_weaknesses(name, pokemon_data)
+        resultys.append(resultado)
+
+    print(resultys)
+
+    for res in resultys:
+        if isinstance(res, str):
+            print("Error cousin", res)
+            continue 
+
+               # Accumulate
+        for category in ["4x", "2x", "0.5x", "0x"]:
+            for atk_type in res[category]:
+                totals[category][atk_type] += 1
+
+    # After collecting data, display results
+    print("\n=== Team Totals ===")
+    for category in ["4x", "2x", "0.5x", "0x"]:
+        print(f"\n{category} results:")
+        lines = []
+        for atk_type, count in totals[category].items():
+            lines.append(f"{atk_type}({count})")
+        if lines:
+            print(", ".join(lines))
+        else:
+            print("None")
+
+all_combos(pokemon_data, 6)
+
+
+
+
+#Test the thang
+#pokemon_name = input("Enter a Pokémon name: ").strip()
+#results = get_weaknesses(pokemon_name, pokemon_data)
+
+
+#if isinstance(results, str):
+#    print(results)  
+#else:
+#    print(f"4x weaknesses: {', '.join(results['4x'])}")
+#    print(f"2x weaknesses: {', '.join(results['2x'])}")
+#    print(f"0x immunities: {', '.join(results['0x'])}")
+#    print(f"0.5x resistances: {', '.join(results['0.5x'])}")
 
