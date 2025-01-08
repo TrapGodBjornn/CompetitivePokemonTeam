@@ -1,89 +1,183 @@
-
-
 import json
 
 # Load the Pokémon data from pokedex.json
 with open('pokedex.json', 'r', encoding='utf-8') as f:
     pokemon_data = json.load(f)
 
+
+ALL_TYPES = [
+    "Normal", "Fire", "Water", "Electric", "Grass",
+    "Ice", "Fighting", "Poison", "Ground", "Flying",
+    "Psychic", "Bug", "Rock", "Ghost", "Dragon",
+    "Dark", "Steel", "Fairy"
+]
+
+
 def type_effectiveness():
     weaknesses = {
-        "Water": ["Electric", "Grass"],
-        "Fire": ["Water", "Rock", "Ground"],
-        "Grass": ["Fire", "Flying", "Bug", "Poison", "Ice"],
-        "Electric": ["Ground"],
-        "Rock": ["Water", "Grass", "Fighting", "Ground", "Steel"],
-        "Ground": ["Water", "Grass", "Ice"],
-        "Steel": ["Fire", "Fighting", "Ground"],
-        "Fighting": ["Flying", "Psychic", "Fairy"],
-        "Flying": ["Electric", "Ice", "Rock"],
-        "Bug": ["Fire", "Flying", "Rock"],
-        "Poison": ["Ground", "Psychic"],
-        "Ice": ["Fire", "Fighting", "Rock", "Steel"],
-        "Psychic": ["Bug", "Ghost", "Dark"],
-        "Ghost": ["Ghost", "Dark"],
-        "Dark": ["Fighting", "Bug", "Fairy"],
-        "Dragon": ["Ice", "Dragon", "Fairy"],
-        "Fairy": ["Poison", "Steel"],
-        "Normal": ["Fighting"],
+        "Water": {"Electric": 2.0, "Grass": 2.0},
+        "Fire": {"Water": 2.0, "Rock": 2.0, "Ground": 2.0},
+        "Grass": {"Fire": 2.0, "Flying": 2.0, "Bug": 2.0, "Poison": 2.0, "Ice": 2.0},
+        "Electric": {"Ground": 2.0},
+        "Rock": {"Water": 2.0, "Grass": 2.0, "Fighting": 2.0, "Ground": 2.0, "Steel": 2.0},
+        "Ground": {"Water": 2.0, "Grass": 2.0, "Ice": 2.0},
+        "Steel": {"Fire": 2.0, "Fighting": 2.0, "Ground": 2.0},
+        "Fighting": {"Flying": 2.0, "Psychic": 2.0, "Fairy": 2.0},
+        "Flying": {"Electric": 2.0, "Ice": 2.0, "Rock": 2.0},
+        "Bug": {"Fire": 2.0, "Flying": 2.0, "Rock": 2.0},
+        "Poison": {"Ground": 2.0, "Psychic": 2.0},
+        "Ice": {"Fire": 2.0, "Fighting": 2.0, "Rock": 2.0, "Steel": 2.0},
+        "Psychic": {"Bug": 2.0, "Ghost": 2.0, "Dark": 2.0},
+        "Ghost": {"Ghost": 2.0, "Dark": 2.0},
+        "Dark": {"Fighting": 2.0, "Bug": 2.0, "Fairy": 2.0},
+        "Dragon": {"Ice": 2.0, "Dragon": 2.0, "Fairy": 2.0},
+        "Fairy": {"Poison": 2.0, "Steel": 2.0},
+        "Normal": {"Fighting": 2.0},
     }
 
     strengths = {
-        "Water": ["Fire", "Rock", "Ground"],
-        "Fire": ["Grass", "Bug", "Ice", "Steel"],
-        "Grass": ["Water", "Ground", "Rock"],
-        "Electric": ["Water", "Flying"],
-        "Rock": ["Fire", "Ice", "Flying", "Bug"],
-        "Ground": ["Fire", "Electric", "Poison", "Rock", "Steel"],
-        "Steel": ["Ice", "Rock", "Fairy"],
-        "Fighting": ["Normal", "Ice", "Rock", "Dark", "Steel"],
-        "Flying": ["Grass", "Fighting", "Bug"],
-        "Bug": ["Grass", "Psychic", "Dark"],
-        "Poison": ["Grass", "Fairy"],
-        "Ice": ["Grass", "Flying", "Dragon", "Ground"],
-        "Psychic": ["Fighting", "Poison"],
-        "Ghost": ["Psychic", "Ghost"],
-        "Dark": ["Psychic", "Ghost"],
-        "Dragon": ["Dragon"],
-        "Fairy": ["Fighting", "Dragon", "Dark"],
-        "Normal": [],
+        "Water": {"Fire": 2.0, "Rock": 2.0, "Ground": 2.0},
+        "Fire": {"Grass": 2.0, "Bug": 2.0, "Ice": 2.0, "Steel": 2.0},
+        "Grass": {"Water": 2.0, "Ground": 2.0, "Rock": 2.0},
+        "Electric": {"Water": 2.0, "Flying": 2.0},
+        "Rock": {"Fire": 2.0, "Ice": 2.0, "Flying": 2.0, "Bug": 2.0},
+        "Ground": {"Fire": 2.0, "Electric": 2.0, "Poison": 2.0, "Rock": 2.0, "Steel": 2.0},
+        "Steel": {"Ice": 2.0, "Rock": 2.0, "Fairy": 2.0},
+        "Fighting": {"Normal": 2.0, "Ice": 2.0, "Rock": 2.0, "Dark": 2.0, "Steel": 2.0},
+        "Flying": {"Grass": 2.0, "Fighting": 2.0, "Bug": 2.0},
+        "Bug": {"Grass": 2.0, "Psychic": 2.0, "Dark": 2.0},
+        "Poison": {"Grass": 2.0, "Fairy": 2.0},
+        "Ice": {"Grass": 2.0, "Flying": 2.0, "Dragon": 2.0, "Ground": 2.0},
+        "Psychic": {"Fighting": 2.0, "Poison": 2.0},
+        "Ghost": {"Psychic": 2.0, "Ghost": 2.0},
+        "Dark": {"Psychic": 2.0, "Ghost": 2.0},
+        "Dragon": {"Dragon": 2.0},
+        "Fairy": {"Fighting": 2.0, "Dragon": 2.0, "Dark": 2.0},
+        "Normal": {},
     }
 
-    return weaknesses, strengths
+    resistances = {
+        "Water": {"Fire": 0.5, "Water": 0.5, "Ice": 0.5, "Steel": 0.5},
+        "Fire": {"Fire": 0.5, "Grass": 0.5, "Ice": 0.5, "Bug": 0.5, "Steel": 0.5, "Fairy": 0.5},
+        "Grass": {"Water": 0.5, "Grass": 0.5, "Electric": 0.5, "Ground": 0.5},
+        "Electric": {"Electric": 0.5, "Steel": 0.5, "Flying": 0.5},
+        "Rock": {"Normal": 0.5, "Fire": 0.5, "Flying": 0.5, "Poison": 0.5},
+        "Ground": {"Poison": 0.5, "Rock": 0.5},
+        "Steel": {"Normal": 0.5, "Grass": 0.5, "Ice": 0.5, "Flying": 0.5, "Psychic": 0.5,
+                  "Bug": 0.5, "Rock": 0.5, "Dragon": 0.5, "Steel": 0.5, "Fairy": 0.5},
+        "Fighting": {"Bug": 0.5, "Rock": 0.5, "Dark": 0.5},
+        "Flying": {"Grass": 0.5, "Fighting": 0.5, "Bug": 0.5},
+        "Bug": {"Grass": 0.5, "Fighting": 0.5, "Ground": 0.5},
+        "Poison": {"Grass": 0.5, "Fighting": 0.5, "Poison": 0.5, "Bug": 0.5, "Fairy": 0.5},
+        "Ice": {"Ice": 0.5},
+        "Psychic": {"Fighting": 0.5, "Psychic": 0.5},
+        "Ghost": {"Poison": 0.5, "Bug": 0.5},
+        "Dark": {"Ghost": 0.5, "Dark": 0.5},
+        "Dragon": {"Fire": 0.5, "Water": 0.5, "Electric": 0.5, "Grass": 0.5},
+        "Fairy": {"Fighting": 0.5, "Bug": 0.5, "Dark": 0.5},
+        "Normal": {},
+    }
+
+    immunities = {
+        "Water": {},
+        "Fire": {},
+        "Grass": {},
+        "Electric": {},
+        "Rock": {},
+        "Ground": {"Electric": 0.0},
+        "Steel": {"Poison": 0.0},
+        "Fighting": {},
+        "Flying": {"Ground": 0.0},
+        "Bug": {},
+        "Poison": {},
+        "Ice": {},
+        "Psychic": {},
+        "Ghost": {"Fighting": 0.0, "Normal": 0.0},
+        "Dark": {"Psychic": 0.0},
+        "Dragon": {},
+        "Fairy": {"Dragon": 0.0},
+        "Normal": {"Ghost": 0.0},
+    }
+
+    return weaknesses, strengths, resistances, immunities
+
 
 # Function to get weaknesses
 def get_weaknesses(pokemon_name, pokemon_data):
-    weaknesses_chart, _ = type_effectiveness()  # Unpack the weaknesses and strengths
+    weaknesses, _, resistances, immunities = type_effectiveness()
     
     # Retrieve Pokémon data
     pokemon = pokemon_data.get(pokemon_name.lower())
     if not pokemon:
         return f"{pokemon_name} not found in data."
-
-    # Extract types from the Pokémon data
-    pokemon_types = pokemon.get('types', [])
+    
+    # Extract types
+    pokemon_types = pokemon.get("types", [])
     if not pokemon_types:
         return f"No types found for {pokemon_name}."
-
-    # Debug: Print Pokémon data and types
-    print("Pokemon Data:", pokemon)  # Debugging
-    print("Pokemon Types:", pokemon_types)  # Debugging
     
-    # Calculate weaknesses
-    pokemon_weaknesses = []
-    for poke_type in pokemon_types:
-        print(f"Checking weaknesses for type: {poke_type}")  # Debugging
-        if poke_type in weaknesses_chart:
-            print(f"Weaknesses for {poke_type}: {weaknesses_chart[poke_type]}")  # Debugging
-            pokemon_weaknesses.extend(weaknesses_chart[poke_type])
+    # Initialize sets to store the results
+    x4_weak = set()
+    x2_weak = set()
+    x05_resist = set()
+    x0_immune = set()
+    neutral = set()
+    
+    # For each potential attacking_type in the game:
+    for attacking_type in ALL_TYPES:
+        # Start with a 1.0 multiplier
+        net_multiplier = 1.0
+        
+        # For each defensive type 
+        for def_type in pokemon_types:
+            # 1) Check immunity first (0.0 overrides everything)
+            if def_type in immunities:
+                if attacking_type in immunities[def_type]:
+                    net_multiplier = 0.0
+                    break  # no need to check further types
+                
+            # 2) If not immune, check weaknesses
+            if def_type in weaknesses:
+                # If attacking_type is in this dictionary, multiply by e.g. 2.0
+                net_multiplier *= weaknesses[def_type].get(attacking_type, 1.0)
+            
+            # 3) Check resistances
+            if def_type in resistances:
+                # e.g. 0.5 if found
+                net_multiplier *= resistances[def_type].get(attacking_type, 1.0)
+            
+        
+        # Net multiplier:
+        if net_multiplier == 0.0:
+            x0_immune.add(attacking_type)
+        elif net_multiplier == 4.0:
+            x4_weak.add(attacking_type)
+        elif net_multiplier == 2.0:
+            x2_weak.add(attacking_type)
+        elif net_multiplier == 0.5:
+            x05_resist.add(attacking_type)
+        else:
+            neutral.add(attacking_type)
+    
+    # Return a dictionary with results
+    return {
+        "4x": x4_weak,
+        "2x": x2_weak,
+        "0x": x0_immune,
+        "0.5x": x05_resist,
+        "neutral_or_other": neutral
+    }
 
-    return set(pokemon_weaknesses)  # Remove duplicates
 
-# Test the function
+# Test the thang
 pokemon_name = input("Enter a Pokémon name: ").strip()
-weaknesses = get_weaknesses(pokemon_name, pokemon_data)
+results = get_weaknesses(pokemon_name, pokemon_data)
 
-if isinstance(weaknesses, str):  # Error message
-    print(weaknesses)
+if isinstance(results, str):
+    print(results)  
 else:
-    print(f"Weaknesses for {pokemon_name}: {', '.join(weaknesses)}")
+    print(f"4x weaknesses: {', '.join(results['4x'])}")
+    print(f"2x weaknesses: {', '.join(results['2x'])}")
+    print(f"0x immunities: {', '.join(results['0x'])}")
+    print(f"0.5x resistances: {', '.join(results['0.5x'])}")
+
