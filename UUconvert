@@ -1,0 +1,36 @@
+import json
+
+with open("pokedex.json", "r", encoding="utf-8") as f:
+    pokemon_data = json.load(f)
+
+#print("DEBUG: Loaded pokemon_data with", len(pokemon_data), "keys")
+
+
+#some_keys = list(pokemon_data.keys())[:10]
+#print("DEBUG: Sample keys from pokemon_data:", some_keys)
+
+uu_names = []
+with open("UUpoke.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        name = line.strip().lower()
+        if name:
+            uu_names.append(name)
+
+#print("DEBUG: uu_names contains:", len(uu_names), "names")
+#print("DEBUG: Sample names from uu_names:", uu_names[:10])
+
+uu_cuz = {}
+
+for poke_name in uu_names:
+    if poke_name not in pokemon_data:
+        print(f"Could not find {poke_name} in pokemon_data keys.")
+    if poke_name in pokemon_data:
+        uu_cuz[poke_name] = pokemon_data[poke_name]
+    else:
+        print(f"Could not find {poke_name}")
+
+with open("UU.json", "w", encoding="utf-8") as f:
+    json.dump(uu_cuz, f, indent=2)
+
+#print("DEBUG: Done! Copied", len(uu_cuz), "Pokémon into UU.json")
+

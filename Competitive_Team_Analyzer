@@ -156,8 +156,8 @@ def get_weaknesses(pokemon_name, pokemon_data):
             x2_weak.add(attacking_type)
         elif net_multiplier == 0.5:
             x05_resist.add(attacking_type)
-        else:
-            neutral.add(attacking_type)
+        #else:
+        #    neutral.add(attacking_type)
     
     # Return a dictionary with results
     return {
@@ -165,7 +165,7 @@ def get_weaknesses(pokemon_name, pokemon_data):
         "2x": x2_weak,
         "0x": x0_immune,
         "0.5x": x05_resist,
-        "neutral_or_other": neutral
+        #"neutral_or_other": neutral
     }
 
 
@@ -216,8 +216,23 @@ all_combos(pokemon_data, 6)
 
 
 
+#Gonna start leaving my plans here in the form of comments so it's right here
+#So now I have to find out which pokemon is weak to what. The manner in which I have set this up allows me to access these so I just have
+#to figure out the how. I'm also thinking to label it as if we have 0-2 instances of 2x results, label it as low concern, 3-4 as medium,
+#and 5-6 as high. Opposite for .5x. For 4x, anything more than 2 is a red flag. For 0x, not entirely sure, perhaps subtract 1 from 2x.
+#The prioritization will be a little difficult but I guess not really if I just make it based on the numbers. Anyways, once I find the 
+#areas of concern, I can see the pokemon which are weak to those types, and then suggest possible replacements.
+#Will focus on getting this done first, because soon I will also have to implement a function to analyze the team based on what type of
+#pokemon they are in the meta, ex if you need a defensive mon, a wallbreaker, etc. Once both are done, will have to find a way 
+#to synergize the two and suggest like say a wallbreaker of the specific type, particularly the best ones in the meta. This will likely
+#be quite difficult tbh but lets get to work.
 
-#Test the thang
+
+
+
+
+
+#Test the thang (OLD TEST FOR SINGLE)... KEEPING JUST IN CASE FOR IDK WHAT TBH. BRO RIGHT HERE THE VSCODE AI JUST SUGGESTED ME LOL TO FINISH MY SENTENCE. WE'VE COME WAY TOO FAR.
 #pokemon_name = input("Enter a Pokémon name: ").strip()
 #results = get_weaknesses(pokemon_name, pokemon_data)
 

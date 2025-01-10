@@ -1,0 +1,1369 @@
+{
+  "arcaninehisui": {
+    "num": 59,
+    "name": "Arcanine-Hisui",
+    "baseSpecies": "Arcanine",
+    "forme": "Hisui",
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "genderRatio": {
+      "M": 0.75,
+      "F": 0.25
+    },
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 80,
+      "spa": 95,
+      "spd": 80,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Intimidate",
+      "1": "Flash Fire",
+      "H": "Rock Head"
+    },
+    "heightm": 2,
+    "weightkg": 168,
+    "color": "Brown",
+    "prevo": "Growlithe-Hisui",
+    "evoType": "useItem",
+    "evoItem": "Fire Stone",
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "azumarill": {
+    "num": 184,
+    "name": "Azumarill",
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 80,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "Thick Fat",
+      "1": "Huge Power",
+      "H": "Sap Sipper"
+    },
+    "heightm": 0.8,
+    "weightkg": 28.5,
+    "color": "Blue",
+    "prevo": "Marill",
+    "evoLevel": 18,
+    "eggGroups": [
+      "Water 1",
+      "Fairy"
+    ]
+  },
+  "clodsire": {
+    "num": 980,
+    "name": "Clodsire",
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 130,
+      "atk": 75,
+      "def": 60,
+      "spa": 45,
+      "spd": 100,
+      "spe": 20
+    },
+    "abilities": {
+      "0": "Poison Point",
+      "1": "Water Absorb",
+      "H": "Unaware"
+    },
+    "heightm": 1.8,
+    "weightkg": 223,
+    "color": "Brown",
+    "prevo": "Wooper-Paldea",
+    "evoLevel": 20,
+    "eggGroups": [
+      "Water 1",
+      "Field"
+    ]
+  },
+  "cobalion": {
+    "num": 638,
+    "name": "Cobalion",
+    "types": [
+      "Steel",
+      "Fighting"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 91,
+      "atk": 90,
+      "def": 129,
+      "spa": 90,
+      "spd": 72,
+      "spe": 108
+    },
+    "abilities": {
+      "0": "Justified"
+    },
+    "heightm": 2.1,
+    "weightkg": 250,
+    "color": "Blue",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "comfey": {
+    "num": 764,
+    "name": "Comfey",
+    "types": [
+      "Fairy"
+    ],
+    "genderRatio": {
+      "M": 0.25,
+      "F": 0.75
+    },
+    "baseStats": {
+      "hp": 51,
+      "atk": 52,
+      "def": 90,
+      "spa": 82,
+      "spd": 110,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Flower Veil",
+      "1": "Triage",
+      "H": "Natural Cure"
+    },
+    "heightm": 0.1,
+    "weightkg": 0.3,
+    "color": "Green",
+    "eggGroups": [
+      "Grass"
+    ]
+  },
+  "conkeldurr": {
+    "num": 534,
+    "name": "Conkeldurr",
+    "types": [
+      "Fighting"
+    ],
+    "genderRatio": {
+      "M": 0.75,
+      "F": 0.25
+    },
+    "baseStats": {
+      "hp": 105,
+      "atk": 140,
+      "def": 95,
+      "spa": 55,
+      "spd": 65,
+      "spe": 45
+    },
+    "abilities": {
+      "0": "Guts",
+      "1": "Sheer Force",
+      "H": "Iron Fist"
+    },
+    "heightm": 1.4,
+    "weightkg": 87,
+    "color": "Brown",
+    "prevo": "Gurdurr",
+    "evoType": "trade",
+    "eggGroups": [
+      "Human-Like"
+    ]
+  },
+  "deoxysspeed": {
+    "num": 386,
+    "name": "Deoxys-Speed",
+    "baseSpecies": "Deoxys",
+    "forme": "Speed",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 50,
+      "atk": 95,
+      "def": 90,
+      "spa": 95,
+      "spd": 90,
+      "spe": 180
+    },
+    "abilities": {
+      "0": "Pressure"
+    },
+    "heightm": 1.7,
+    "weightkg": 60.8,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Deoxys"
+  },
+  "donphan": {
+    "num": 232,
+    "name": "Donphan",
+    "types": [
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 120,
+      "def": 120,
+      "spa": 60,
+      "spd": 60,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "Sturdy",
+      "H": "Sand Veil"
+    },
+    "heightm": 1.1,
+    "weightkg": 120,
+    "color": "Gray",
+    "prevo": "Phanpy",
+    "evoLevel": 25,
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "excadrill": {
+    "num": 530,
+    "name": "Excadrill",
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 135,
+      "def": 60,
+      "spa": 50,
+      "spd": 65,
+      "spe": 88
+    },
+    "abilities": {
+      "0": "Sand Rush",
+      "1": "Sand Force",
+      "H": "Mold Breaker"
+    },
+    "heightm": 0.7,
+    "weightkg": 40.4,
+    "color": "Gray",
+    "prevo": "Drilbur",
+    "evoLevel": 31,
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "greninja": {
+    "num": 658,
+    "name": "Greninja",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "abilities": {
+      "0": "Torrent",
+      "H": "Protean",
+      "S": "Battle Bond"
+    },
+    "heightm": 1.5,
+    "weightkg": 40,
+    "color": "Blue",
+    "prevo": "Frogadier",
+    "evoLevel": 36,
+    "eggGroups": [
+      "Water 1"
+    ],
+    "otherFormes": [
+      "Greninja-Bond",
+      "Greninja-Ash"
+    ],
+    "formeOrder": [
+      "Greninja",
+      "Greninja-Bond",
+      "Greninja-Ash"
+    ]
+  },
+  "greninjabond": {
+    "num": 658,
+    "name": "Greninja-Bond",
+    "baseSpecies": "Greninja",
+    "forme": "Bond",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "abilities": {
+      "0": "Battle Bond"
+    },
+    "heightm": 1.5,
+    "weightkg": 40,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "gen": 7
+  },
+  "hawlucha": {
+    "num": 701,
+    "name": "Hawlucha",
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 92,
+      "def": 75,
+      "spa": 74,
+      "spd": 63,
+      "spe": 118
+    },
+    "abilities": {
+      "0": "Limber",
+      "1": "Unburden",
+      "H": "Mold Breaker"
+    },
+    "heightm": 0.8,
+    "weightkg": 21.5,
+    "color": "Green",
+    "eggGroups": [
+      "Flying",
+      "Human-Like"
+    ]
+  },
+  "heatran": {
+    "num": 485,
+    "name": "Heatran",
+    "types": [
+      "Fire",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 91,
+      "atk": 90,
+      "def": 106,
+      "spa": 130,
+      "spd": 106,
+      "spe": 77
+    },
+    "abilities": {
+      "0": "Flash Fire",
+      "H": "Flame Body"
+    },
+    "heightm": 1.7,
+    "weightkg": 430,
+    "color": "Brown",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "hydrapple": {
+    "num": 1019,
+    "name": "Hydrapple",
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 106,
+      "atk": 80,
+      "def": 110,
+      "spa": 120,
+      "spd": 80,
+      "spe": 44
+    },
+    "abilities": {
+      "0": "Supersweet Syrup",
+      "1": "Regenerator",
+      "H": "Sticky Hold"
+    },
+    "heightm": 1.8,
+    "weightkg": 93,
+    "color": "Green",
+    "prevo": "Dipplin",
+    "evoType": "levelMove",
+    "evoMove": "Dragon Cheer",
+    "eggGroups": [
+      "Grass",
+      "Dragon"
+    ]
+  },
+  "keldeo": {
+    "num": 647,
+    "name": "Keldeo",
+    "baseForme": "Ordinary",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 91,
+      "atk": 72,
+      "def": 90,
+      "spa": 129,
+      "spd": 90,
+      "spe": 108
+    },
+    "abilities": {
+      "0": "Justified"
+    },
+    "heightm": 1.4,
+    "weightkg": 48.5,
+    "color": "Yellow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Mythical"
+    ],
+    "otherFormes": [
+      "Keldeo-Resolute"
+    ],
+    "formeOrder": [
+      "Keldeo",
+      "Keldeo-Resolute"
+    ]
+  },
+  "keldeoresolute": {
+    "num": 647,
+    "name": "Keldeo-Resolute",
+    "baseSpecies": "Keldeo",
+    "forme": "Resolute",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 91,
+      "atk": 72,
+      "def": 90,
+      "spa": 129,
+      "spd": 90,
+      "spe": 108
+    },
+    "abilities": {
+      "0": "Justified"
+    },
+    "heightm": 1.4,
+    "weightkg": 48.5,
+    "color": "Yellow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredMove": "Secret Sword",
+    "changesFrom": "Keldeo"
+  },
+  "latios": {
+    "num": 381,
+    "name": "Latios",
+    "types": [
+      "Dragon",
+      "Psychic"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 80,
+      "atk": 90,
+      "def": 80,
+      "spa": 130,
+      "spd": 110,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "Levitate"
+    },
+    "heightm": 2,
+    "weightkg": 60,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "otherFormes": [
+      "Latios-Mega"
+    ],
+    "formeOrder": [
+      "Latios",
+      "Latios-Mega"
+    ]
+  },
+  "lokix": {
+    "num": 920,
+    "name": "Lokix",
+    "types": [
+      "Bug",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 102,
+      "def": 78,
+      "spa": 52,
+      "spd": 55,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "Swarm",
+      "H": "Tinted Lens"
+    },
+    "heightm": 1,
+    "weightkg": 17.5,
+    "color": "Gray",
+    "prevo": "Nymble",
+    "evoLevel": 24,
+    "eggGroups": [
+      "Bug"
+    ]
+  },
+  "mandibuzz": {
+    "num": 630,
+    "name": "Mandibuzz",
+    "types": [
+      "Dark",
+      "Flying"
+    ],
+    "gender": "F",
+    "baseStats": {
+      "hp": 110,
+      "atk": 65,
+      "def": 105,
+      "spa": 55,
+      "spd": 95,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "Big Pecks",
+      "1": "Overcoat",
+      "H": "Weak Armor"
+    },
+    "heightm": 1.2,
+    "weightkg": 39.5,
+    "color": "Brown",
+    "prevo": "Vullaby",
+    "evoLevel": 54,
+    "eggGroups": [
+      "Flying"
+    ]
+  },
+  "metagross": {
+    "num": 376,
+    "name": "Metagross",
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 80,
+      "atk": 135,
+      "def": 130,
+      "spa": 95,
+      "spd": 90,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Clear Body",
+      "H": "Light Metal"
+    },
+    "heightm": 1.6,
+    "weightkg": 550,
+    "color": "Blue",
+    "prevo": "Metang",
+    "evoLevel": 45,
+    "eggGroups": [
+      "Mineral"
+    ],
+    "otherFormes": [
+      "Metagross-Mega"
+    ],
+    "formeOrder": [
+      "Metagross",
+      "Metagross-Mega"
+    ]
+  },
+  "mew": {
+    "num": 151,
+    "name": "Mew",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 100,
+      "spa": 100,
+      "spd": 100,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Synchronize"
+    },
+    "heightm": 0.4,
+    "weightkg": 4,
+    "color": "Pink",
+    "tags": [
+      "Mythical"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "ogerpon": {
+    "num": 1017,
+    "name": "Ogerpon",
+    "baseForme": "Teal",
+    "types": [
+      "Grass"
+    ],
+    "gender": "F",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "Defiant"
+    },
+    "heightm": 1.2,
+    "weightkg": 39.8,
+    "color": "Green",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Ogerpon-Wellspring",
+      "Ogerpon-Hearthflame",
+      "Ogerpon-Cornerstone",
+      "Ogerpon-Teal-Tera",
+      "Ogerpon-Wellspring-Tera",
+      "Ogerpon-Hearthflame-Tera",
+      "Ogerpon-Cornerstone-Tera"
+    ],
+    "formeOrder": [
+      "Ogerpon",
+      "Ogerpon-Wellspring",
+      "Ogerpon-Hearthflame",
+      "Ogerpon-Cornerstone",
+      "Ogerpon-Teal-Tera",
+      "Ogerpon-Wellspring-Tera",
+      "Ogerpon-Hearthflame-Tera",
+      "Ogerpon-Cornerstone-Tera"
+    ],
+    "forceTeraType": "Grass"
+  },
+  "ogerponcornerstone": {
+    "num": 1017,
+    "name": "Ogerpon-Cornerstone",
+    "baseSpecies": "Ogerpon",
+    "forme": "Cornerstone",
+    "types": [
+      "Grass",
+      "Rock"
+    ],
+    "gender": "F",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "Sturdy"
+    },
+    "heightm": 1.2,
+    "weightkg": 39.8,
+    "color": "Gray",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Cornerstone Mask",
+    "changesFrom": "Ogerpon",
+    "forceTeraType": "Rock"
+  },
+  "polteageist": {
+    "num": 855,
+    "name": "Polteageist",
+    "baseForme": "Phony",
+    "types": [
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Weak Armor",
+      "H": "Cursed Body"
+    },
+    "heightm": 0.2,
+    "weightkg": 0.4,
+    "color": "Purple",
+    "prevo": "Sinistea",
+    "evoType": "useItem",
+    "evoItem": "Cracked Pot",
+    "eggGroups": [
+      "Mineral",
+      "Amorphous"
+    ],
+    "otherFormes": [
+      "Polteageist-Antique"
+    ],
+    "formeOrder": [
+      "Polteageist",
+      "Polteageist-Antique"
+    ]
+  },
+  "polteageistantique": {
+    "num": 855,
+    "name": "Polteageist-Antique",
+    "baseSpecies": "Polteageist",
+    "forme": "Antique",
+    "types": [
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Weak Armor",
+      "H": "Cursed Body"
+    },
+    "heightm": 0.2,
+    "weightkg": 0.4,
+    "color": "Purple",
+    "prevo": "Sinistea-Antique",
+    "evoType": "useItem",
+    "evoItem": "Chipped Pot",
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "quaquaval": {
+    "num": 914,
+    "name": "Quaquaval",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 80,
+      "spa": 85,
+      "spd": 75,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "Torrent",
+      "H": "Moxie"
+    },
+    "heightm": 1.8,
+    "weightkg": 61.9,
+    "color": "Blue",
+    "prevo": "Quaxwell",
+    "evoLevel": 36,
+    "eggGroups": [
+      "Flying",
+      "Water 1"
+    ]
+  },
+  "revavroom": {
+    "num": 966,
+    "name": "Revavroom",
+    "types": [
+      "Steel",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 119,
+      "def": 90,
+      "spa": 54,
+      "spd": 67,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Overcoat",
+      "H": "Filter"
+    },
+    "heightm": 1.8,
+    "weightkg": 120,
+    "color": "Gray",
+    "prevo": "Varoom",
+    "evoLevel": 40,
+    "eggGroups": [
+      "Mineral"
+    ]
+  },
+  "rotomwash": {
+    "num": 479,
+    "name": "Rotom-Wash",
+    "baseSpecies": "Rotom",
+    "forme": "Wash",
+    "types": [
+      "Electric",
+      "Water"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "Levitate"
+    },
+    "heightm": 0.3,
+    "weightkg": 0.3,
+    "color": "Red",
+    "eggGroups": [
+      "Amorphous"
+    ],
+    "changesFrom": "Rotom"
+  },
+  "sandyshocks": {
+    "num": 989,
+    "name": "Sandy Shocks",
+    "types": [
+      "Electric",
+      "Ground"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 85,
+      "atk": 81,
+      "def": 97,
+      "spa": 121,
+      "spd": 85,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "Protosynthesis"
+    },
+    "heightm": 2.3,
+    "weightkg": 60,
+    "color": "Gray",
+    "tags": [
+      "Paradox"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "scizor": {
+    "num": 212,
+    "name": "Scizor",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 130,
+      "def": 100,
+      "spa": 55,
+      "spd": 80,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "Swarm",
+      "1": "Technician",
+      "H": "Light Metal"
+    },
+    "heightm": 1.8,
+    "weightkg": 118,
+    "color": "Red",
+    "prevo": "Scyther",
+    "evoType": "trade",
+    "evoItem": "Metal Coat",
+    "eggGroups": [
+      "Bug"
+    ],
+    "otherFormes": [
+      "Scizor-Mega"
+    ],
+    "formeOrder": [
+      "Scizor",
+      "Scizor-Mega"
+    ]
+  },
+  "serperior": {
+    "num": 497,
+    "name": "Serperior",
+    "types": [
+      "Grass"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 95,
+      "spa": 75,
+      "spd": 95,
+      "spe": 113
+    },
+    "abilities": {
+      "0": "Overgrow",
+      "H": "Contrary"
+    },
+    "heightm": 3.3,
+    "weightkg": 63,
+    "color": "Green",
+    "prevo": "Servine",
+    "evoLevel": 36,
+    "eggGroups": [
+      "Field",
+      "Grass"
+    ]
+  },
+  "sinistcha": {
+    "num": 1013,
+    "name": "Sinistcha",
+    "baseForme": "Unremarkable",
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Hospitality",
+      "H": "Heatproof"
+    },
+    "heightm": 0.2,
+    "weightkg": 2.2,
+    "color": "Green",
+    "prevo": "Poltchageist",
+    "evoType": "useItem",
+    "evoItem": "Unremarkable Teacup",
+    "eggGroups": [
+      "Mineral",
+      "Amorphous"
+    ],
+    "otherFormes": [
+      "Sinistcha-Masterpiece"
+    ],
+    "formeOrder": [
+      "Sinistcha",
+      "Sinistcha-Masterpiece"
+    ]
+  },
+  "sinistchamasterpiece": {
+    "num": 1013,
+    "name": "Sinistcha-Masterpiece",
+    "baseSpecies": "Sinistcha",
+    "forme": "Masterpiece",
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Hospitality",
+      "H": "Heatproof"
+    },
+    "heightm": 0.2,
+    "weightkg": 2.2,
+    "color": "Green",
+    "prevo": "Poltchageist-Artisan",
+    "evoType": "useItem",
+    "evoItem": "Masterpiece Teacup",
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "skarmory": {
+    "num": 227,
+    "name": "Skarmory",
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spa": 40,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "Keen Eye",
+      "1": "Sturdy",
+      "H": "Weak Armor"
+    },
+    "heightm": 1.7,
+    "weightkg": 50.5,
+    "color": "Gray",
+    "eggGroups": [
+      "Flying"
+    ]
+  },
+  "skeledirge": {
+    "num": 911,
+    "name": "Skeledirge",
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 104,
+      "atk": 75,
+      "def": 100,
+      "spa": 110,
+      "spd": 75,
+      "spe": 66
+    },
+    "abilities": {
+      "0": "Blaze",
+      "H": "Unaware"
+    },
+    "heightm": 1.6,
+    "weightkg": 326.5,
+    "color": "Red",
+    "prevo": "Crocalor",
+    "evoLevel": 36,
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "thundurustherian": {
+    "num": 642,
+    "name": "Thundurus-Therian",
+    "baseSpecies": "Thundurus",
+    "forme": "Therian",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 79,
+      "atk": 105,
+      "def": 70,
+      "spa": 145,
+      "spd": 80,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "Volt Absorb"
+    },
+    "heightm": 3,
+    "weightkg": 61,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Thundurus"
+  },
+  "tinkaton": {
+    "num": 959,
+    "name": "Tinkaton",
+    "types": [
+      "Fairy",
+      "Steel"
+    ],
+    "gender": "F",
+    "baseStats": {
+      "hp": 85,
+      "atk": 75,
+      "def": 77,
+      "spa": 70,
+      "spd": 105,
+      "spe": 94
+    },
+    "abilities": {
+      "0": "Mold Breaker",
+      "1": "Own Tempo",
+      "H": "Pickpocket"
+    },
+    "heightm": 0.7,
+    "weightkg": 112.8,
+    "color": "Pink",
+    "prevo": "Tinkatuff",
+    "evoLevel": 38,
+    "eggGroups": [
+      "Fairy"
+    ]
+  },
+  "tornadustherian": {
+    "num": 641,
+    "name": "Tornadus-Therian",
+    "baseSpecies": "Tornadus",
+    "forme": "Therian",
+    "types": [
+      "Flying"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 79,
+      "atk": 100,
+      "def": 80,
+      "spa": 110,
+      "spd": 90,
+      "spe": 121
+    },
+    "abilities": {
+      "0": "Regenerator"
+    },
+    "heightm": 1.4,
+    "weightkg": 63,
+    "color": "Green",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Tornadus"
+  },
+  "toxapex": {
+    "num": 748,
+    "name": "Toxapex",
+    "types": [
+      "Poison",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 63,
+      "def": 152,
+      "spa": 53,
+      "spd": 142,
+      "spe": 35
+    },
+    "abilities": {
+      "0": "Merciless",
+      "1": "Limber",
+      "H": "Regenerator"
+    },
+    "heightm": 0.7,
+    "weightkg": 14.5,
+    "color": "Blue",
+    "prevo": "Mareanie",
+    "evoLevel": 38,
+    "eggGroups": [
+      "Water 1"
+    ]
+  },
+  "tyranitar": {
+    "num": 248,
+    "name": "Tyranitar",
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 134,
+      "def": 110,
+      "spa": 95,
+      "spd": 100,
+      "spe": 61
+    },
+    "abilities": {
+      "0": "Sand Stream",
+      "H": "Unnerve"
+    },
+    "heightm": 2,
+    "weightkg": 202,
+    "color": "Green",
+    "prevo": "Pupitar",
+    "evoLevel": 55,
+    "eggGroups": [
+      "Monster"
+    ],
+    "otherFormes": [
+      "Tyranitar-Mega"
+    ],
+    "formeOrder": [
+      "Tyranitar",
+      "Tyranitar-Mega"
+    ]
+  },
+  "weavile": {
+    "num": 461,
+    "name": "Weavile",
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 65,
+      "spa": 45,
+      "spd": 85,
+      "spe": 125
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Pickpocket"
+    },
+    "heightm": 1.1,
+    "weightkg": 34,
+    "color": "Black",
+    "prevo": "Sneasel",
+    "evoType": "levelHold",
+    "evoItem": "Razor Claw",
+    "evoCondition": "at night",
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "zarude": {
+    "num": 893,
+    "name": "Zarude",
+    "types": [
+      "Dark",
+      "Grass"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 105,
+      "atk": 120,
+      "def": 105,
+      "spa": 70,
+      "spd": 95,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "Leaf Guard"
+    },
+    "heightm": 1.8,
+    "weightkg": 70,
+    "color": "Black",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Mythical"
+    ],
+    "otherFormes": [
+      "Zarude-Dada"
+    ],
+    "formeOrder": [
+      "Zarude",
+      "Zarude-Dada"
+    ]
+  },
+  "zarudedada": {
+    "num": 893,
+    "name": "Zarude-Dada",
+    "baseSpecies": "Zarude",
+    "forme": "Dada",
+    "types": [
+      "Dark",
+      "Grass"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 105,
+      "atk": 120,
+      "def": 105,
+      "spa": 70,
+      "spd": 95,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "Leaf Guard"
+    },
+    "heightm": 1.8,
+    "weightkg": 70,
+    "color": "Black",
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  }
+}
