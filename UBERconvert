@@ -1,0 +1,27 @@
+import json
+
+with open("pokedex.json", "r", encoding="utf-8") as f:
+    poke_data = json.load(f)
+
+
+uber_names = []
+with open("UBER.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        name = line.strip().lower()
+        if name:
+            uber_names.append(name)
+
+uber_cuz = {}
+
+for poke_name in uber_names:
+    if poke_name not in poke_data:
+            print(f"Could not find {poke_name} in pokemon_data keys.")
+    if poke_name in poke_data:
+         uber_cuz[poke_name] = poke_data[poke_name]
+    else:
+        print(f"Could not find {poke_name}")
+
+with open("UBER.json", "w", encoding ="utf-8") as f:
+     json.dump(uber_cuz, f, indent = 2)
+
+

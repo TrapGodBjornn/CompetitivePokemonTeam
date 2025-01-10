@@ -1,0 +1,28 @@
+import json
+
+with open("pokedex.json", "r", encoding="utf-8") as f:
+    pokemon_data = json.load(f)
+
+
+ou_names = []
+with open("OUpoke.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        name = line.strip().lower()
+        if name:
+            ou_names.append(name)
+
+ou_cuz = {}
+
+for poke_name in ou_names:
+    if poke_name not in pokemon_data:
+        print(f"Could not find {poke_name} in pokemon_data keys.")
+    if poke_name in pokemon_data:
+        ou_cuz[poke_name] = pokemon_data[poke_name]
+    else:
+        print(f"Could not find {poke_name}")
+
+with open("OU.json", "w", encoding="utf-8") as f:
+    json.dump(ou_cuz, f, indent=2)
+
+
+

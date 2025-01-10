@@ -123,7 +123,7 @@ def get_weaknesses(pokemon_name, pokemon_data):
     x0_immune = set()
     neutral = set()
     
-    # For each potential attacking_type in the game:
+    # For each potential attacking type in the game:
     for attacking_type in ALL_TYPES:
         # Start with a 1.0 multiplier
         net_multiplier = 1.0

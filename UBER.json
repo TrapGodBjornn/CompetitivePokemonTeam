@@ -1,0 +1,2297 @@
+{
+  "annihilape": {
+    "num": 979,
+    "name": "Annihilape",
+    "types": [
+      "Fighting",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 115,
+      "def": 80,
+      "spa": 50,
+      "spd": 90,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Vital Spirit",
+      "1": "Inner Focus",
+      "H": "Defiant"
+    },
+    "heightm": 1.2,
+    "weightkg": 56,
+    "color": "Gray",
+    "prevo": "Primeape",
+    "evoType": "other",
+    "evoCondition": "Use Rage Fist 20 times and level-up",
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "arceus": {
+    "num": 493,
+    "name": "Arceus",
+    "baseForme": "Normal",
+    "types": [
+      "Normal"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "tags": [
+      "Mythical"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Arceus-Bug",
+      "Arceus-Dark",
+      "Arceus-Dragon",
+      "Arceus-Electric",
+      "Arceus-Fairy",
+      "Arceus-Fighting",
+      "Arceus-Fire",
+      "Arceus-Flying",
+      "Arceus-Ghost",
+      "Arceus-Grass",
+      "Arceus-Ground",
+      "Arceus-Ice",
+      "Arceus-Poison",
+      "Arceus-Psychic",
+      "Arceus-Rock",
+      "Arceus-Steel",
+      "Arceus-Water"
+    ],
+    "formeOrder": [
+      "Arceus",
+      "Arceus-Fighting",
+      "Arceus-Flying",
+      "Arceus-Poison",
+      "Arceus-Ground",
+      "Arceus-Rock",
+      "Arceus-Bug",
+      "Arceus-Ghost",
+      "Arceus-Steel",
+      "Arceus-Fire",
+      "Arceus-Water",
+      "Arceus-Grass",
+      "Arceus-Electric",
+      "Arceus-Psychic",
+      "Arceus-Ice",
+      "Arceus-Dragon",
+      "Arceus-Dark",
+      "Arceus-Fairy"
+    ]
+  },
+  "arceusbug": {
+    "num": 493,
+    "name": "Arceus-Bug",
+    "baseSpecies": "Arceus",
+    "forme": "Bug",
+    "types": [
+      "Bug"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Insect Plate",
+      "Buginium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusdark": {
+    "num": 493,
+    "name": "Arceus-Dark",
+    "baseSpecies": "Arceus",
+    "forme": "Dark",
+    "types": [
+      "Dark"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Dread Plate",
+      "Darkinium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusdragon": {
+    "num": 493,
+    "name": "Arceus-Dragon",
+    "baseSpecies": "Arceus",
+    "forme": "Dragon",
+    "types": [
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Draco Plate",
+      "Dragonium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceuselectric": {
+    "num": 493,
+    "name": "Arceus-Electric",
+    "baseSpecies": "Arceus",
+    "forme": "Electric",
+    "types": [
+      "Electric"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Zap Plate",
+      "Electrium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusfairy": {
+    "num": 493,
+    "name": "Arceus-Fairy",
+    "baseSpecies": "Arceus",
+    "forme": "Fairy",
+    "types": [
+      "Fairy"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Pixie Plate",
+      "Fairium Z"
+    ],
+    "changesFrom": "Arceus",
+    "gen": 6
+  },
+  "arceusfighting": {
+    "num": 493,
+    "name": "Arceus-Fighting",
+    "baseSpecies": "Arceus",
+    "forme": "Fighting",
+    "types": [
+      "Fighting"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Fist Plate",
+      "Fightinium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusfire": {
+    "num": 493,
+    "name": "Arceus-Fire",
+    "baseSpecies": "Arceus",
+    "forme": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Flame Plate",
+      "Firium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusflying": {
+    "num": 493,
+    "name": "Arceus-Flying",
+    "baseSpecies": "Arceus",
+    "forme": "Flying",
+    "types": [
+      "Flying"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Sky Plate",
+      "Flyinium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusghost": {
+    "num": 493,
+    "name": "Arceus-Ghost",
+    "baseSpecies": "Arceus",
+    "forme": "Ghost",
+    "types": [
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Spooky Plate",
+      "Ghostium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusgrass": {
+    "num": 493,
+    "name": "Arceus-Grass",
+    "baseSpecies": "Arceus",
+    "forme": "Grass",
+    "types": [
+      "Grass"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Meadow Plate",
+      "Grassium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusground": {
+    "num": 493,
+    "name": "Arceus-Ground",
+    "baseSpecies": "Arceus",
+    "forme": "Ground",
+    "types": [
+      "Ground"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Earth Plate",
+      "Groundium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusice": {
+    "num": 493,
+    "name": "Arceus-Ice",
+    "baseSpecies": "Arceus",
+    "forme": "Ice",
+    "types": [
+      "Ice"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Icicle Plate",
+      "Icium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceuspoison": {
+    "num": 493,
+    "name": "Arceus-Poison",
+    "baseSpecies": "Arceus",
+    "forme": "Poison",
+    "types": [
+      "Poison"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Toxic Plate",
+      "Poisonium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceuspsychic": {
+    "num": 493,
+    "name": "Arceus-Psychic",
+    "baseSpecies": "Arceus",
+    "forme": "Psychic",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Mind Plate",
+      "Psychium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceusrock": {
+    "num": 493,
+    "name": "Arceus-Rock",
+    "baseSpecies": "Arceus",
+    "forme": "Rock",
+    "types": [
+      "Rock"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Stone Plate",
+      "Rockium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceussteel": {
+    "num": 493,
+    "name": "Arceus-Steel",
+    "baseSpecies": "Arceus",
+    "forme": "Steel",
+    "types": [
+      "Steel"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Iron Plate",
+      "Steelium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "arceuswater": {
+    "num": 493,
+    "name": "Arceus-Water",
+    "baseSpecies": "Arceus",
+    "forme": "Water",
+    "types": [
+      "Water"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spa": 120,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Multitype"
+    },
+    "heightm": 3.2,
+    "weightkg": 320,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItems": [
+      "Splash Plate",
+      "Waterium Z"
+    ],
+    "changesFrom": "Arceus"
+  },
+  "archaludon": {
+    "num": 1018,
+    "name": "Archaludon",
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 105,
+      "def": 130,
+      "spa": 125,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "Stamina",
+      "1": "Sturdy",
+      "H": "Stalwart"
+    },
+    "heightm": 2,
+    "weightkg": 60,
+    "color": "White",
+    "prevo": "Duraludon",
+    "evoType": "useItem",
+    "evoItem": "Metal Alloy",
+    "eggGroups": [
+      "Mineral",
+      "Dragon"
+    ]
+  },
+  "baxcalibur": {
+    "num": 998,
+    "name": "Baxcalibur",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "atk": 145,
+      "def": 92,
+      "spa": 75,
+      "spd": 86,
+      "spe": 87
+    },
+    "abilities": {
+      "0": "Thermal Exchange",
+      "H": "Ice Body"
+    },
+    "heightm": 2.1,
+    "weightkg": 210,
+    "color": "Blue",
+    "prevo": "Arctibax",
+    "evoLevel": 54,
+    "eggGroups": [
+      "Dragon",
+      "Mineral"
+    ]
+  },
+  "calyrexice": {
+    "num": 898,
+    "name": "Calyrex-Ice",
+    "baseSpecies": "Calyrex",
+    "forme": "Ice",
+    "types": [
+      "Psychic",
+      "Ice"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 165,
+      "def": 150,
+      "spa": 85,
+      "spd": 130,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "As One (Glastrier)"
+    },
+    "heightm": 2.4,
+    "weightkg": 809.1,
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Calyrex"
+  },
+  "chienpao": {
+    "num": 1002,
+    "name": "Chien-Pao",
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 80,
+      "spa": 90,
+      "spd": 65,
+      "spe": 135
+    },
+    "abilities": {
+      "0": "Sword of Ruin"
+    },
+    "heightm": 1.9,
+    "weightkg": 152.2,
+    "color": "White",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "chiyu": {
+    "num": 1004,
+    "name": "Chi-Yu",
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 55,
+      "atk": 80,
+      "def": 80,
+      "spa": 135,
+      "spd": 120,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Beads of Ruin"
+    },
+    "heightm": 0.4,
+    "weightkg": 4.9,
+    "color": "Red",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "deoxys": {
+    "num": 386,
+    "name": "Deoxys",
+    "baseForme": "Normal",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 50,
+      "atk": 150,
+      "def": 50,
+      "spa": 150,
+      "spd": 50,
+      "spe": 150
+    },
+    "abilities": {
+      "0": "Pressure"
+    },
+    "heightm": 1.7,
+    "weightkg": 60.8,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Mythical"
+    ],
+    "otherFormes": [
+      "Deoxys-Attack",
+      "Deoxys-Defense",
+      "Deoxys-Speed"
+    ],
+    "formeOrder": [
+      "Deoxys",
+      "Deoxys-Attack",
+      "Deoxys-Defense",
+      "Deoxys-Speed"
+    ]
+  },
+  "deoxysattack": {
+    "num": 386,
+    "name": "Deoxys-Attack",
+    "baseSpecies": "Deoxys",
+    "forme": "Attack",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 50,
+      "atk": 180,
+      "def": 20,
+      "spa": 180,
+      "spd": 20,
+      "spe": 150
+    },
+    "abilities": {
+      "0": "Pressure"
+    },
+    "heightm": 1.7,
+    "weightkg": 60.8,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Deoxys"
+  },
+  "dialga": {
+    "num": 483,
+    "name": "Dialga",
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 120,
+      "spa": 150,
+      "spd": 100,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Telepathy"
+    },
+    "heightm": 5.4,
+    "weightkg": 683,
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "color": "White",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Dialga-Origin"
+    ],
+    "formeOrder": [
+      "Dialga",
+      "Dialga-Origin"
+    ]
+  },
+  "dialgaorigin": {
+    "num": 483,
+    "name": "Dialga-Origin",
+    "baseSpecies": "Dialga",
+    "forme": "Origin",
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 120,
+      "spa": 150,
+      "spd": 120,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Telepathy"
+    },
+    "heightm": 7,
+    "weightkg": 850,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Adamant Crystal",
+    "changesFrom": "Dialga",
+    "gen": 8
+  },
+  "espathra": {
+    "num": 956,
+    "name": "Espathra",
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 60,
+      "spa": 101,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "Opportunist",
+      "1": "Frisk",
+      "H": "Speed Boost"
+    },
+    "heightm": 1.9,
+    "weightkg": 90,
+    "color": "Yellow",
+    "prevo": "Flittle",
+    "evoLevel": 35,
+    "eggGroups": [
+      "Flying"
+    ]
+  },
+  "eternatus": {
+    "num": 890,
+    "name": "Eternatus",
+    "types": [
+      "Poison",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 140,
+      "atk": 85,
+      "def": 95,
+      "spa": 145,
+      "spd": 95,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "Pressure"
+    },
+    "heightm": 20,
+    "weightkg": 950,
+    "color": "Purple",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "otherFormes": [
+      "Eternatus-Eternamax"
+    ],
+    "formeOrder": [
+      "Eternatus",
+      "Eternatus-Eternamax"
+    ],
+    "cannotDynamax": true
+  },
+  "fluttermane": {
+    "num": 987,
+    "name": "Flutter Mane",
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 55,
+      "atk": 55,
+      "def": 55,
+      "spa": 135,
+      "spd": 135,
+      "spe": 135
+    },
+    "abilities": {
+      "0": "Protosynthesis"
+    },
+    "heightm": 1.4,
+    "weightkg": 4,
+    "color": "Gray",
+    "tags": [
+      "Paradox"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "giratina": {
+    "num": 487,
+    "name": "Giratina",
+    "baseForme": "Altered",
+    "types": [
+      "Ghost",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 150,
+      "atk": 100,
+      "def": 120,
+      "spa": 100,
+      "spd": 120,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Telepathy"
+    },
+    "heightm": 4.5,
+    "weightkg": 750,
+    "color": "Black",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "otherFormes": [
+      "Giratina-Origin"
+    ],
+    "formeOrder": [
+      "Giratina",
+      "Giratina-Origin"
+    ]
+  },
+  "giratinaorigin": {
+    "num": 487,
+    "name": "Giratina-Origin",
+    "baseSpecies": "Giratina",
+    "forme": "Origin",
+    "types": [
+      "Ghost",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 150,
+      "atk": 120,
+      "def": 100,
+      "spa": 120,
+      "spd": 100,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Levitate"
+    },
+    "heightm": 6.9,
+    "weightkg": 650,
+    "color": "Black",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Griseous Core",
+    "changesFrom": "Giratina"
+  },
+  "gougingfire": {
+    "num": 1020,
+    "name": "Gouging Fire",
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 105,
+      "atk": 115,
+      "def": 121,
+      "spa": 65,
+      "spd": 93,
+      "spe": 91
+    },
+    "abilities": {
+      "0": "Protosynthesis"
+    },
+    "heightm": 3.5,
+    "weightkg": 590,
+    "color": "Brown",
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "groudon": {
+    "num": 383,
+    "name": "Groudon",
+    "types": [
+      "Ground"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 150,
+      "def": 140,
+      "spa": 100,
+      "spd": 90,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Drought"
+    },
+    "heightm": 3.5,
+    "weightkg": 950,
+    "color": "Red",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Groudon-Primal"
+    ],
+    "formeOrder": [
+      "Groudon",
+      "Groudon-Primal"
+    ]
+  },
+  "hooh": {
+    "num": 250,
+    "name": "Ho-Oh",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 106,
+      "atk": 130,
+      "def": 90,
+      "spa": 110,
+      "spd": 154,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Regenerator"
+    },
+    "heightm": 3.8,
+    "weightkg": 199,
+    "color": "Red",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "ironbundle": {
+    "num": 991,
+    "name": "Iron Bundle",
+    "types": [
+      "Ice",
+      "Water"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 56,
+      "atk": 80,
+      "def": 114,
+      "spa": 124,
+      "spd": 60,
+      "spe": 136
+    },
+    "abilities": {
+      "0": "Quark Drive"
+    },
+    "heightm": 0.6,
+    "weightkg": 11,
+    "color": "Red",
+    "tags": [
+      "Paradox"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "koraidon": {
+    "num": 1007,
+    "name": "Koraidon",
+    "types": [
+      "Fighting",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 135,
+      "def": 115,
+      "spa": 85,
+      "spd": 100,
+      "spe": 135
+    },
+    "abilities": {
+      "0": "Orichalcum Pulse"
+    },
+    "heightm": 2.5,
+    "weightkg": 303,
+    "color": "Red",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "kyogre": {
+    "num": 382,
+    "name": "Kyogre",
+    "types": [
+      "Water"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 90,
+      "spa": 150,
+      "spd": 140,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Drizzle"
+    },
+    "heightm": 4.5,
+    "weightkg": 352,
+    "color": "Blue",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Kyogre-Primal"
+    ],
+    "formeOrder": [
+      "Kyogre",
+      "Kyogre-Primal"
+    ]
+  },
+  "kyuremblack": {
+    "num": 646,
+    "name": "Kyurem-Black",
+    "baseSpecies": "Kyurem",
+    "forme": "Black",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 125,
+      "atk": 170,
+      "def": 100,
+      "spa": 120,
+      "spd": 90,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "Teravolt"
+    },
+    "heightm": 3.3,
+    "weightkg": 325,
+    "color": "Gray",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Kyurem"
+  },
+  "kyuremwhite": {
+    "num": 646,
+    "name": "Kyurem-White",
+    "baseSpecies": "Kyurem",
+    "forme": "White",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 125,
+      "atk": 120,
+      "def": 90,
+      "spa": 170,
+      "spd": 100,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "Turboblaze"
+    },
+    "heightm": 3.6,
+    "weightkg": 325,
+    "color": "Gray",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Kyurem"
+  },
+  "landorus": {
+    "num": 645,
+    "name": "Landorus",
+    "baseForme": "Incarnate",
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 89,
+      "atk": 125,
+      "def": 90,
+      "spa": 115,
+      "spd": 80,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "Sand Force",
+      "H": "Sheer Force"
+    },
+    "heightm": 1.5,
+    "weightkg": 68,
+    "color": "Brown",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Landorus-Therian"
+    ],
+    "formeOrder": [
+      "Landorus",
+      "Landorus-Therian"
+    ]
+  },
+  "lugia": {
+    "num": 249,
+    "name": "Lugia",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 106,
+      "atk": 90,
+      "def": 130,
+      "spa": 90,
+      "spd": 154,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Multiscale"
+    },
+    "heightm": 5.2,
+    "weightkg": 216,
+    "color": "White",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "lunala": {
+    "num": 792,
+    "name": "Lunala",
+    "types": [
+      "Psychic",
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 137,
+      "atk": 113,
+      "def": 89,
+      "spa": 137,
+      "spd": 107,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "Shadow Shield"
+    },
+    "heightm": 4,
+    "weightkg": 120,
+    "color": "Purple",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "prevo": "Cosmoem",
+    "evoLevel": 53,
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "magearna": {
+    "num": 801,
+    "name": "Magearna",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 80,
+      "atk": 95,
+      "def": 115,
+      "spa": 130,
+      "spd": 115,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "Soul-Heart"
+    },
+    "heightm": 1,
+    "weightkg": 80.5,
+    "color": "Gray",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Mythical"
+    ],
+    "otherFormes": [
+      "Magearna-Original"
+    ],
+    "formeOrder": [
+      "Magearna",
+      "Magearna-Original"
+    ]
+  },
+  "magearnaoriginal": {
+    "num": 801,
+    "name": "Magearna-Original",
+    "baseSpecies": "Magearna",
+    "forme": "Original",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 80,
+      "atk": 95,
+      "def": 115,
+      "spa": 130,
+      "spd": 115,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "Soul-Heart"
+    },
+    "heightm": 1,
+    "weightkg": 80.5,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "mewtwo": {
+    "num": 150,
+    "name": "Mewtwo",
+    "types": [
+      "Psychic"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 106,
+      "atk": 110,
+      "def": 90,
+      "spa": 154,
+      "spd": 90,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Unnerve"
+    },
+    "heightm": 2,
+    "weightkg": 122,
+    "color": "Purple",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "otherFormes": [
+      "Mewtwo-Mega-X",
+      "Mewtwo-Mega-Y"
+    ],
+    "formeOrder": [
+      "Mewtwo",
+      "Mewtwo-Mega-X",
+      "Mewtwo-Mega-Y"
+    ]
+  },
+  "necrozmadawnwings": {
+    "num": 800,
+    "name": "Necrozma-Dawn-Wings",
+    "baseSpecies": "Necrozma",
+    "forme": "Dawn-Wings",
+    "types": [
+      "Psychic",
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 97,
+      "atk": 113,
+      "def": 109,
+      "spa": 157,
+      "spd": 127,
+      "spe": 77
+    },
+    "abilities": {
+      "0": "Prism Armor"
+    },
+    "heightm": 4.2,
+    "weightkg": 350,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Necrozma"
+  },
+  "necrozmaduskmane": {
+    "num": 800,
+    "name": "Necrozma-Dusk-Mane",
+    "baseSpecies": "Necrozma",
+    "forme": "Dusk-Mane",
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 97,
+      "atk": 157,
+      "def": 127,
+      "spa": 113,
+      "spd": 109,
+      "spe": 77
+    },
+    "abilities": {
+      "0": "Prism Armor"
+    },
+    "heightm": 3.8,
+    "weightkg": 460,
+    "color": "Yellow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Necrozma"
+  },
+  "ogerponhearthflame": {
+    "num": 1017,
+    "name": "Ogerpon-Hearthflame",
+    "baseSpecies": "Ogerpon",
+    "forme": "Hearthflame",
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "gender": "F",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "Mold Breaker"
+    },
+    "heightm": 1.2,
+    "weightkg": 39.8,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Hearthflame Mask",
+    "changesFrom": "Ogerpon",
+    "forceTeraType": "Fire"
+  },
+  "palafin": {
+    "num": 964,
+    "name": "Palafin",
+    "baseForme": "Zero",
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 70,
+      "def": 72,
+      "spa": 53,
+      "spd": 62,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Zero to Hero"
+    },
+    "heightm": 1.3,
+    "weightkg": 60.2,
+    "color": "Blue",
+    "prevo": "Finizen",
+    "evoLevel": 38,
+    "otherFormes": [
+      "Palafin-Hero"
+    ],
+    "formeOrder": [
+      "Palafin",
+      "Palafin-Hero"
+    ],
+    "eggGroups": [
+      "Field",
+      "Water 2"
+    ]
+  },
+  "palafinhero": {
+    "num": 964,
+    "name": "Palafin-Hero",
+    "baseSpecies": "Palafin",
+    "forme": "Hero",
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 160,
+      "def": 97,
+      "spa": 106,
+      "spd": 87,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Zero to Hero"
+    },
+    "heightm": 1.8,
+    "weightkg": 97.4,
+    "color": "Blue",
+    "eggGroups": [
+      "Field",
+      "Water 2"
+    ],
+    "requiredAbility": "Zero to Hero",
+    "battleOnly": "Palafin"
+  },
+  "palkia": {
+    "num": 484,
+    "name": "Palkia",
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 90,
+      "atk": 120,
+      "def": 100,
+      "spa": 150,
+      "spd": 120,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Telepathy"
+    },
+    "heightm": 4.2,
+    "weightkg": 336,
+    "color": "Purple",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Palkia-Origin"
+    ],
+    "formeOrder": [
+      "Palkia",
+      "Palkia-Origin"
+    ]
+  },
+  "palkiaorigin": {
+    "num": 484,
+    "name": "Palkia-Origin",
+    "baseSpecies": "Palkia",
+    "forme": "Origin",
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 100,
+      "spa": 150,
+      "spd": 120,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Pressure",
+      "H": "Telepathy"
+    },
+    "heightm": 6.3,
+    "weightkg": 660,
+    "color": "Purple",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Lustrous Globe",
+    "changesFrom": "Palkia",
+    "gen": 8
+  },
+  "rayquaza": {
+    "num": 384,
+    "name": "Rayquaza",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 105,
+      "atk": 150,
+      "def": 90,
+      "spa": 150,
+      "spd": 90,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "Air Lock"
+    },
+    "heightm": 7,
+    "weightkg": 206.5,
+    "color": "Green",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Rayquaza-Mega"
+    ],
+    "formeOrder": [
+      "Rayquaza",
+      "Rayquaza-Mega"
+    ]
+  },
+  "regieleki": {
+    "num": 894,
+    "name": "Regieleki",
+    "types": [
+      "Electric"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 50,
+      "spa": 100,
+      "spd": 50,
+      "spe": 200
+    },
+    "abilities": {
+      "0": "Transistor"
+    },
+    "heightm": 1.2,
+    "weightkg": 145,
+    "color": "Yellow",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "reshiram": {
+    "num": 643,
+    "name": "Reshiram",
+    "types": [
+      "Dragon",
+      "Fire"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 100,
+      "spa": 150,
+      "spd": 120,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Turboblaze"
+    },
+    "heightm": 3.2,
+    "weightkg": 330,
+    "color": "White",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "shayminsky": {
+    "num": 492,
+    "name": "Shaymin-Sky",
+    "baseSpecies": "Shaymin",
+    "forme": "Sky",
+    "types": [
+      "Grass",
+      "Flying"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 103,
+      "def": 75,
+      "spa": 120,
+      "spd": 75,
+      "spe": 127
+    },
+    "abilities": {
+      "0": "Serene Grace"
+    },
+    "heightm": 0.4,
+    "weightkg": 5.2,
+    "color": "Green",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "changesFrom": "Shaymin"
+  },
+  "sneasler": {
+    "num": 903,
+    "name": "Sneasler",
+    "types": [
+      "Fighting",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 130,
+      "def": 60,
+      "spa": 40,
+      "spd": 80,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "Pressure",
+      "1": "Unburden",
+      "H": "Poison Touch"
+    },
+    "heightm": 1.3,
+    "weightkg": 43,
+    "color": "Blue",
+    "prevo": "Sneasel-Hisui",
+    "evoType": "levelHold",
+    "evoItem": "Razor Claw",
+    "evoCondition": "during the day",
+    "eggGroups": [
+      "Field"
+    ]
+  },
+  "solgaleo": {
+    "num": 791,
+    "name": "Solgaleo",
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 137,
+      "atk": 137,
+      "def": 107,
+      "spa": 113,
+      "spd": 89,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "Full Metal Body"
+    },
+    "heightm": 3.4,
+    "weightkg": 230,
+    "color": "White",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "prevo": "Cosmoem",
+    "evoLevel": 53,
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "spectrier": {
+    "num": 897,
+    "name": "Spectrier",
+    "types": [
+      "Ghost"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 65,
+      "def": 60,
+      "spa": 145,
+      "spd": 80,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "Grim Neigh"
+    },
+    "heightm": 2,
+    "weightkg": 44.5,
+    "color": "Black",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  },
+  "terapagos": {
+    "num": 1024,
+    "name": "Terapagos",
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 65,
+      "def": 85,
+      "spa": 65,
+      "spd": 85,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "Tera Shift"
+    },
+    "heightm": 0.2,
+    "weightkg": 6.5,
+    "color": "Blue",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Terapagos-Terastal",
+      "Terapagos-Stellar"
+    ],
+    "formeOrder": [
+      "Terapagos",
+      "Terapagos-Terastal",
+      "Terapagos-Stellar"
+    ],
+    "forceTeraType": "Stellar"
+  },
+  "terapagosterastal": {
+    "num": 1024,
+    "name": "Terapagos-Terastal",
+    "baseSpecies": "Terapagos",
+    "forme": "Terastal",
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 95,
+      "def": 110,
+      "spa": 105,
+      "spd": 110,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "Tera Shell"
+    },
+    "heightm": 0.3,
+    "weightkg": 16,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "battleOnly": "Terapagos",
+    "forceTeraType": "Stellar"
+  },
+  "ursalunabloodmoon": {
+    "num": 901,
+    "name": "Ursaluna-Bloodmoon",
+    "baseSpecies": "Ursaluna",
+    "forme": "Bloodmoon",
+    "types": [
+      "Ground",
+      "Normal"
+    ],
+    "gender": "M",
+    "baseStats": {
+      "hp": 113,
+      "atk": 70,
+      "def": 120,
+      "spa": 135,
+      "spd": 65,
+      "spe": 52
+    },
+    "abilities": {
+      "0": "Mind's Eye"
+    },
+    "heightm": 2.7,
+    "weightkg": 333,
+    "color": "Brown",
+    "eggGroups": [
+      "Field"
+    ],
+    "gen": 9
+  },
+  "urshifu": {
+    "num": 892,
+    "name": "Urshifu",
+    "baseForme": "Single-Strike",
+    "types": [
+      "Fighting",
+      "Dark"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 100,
+      "atk": 130,
+      "def": 100,
+      "spa": 63,
+      "spd": 60,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "Unseen Fist"
+    },
+    "heightm": 1.9,
+    "weightkg": 105,
+    "color": "Gray",
+    "tags": [
+      "Sub-Legendary"
+    ],
+    "prevo": "Kubfu",
+    "evoType": "other",
+    "evoCondition": "Defeat the Single Strike Tower",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "otherFormes": [
+      "Urshifu-Rapid-Strike"
+    ],
+    "formeOrder": [
+      "Urshifu",
+      "Urshifu-Rapid-Strike"
+    ],
+    "canGigantamax": "G-Max One Blow"
+  },
+  "urshifurapidstrike": {
+    "num": 892,
+    "name": "Urshifu-Rapid-Strike",
+    "baseSpecies": "Urshifu",
+    "forme": "Rapid-Strike",
+    "types": [
+      "Fighting",
+      "Water"
+    ],
+    "genderRatio": {
+      "M": 0.875,
+      "F": 0.125
+    },
+    "baseStats": {
+      "hp": 100,
+      "atk": 130,
+      "def": 100,
+      "spa": 63,
+      "spd": 60,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "Unseen Fist"
+    },
+    "heightm": 1.9,
+    "weightkg": 105,
+    "color": "Gray",
+    "prevo": "Kubfu",
+    "evoType": "other",
+    "evoCondition": "Defeat the Rapid Strike Tower",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "canGigantamax": "G-Max Rapid Flow"
+  },
+  "volcarona": {
+    "num": 637,
+    "name": "Volcarona",
+    "types": [
+      "Bug",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 65,
+      "spa": 135,
+      "spd": 105,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "Flame Body",
+      "H": "Swarm"
+    },
+    "heightm": 1.6,
+    "weightkg": 46,
+    "color": "White",
+    "prevo": "Larvesta",
+    "evoLevel": 59,
+    "eggGroups": [
+      "Bug"
+    ]
+  },
+  "zacian": {
+    "num": 888,
+    "name": "Zacian",
+    "baseForme": "Hero",
+    "types": [
+      "Fairy"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 92,
+      "atk": 120,
+      "def": 115,
+      "spa": 80,
+      "spd": 115,
+      "spe": 138
+    },
+    "abilities": {
+      "0": "Intrepid Sword"
+    },
+    "heightm": 2.8,
+    "weightkg": 110,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "otherFormes": [
+      "Zacian-Crowned"
+    ],
+    "formeOrder": [
+      "Zacian",
+      "Zacian-Crowned"
+    ],
+    "cannotDynamax": true
+  },
+  "zaciancrowned": {
+    "num": 888,
+    "name": "Zacian-Crowned",
+    "baseSpecies": "Zacian",
+    "forme": "Crowned",
+    "types": [
+      "Fairy",
+      "Steel"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 92,
+      "atk": 150,
+      "def": 115,
+      "spa": 80,
+      "spd": 115,
+      "spe": 148
+    },
+    "abilities": {
+      "0": "Intrepid Sword"
+    },
+    "heightm": 2.8,
+    "weightkg": 355,
+    "color": "Blue",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Rusted Sword",
+    "battleOnly": "Zacian",
+    "cannotDynamax": true
+  },
+  "zamazentacrowned": {
+    "num": 889,
+    "name": "Zamazenta-Crowned",
+    "baseSpecies": "Zamazenta",
+    "forme": "Crowned",
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 92,
+      "atk": 120,
+      "def": 140,
+      "spa": 80,
+      "spd": 140,
+      "spe": 128
+    },
+    "abilities": {
+      "0": "Dauntless Shield"
+    },
+    "heightm": 2.9,
+    "weightkg": 785,
+    "color": "Red",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "requiredItem": "Rusted Shield",
+    "battleOnly": "Zamazenta",
+    "cannotDynamax": true
+  },
+  "zekrom": {
+    "num": 644,
+    "name": "Zekrom",
+    "types": [
+      "Dragon",
+      "Electric"
+    ],
+    "gender": "N",
+    "baseStats": {
+      "hp": 100,
+      "atk": 150,
+      "def": 120,
+      "spa": 120,
+      "spd": 100,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "Teravolt"
+    },
+    "heightm": 2.9,
+    "weightkg": 345,
+    "color": "Black",
+    "tags": [
+      "Restricted Legendary"
+    ],
+    "eggGroups": [
+      "Undiscovered"
+    ]
+  }
+}

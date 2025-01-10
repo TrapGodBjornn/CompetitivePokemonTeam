@@ -1,0 +1,25 @@
+import json
+
+with open("pokedex.json", "r", encoding="utf-8") as f:
+    pokemon_data = json.load(f)
+
+uubl_names = []
+
+with open("UUBL.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        name = line.strip().lower()
+        if name:
+            uubl_names.append(name)
+
+uubl_cuz = {}
+
+for poke_name in uubl_names:
+    if poke_name not in pokemon_data:
+        print(f"Could not find {poke_name} in pokemon_data keys.")
+    if poke_name in pokemon_data:
+        uubl_cuz[poke_name] = pokemon_data[poke_name]
+    else:
+        print(f"Could not find {poke_name}")
+
+with open("UUBL.json", "w", encoding ="utf-8") as f:
+    json.dump(uubl_cuz, f, indent = 2)
