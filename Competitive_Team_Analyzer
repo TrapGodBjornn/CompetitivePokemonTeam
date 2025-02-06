@@ -212,6 +212,21 @@ def all_combos(pokemon_data, team_size=6):
         else:
             print("None")
 
+
+
+#Set off to the side for creation of roles and movesets in the JSON file
+   # for category in totals:
+   #     for atk_type, count in totals[category].items():
+   #         if count == 3 and category == "2x":
+   #             print (f"\n{atk_type} is a moderate threat as 3 Pokemon are weak to it.")
+   #         if count > 3 and category == "2x":
+   #             print (f"\n{atk_type} is a large threat as more than half your Pokemon are weak to it.")
+            
+            
+
+            
+
+
 all_combos(pokemon_data, 6)
 
 
