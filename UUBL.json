@@ -1,387 +1,254 @@
 {
   "blaziken": {
-    "num": 257,
-    "name": "Blaziken",
-    "types": [
-      "Fire",
-      "Fighting"
-    ],
-    "genderRatio": {
-      "M": 0.875,
-      "F": 0.125
-    },
-    "baseStats": {
-      "hp": 80,
-      "atk": 120,
-      "def": 70,
-      "spa": 110,
-      "spd": 70,
-      "spe": 80
-    },
-    "abilities": {
-      "0": "Blaze",
-      "H": "Speed Boost"
-    },
-    "heightm": 1.9,
-    "weightkg": 52,
-    "color": "Red",
-    "prevo": "Combusken",
-    "evoLevel": 36,
-    "eggGroups": [
-      "Field"
-    ],
-    "otherFormes": [
-      "Blaziken-Mega"
-    ],
-    "formeOrder": [
-      "Blaziken",
-      "Blaziken-Mega"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "ceruledge": {
-    "num": 937,
-    "name": "Ceruledge",
-    "types": [
-      "Fire",
-      "Ghost"
-    ],
-    "baseStats": {
-      "hp": 75,
-      "atk": 125,
-      "def": 80,
-      "spa": 60,
-      "spd": 100,
-      "spe": 85
-    },
-    "abilities": {
-      "0": "Flash Fire",
-      "H": "Weak Armor"
-    },
-    "heightm": 1.6,
-    "weightkg": 62,
-    "color": "Purple",
-    "prevo": "Charcadet",
-    "evoType": "useItem",
-    "evoItem": "Malicious Armor",
-    "eggGroups": [
-      "Human-Like"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "garchomp": {
-    "num": 445,
-    "name": "Garchomp",
-    "types": [
-      "Dragon",
-      "Ground"
-    ],
-    "baseStats": {
-      "hp": 108,
-      "atk": 130,
-      "def": 95,
-      "spa": 80,
-      "spd": 85,
-      "spe": 102
-    },
-    "abilities": {
-      "0": "Sand Veil",
-      "H": "Rough Skin"
-    },
-    "heightm": 1.9,
-    "weightkg": 95,
-    "color": "Blue",
-    "prevo": "Gabite",
-    "evoLevel": 48,
-    "eggGroups": [
-      "Monster",
-      "Dragon"
-    ],
-    "otherFormes": [
-      "Garchomp-Mega"
-    ],
-    "formeOrder": [
-      "Garchomp",
-      "Garchomp-Mega"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "hoopaunbound": {
-    "num": 720,
-    "name": "Hoopa-Unbound",
-    "baseSpecies": "Hoopa",
-    "forme": "Unbound",
-    "types": [
-      "Psychic",
-      "Dark"
-    ],
-    "gender": "N",
-    "baseStats": {
-      "hp": 80,
-      "atk": 160,
-      "def": 60,
-      "spa": 170,
-      "spd": 130,
-      "spe": 80
-    },
-    "abilities": {
-      "0": "Magician"
-    },
-    "heightm": 6.5,
-    "weightkg": 490,
-    "color": "Purple",
-    "eggGroups": [
-      "Undiscovered"
-    ],
-    "changesFrom": "Hoopa"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
+    ]
   },
   "ironboulder": {
-    "num": 1022,
-    "name": "Iron Boulder",
-    "types": [
-      "Rock",
-      "Psychic"
-    ],
-    "gender": "N",
-    "baseStats": {
-      "hp": 90,
-      "atk": 120,
-      "def": 80,
-      "spa": 68,
-      "spd": 108,
-      "spe": 124
-    },
-    "abilities": {
-      "0": "Quark Drive"
-    },
-    "heightm": 1.5,
-    "weightkg": 162.5,
-    "color": "Gray",
-    "eggGroups": [
-      "Undiscovered"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "ironhands": {
-    "num": 992,
-    "name": "Iron Hands",
-    "types": [
-      "Fighting",
-      "Electric"
-    ],
-    "gender": "N",
-    "baseStats": {
-      "hp": 154,
-      "atk": 140,
-      "def": 108,
-      "spa": 50,
-      "spd": 68,
-      "spe": 50
-    },
-    "abilities": {
-      "0": "Quark Drive"
-    },
-    "heightm": 1.8,
-    "weightkg": 380.7,
-    "color": "Gray",
-    "tags": [
-      "Paradox"
-    ],
-    "eggGroups": [
-      "Undiscovered"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "kommoo": {
-    "num": 784,
-    "name": "Kommo-o",
-    "types": [
-      "Dragon",
-      "Fighting"
-    ],
-    "baseStats": {
-      "hp": 75,
-      "atk": 110,
-      "def": 125,
-      "spa": 100,
-      "spd": 105,
-      "spe": 85
-    },
-    "abilities": {
-      "0": "Bulletproof",
-      "1": "Soundproof",
-      "H": "Overcoat"
-    },
-    "heightm": 1.6,
-    "weightkg": 78.2,
-    "color": "Gray",
-    "prevo": "Hakamo-o",
-    "evoLevel": 45,
-    "eggGroups": [
-      "Dragon"
-    ],
-    "otherFormes": [
-      "Kommo-o-Totem"
-    ],
-    "formeOrder": [
-      "Kommo-o",
-      "Kommo-o-Totem"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "latias": {
-    "num": 380,
-    "name": "Latias",
-    "types": [
-      "Dragon",
-      "Psychic"
-    ],
-    "gender": "F",
-    "baseStats": {
-      "hp": 80,
-      "atk": 80,
-      "def": 90,
-      "spa": 110,
-      "spd": 130,
-      "spe": 110
-    },
-    "abilities": {
-      "0": "Levitate"
-    },
-    "heightm": 1.4,
-    "weightkg": 40,
-    "color": "Red",
-    "tags": [
-      "Sub-Legendary"
-    ],
-    "eggGroups": [
-      "Undiscovered"
-    ],
-    "otherFormes": [
-      "Latias-Mega"
-    ],
-    "formeOrder": [
-      "Latias",
-      "Latias-Mega"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "moltresgalar": {
-    "num": 146,
-    "name": "Moltres-Galar",
-    "baseSpecies": "Moltres",
-    "forme": "Galar",
-    "types": [
-      "Dark",
-      "Flying"
-    ],
-    "gender": "N",
-    "baseStats": {
-      "hp": 90,
-      "atk": 85,
-      "def": 90,
-      "spa": 100,
-      "spd": 125,
-      "spe": 90
-    },
-    "abilities": {
-      "0": "Berserk"
-    },
-    "heightm": 2,
-    "weightkg": 66,
-    "color": "Red",
-    "eggGroups": [
-      "Undiscovered"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "okidogi": {
-    "num": 1014,
-    "name": "Okidogi",
-    "types": [
-      "Poison",
-      "Fighting"
-    ],
-    "gender": "M",
-    "baseStats": {
-      "hp": 88,
-      "atk": 128,
-      "def": 115,
-      "spa": 58,
-      "spd": 86,
-      "spe": 80
-    },
-    "abilities": {
-      "0": "Toxic Chain",
-      "H": "Guard Dog"
-    },
-    "heightm": 1.8,
-    "weightkg": 92,
-    "color": "Black",
-    "tags": [
-      "Sub-Legendary"
-    ],
-    "eggGroups": [
-      "Undiscovered"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "pelipper": {
-    "num": 279,
-    "name": "Pelipper",
-    "types": [
-      "Water",
-      "Flying"
-    ],
-    "baseStats": {
-      "hp": 60,
-      "atk": 50,
-      "def": 100,
-      "spa": 95,
-      "spd": 70,
-      "spe": 65
-    },
-    "abilities": {
-      "0": "Keen Eye",
-      "1": "Drizzle",
-      "H": "Rain Dish"
-    },
-    "heightm": 1.2,
-    "weightkg": 28,
-    "color": "Yellow",
-    "prevo": "Wingull",
-    "evoLevel": 25,
-    "eggGroups": [
-      "Water 1",
-      "Flying"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   },
   "ursaluna": {
-    "num": 901,
-    "name": "Ursaluna",
-    "types": [
-      "Ground",
-      "Normal"
-    ],
-    "baseStats": {
-      "hp": 130,
-      "atk": 140,
-      "def": 105,
-      "spa": 45,
-      "spd": 80,
-      "spe": 50
-    },
-    "abilities": {
-      "0": "Guts",
-      "1": "Bulletproof",
-      "H": "Unnerve"
-    },
-    "heightm": 2.4,
-    "weightkg": 290,
-    "color": "Brown",
-    "prevo": "Ursaring",
-    "evoType": "other",
-    "evoCondition": "Peat Block when there's a full moon",
-    "eggGroups": [
-      "Field"
-    ],
-    "otherFormes": [
-      "Ursaluna-Bloodmoon"
-    ],
-    "formeOrder": [
-      "Ursaluna",
-      "Ursaluna-Bloodmoon"
+    "tier_usage": "A-",
+    "typing": "Electric / Flying",
+    "Movesets" : [
+      {
+      "role": "Physical Wall",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Static",
+      "teratype": "Steel / Fairy / Water",
+      "EVs": "248 HP / 244 Def / 16 Spe",
+      "IVs": "0 Atk",
+      "nature": "Bold",
+      "Moves" : [
+            "1: Hurricane",
+            "2: Volt Switch / U-turn",
+            "3. Thunder Wave / Discharge",
+            "4. Roost"
+      ]
+      } 
     ]
   }
 }

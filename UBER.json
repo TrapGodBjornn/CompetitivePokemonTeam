@@ -1,14 +1,21 @@
 {
   "annihilape": {
-    "tier_usage": "S",
+    "tier_usage": "B+",
+    "typing": "Water / Dragon",
     "Movesets" : [
       {
-      "role": "Bulky Sweeper",
-      "helditem": "Leftovers",
-      "ability": "Defiant",
-      "teratype": "Water",
-      "EVs": "240 HP / 252 SpD / 16 Spe",
-      "nature": "Careful"
+      "role": "Special",
+      "helditem": "Choice",
+      "ability": "Protosynthesis",
+      "teratype": "Water / Fairy",
+      "EVs": "252 SpA / 4 SpD / 252 Spe",
+      "nature": "Timid",
+      "Moves" : [
+            "1: Hydro",
+            "2: Draco",
+            "3. Flamethrower",
+            "4. Dragon Pulse"
+      ]
       } 
     ]
   },
