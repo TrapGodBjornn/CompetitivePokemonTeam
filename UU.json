@@ -80,7 +80,7 @@
     ]
   },
   "comfey": {
-    "tier_usage": "B+",
+    "tier_usage": "B-",
     "typing": "Fairy",
     "Movesets" : [
       {
@@ -119,42 +119,22 @@
       } 
     ]
   },
-  "deoxysspeed": {
+  "enamorustherian": {
     "tier_usage": "B+",
-    "typing": "Psychic",
+    "typing": "Fairy / Flying",
     "Movesets" : [
       {
-      "role": "Lead",
-      "helditem": "Focus Sash",
-      "ability": "Pressue",
-      "teratype": "Ghost",
-      "EVs": "80 Atk / 176 SpA / 252 Spe OR 80 HP / 176 SpA / 252 Spe",
-      "nature": "Naive / Timid",
+      "role": "Special Attacker",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Overcoat",
+      "teratype": "Ground / Fairy ",
+      "EVs": "128 HP / 252 SpA / 128 Spe",
+      "nature": "Modest",
       "Moves" : [
-            "1: Spikes",
-            "2: Taunt",
-            "3. Psycho Boost",
-            "4. Knock Off / Stealth Rock"
-      ]
-      } 
-    ]
-  },
-  "donphan": {
-    "tier_usage": "B+",
-    "typing": "Ground",
-    "Movesets" : [
-      {
-      "role": "Utility",
-      "helditem": "Heavy-Duty Boots / Assault Vest",
-      "ability": "Sturdy",
-      "teratype": "Ghost / Grass",
-      "EVs": "252 HP / 92 Atk / 144 Def / 20 Spe",
-      "nature": "Adamant",
-      "Moves" : [
-            "1: Earthquake",
-            "2: Knock Off",
-            "3. Rapid Spin",
-            "4. Ice Spinner / Ice Shard / Stealth Rock"
+            "1: Moonblast",
+            "2: Earth Power",
+            "3. Draining Kiss / Mystical Fire",
+            "4. Healing Wish / Mystical Fire"
       ]
       } 
     ]
@@ -175,6 +155,47 @@
             "2: Rapid Spin",
             "3. Iron Head",
             "4. Stealth Rock"
+      ]
+      } 
+    ]
+  },
+  "gastrodon": {
+    "tier_usage": "B+",
+    "typing": "Water / Ground",
+    "Movesets" : [
+      {
+      "role": "Special Wall",
+      "helditem": "Leftovers / Heavy-Duty Boots",
+      "ability": "Storm Drain",
+      "teratype": "Fairy / Poison",
+      "EVs": "252 HP / 4 Def / 252 SpD",
+      "nature": "Calm",
+      "Moves" : [
+            "1: Spikes / Stealth Rock",
+            "2: Ice Beam / Sludge Bomb",
+            "3. Earth Power",
+            "4. Recover"
+      ]
+      } 
+    ]
+  },
+  "gardevoir": {
+    "tier_usage": "B",
+    "typing": "Psychic / Fairy",
+    "Movesets" : [
+      {
+      "role": "Special Attacker",
+      "helditem": "Choice Scarf",
+      "ability": "Trace",
+      "teratype": "Fairy",
+      "EVs": "252 SpA / 4 SpD/ 252 Spe",
+      "IVs": "0 Atk",
+      "nature": "Modest",
+      "Moves" : [
+            "1: Moonblast",
+            "2: Psychic",
+            "3. Focus Blast / Trick",
+            "4. Healing Wish"
       ]
       } 
     ]
@@ -315,6 +336,26 @@
             "2: Knock Off",
             "3. Sucker Punch",
             "4. Protect / First Impression"
+      ]
+      } 
+    ]
+  },
+  "manaphy": {
+    "tier_usage": "B+",
+    "typing": "Water",
+    "Movesets" : [
+      {
+      "role": "Special Attacker",
+      "helditem": "Leftovers",
+      "ability": "Hydration",
+      "teratype": "Fairy",
+      "EVs": "4 Def / 252 SpA / 252 Spe",
+      "nature": "Timid",
+      "Moves" : [
+            "1: Tail Glow",
+            "2: Scald",
+            "3. Ice Beam",
+            "4. Substitute"
       ]
       } 
     ]
@@ -500,6 +541,27 @@
       } 
     ]
   },
+  "salamence": {
+    "tier_usage": "B",
+    "typing": "Dragon / Flying",
+    "Movesets" : [
+      {
+      "role": "Special Attacker",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Intimidate",
+      "teratype": "Water",
+      "EVs": "160 HP / 252 SpA / 96 Spe",
+      "IVs": "0 Atk",
+      "nature": "Modest",
+      "Moves" : [
+            "1: Draco Meteor",
+            "2: Hurricane",
+            "3. Hydro Pump",
+            "4. Roost"
+      ]
+      } 
+    ]
+  },
   "sandyshocks": {
     "tier_usage": "B",
     "typing": "Electric / Ground",
@@ -618,6 +680,27 @@
             "1: Torch Song",
             "2: Will-O-Wisp",
             "3. Hex",
+            "4. Slack Off"
+      ]
+      } 
+    ]
+  },
+  "slowking": {
+    "tier_usage": "A-",
+    "typing": "Water / Psychic",
+    "Movesets" : [
+      {
+      "role": "Pivot",
+      "helditem": "Heavy-Duty Boots",
+      "ability": "Regenerator",
+      "teratype": "Fairy / Water",
+      "EVs": "252 HP / 252 Def / 4 SpD OR 252 HP / 172 Def / 84 SpD",
+      "IVs": "0 Atk / 0 Spe",
+      "nature": "Relaxed / Sassy",
+      "Moves" : [
+            "1: Scald",
+            "2: Thunder Wave / Future Sight",
+            "3. Chilly Reception",
             "4. Slack Off"
       ]
       } 
