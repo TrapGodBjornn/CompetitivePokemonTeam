@@ -1,8 +1,19 @@
 import json
 
 # Load the Pokémon data from pokedex.json
-with open('pokedex.json', 'r', encoding='utf-8') as f:
+with open("pokedex.json", "r", encoding="utf-8") as f:
     pokemon_data = json.load(f)
+
+with open("uber.json", "r", encoding ="utf-8") as h:
+    uber_data = json.load(h)
+
+with open("uu.json", "r", encoding ="utf-8") as k:
+    uu_data = json.load(k)
+
+with open("uber.json", "r", encoding ="utf-8") as e:
+    ou_data = json.load(e)
+
+cringe = input("Select tier (Uber, OU, or UU): ").lower()
 
 
 ALL_TYPES = [
@@ -211,6 +222,66 @@ def all_combos(pokemon_data, team_size=6):
             print(", ".join(lines))
         else:
             print("None")
+    return totals
+
+    #Check weaknesses. For (4x), if more than 1, suggest replacement. For (2x), if more than 2, suggest replacement. 
+    #Combos
+    #If a single (4x), no more than 1 (2x) weakness
+    #If there are 2 (2x), no (4x) allowed
+
+def analyzer(sponge):
+    recommendations = {}
+
+    for atk_type in ALL_TYPES:
+        fourx = sponge["4x"].get(atk_type, 0)
+        twox = sponge["2x"].get(atk_type, 0)
+        rec = None
+
+        if fourx > 1:
+            rec = f"Uno"
+
+        elif twox > 2:
+            rec = f"Dos"
+
+        else: 
+            if fourx == 1 and twox > 1:
+                rec = f"Tres"
+
+            if twox == 2 and fourx > 1:
+                rec = f"Quattro"
+
+        if rec:
+            print(f"Adding recommendation for {atk_type}: {rec}")
+            recommendations[atk_type] = rec
+
+
+            
+
+    return recommendations
+
+
+totals = all_combos(pokemon_data, 6)
+recs = analyzer(totals)
+print("Final recommendations:", recs)
+
+
+
+
+    
+
+
+
+
+
+                
+
+    
+
+    
+
+
+
+    
 
 
 
@@ -227,14 +298,13 @@ def all_combos(pokemon_data, team_size=6):
             
 
 
-all_combos(pokemon_data, 6)
 
 
 
 #Gonna start leaving my plans here in the form of comments so it's right here
 #So now I have to find out which pokemon is weak to what. The manner in which I have set this up allows me to access these so I just have
 #to figure out the how. I'm also thinking to label it as if we have 0-2 instances of 2x results, label it as low concern, 3-4 as medium,
-#and 5-6 as high. Opposite for .5x. For 4x, anything more than 2 is a red flag. For 0x, not entirely sure, perhaps subtract 1 from 2x.
+#and 5-6 as high. Opposite for .5x. For 4x, anything more than 1 is a red flag. For 0x, not entirely sure, perhaps subtract 1 from 2x.
 #The prioritization will be a little difficult but I guess not really if I just make it based on the numbers. Anyways, once I find the 
 #areas of concern, I can see the pokemon which are weak to those types, and then suggest possible replacements.
 #Will focus on getting this done first, because soon I will also have to implement a function to analyze the team based on what type of
