@@ -1,0 +1,655 @@
+{
+  "arceus": {
+    "tier_usage": "A",
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Heavy-Duty Boots / Silk Scarf / Leftovers / Life Orb",
+        "ability": "Multitype",
+        "teratype": "Fire / Ghost / Normal",
+        "EVs": "200 HP / 252 Atk / 56 Spe",
+        "nature": "Adamant"
+      }
+    ]
+  },
+  "arceusfairy": {
+    "tier_usage": "A+",
+    "typing": [
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Wall",
+        "helditem": "Pixie Plate",
+        "ability": "Multitype",
+        "teratype": "Water",
+        "EVs": "240 HP / 252 Def / 16 Spe",
+        "nature": "Bold",
+        "Moves": [
+          "1: Judgement",
+          "2: Thunder Wave / Will-O-Wisp / Calm Mind",
+          "3. Stealth Rock / Taunt / Dragon Tail",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "arceusghost": {
+    "tier_usage": "B+",
+    "typing": [
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Spooky Plate",
+        "ability": "Multitype",
+        "teratype": "Stellar",
+        "EVs": "4 HP / 252 SpA / 252 Spe",
+        "IVs": "0 Atk",
+        "nature": "Modest",
+        "Moves": [
+          "1: Calm Mind",
+          "2: Judgement",
+          "3. Focus Blast",
+          "4. Power Gem"
+        ]
+      }
+    ]
+  },
+  "arceusground": {
+    "tier_usage": "A+",
+    "typing": [
+      "Ground"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Earth Plate",
+        "ability": "Multitype",
+        "teratype": "Ground / Ghost",
+        "EVs": "132 HP / 252 Atk / 124 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Dragon Dance",
+          "2: Earthquake",
+          "3. Stone Edge",
+          "4. Taunt / Recover / Ice Beam"
+        ]
+      }
+    ]
+  },
+  "arceuswater": {
+    "tier_usage": "A",
+    "typing": [
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Wall",
+        "helditem": "Splash Plate",
+        "ability": "Multitype",
+        "teratype": "Fairy / Poison",
+        "EVs": "240 HP / 252 Def / 16 Spe",
+        "nature": "Bold",
+        "Moves": [
+          "1: Judgement",
+          "2: Ice Beam / Dragon Tail / Calm mind",
+          "3. Thunder Wave / Will-O-Wisp",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "calyrexice": {
+    "tier_usage": "A-",
+    "typing": [
+      "Ice",
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Heavy-Duty Boots / Occa Berry / Weakness Policy",
+        "ability": "As One (Glastrier)",
+        "teratype": "Fire / Ground",
+        "EVs": "248 HP / 252 Atk / 8 SpD",
+        "IVs": "0 Spe",
+        "nature": "Brave / Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Trick Room",
+          "3. Glacial Lance",
+          "4. High Horsepower"
+        ]
+      }
+    ]
+  },
+  "chienpao": {
+    "tier_usage": "B",
+    "typing": [
+      "Dark",
+      "Ice"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Life Orb / Heavy-Duty Boots / Black Glasses",
+        "ability": "Sword of Ruin",
+        "teratype": "Dark",
+        "EVs": "252 Atk / 4 Def / 252 Spe",
+        "nature": "Jolly / Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Icicle Crash",
+          "3. Crunch / Ice Shard",
+          "4. Sucker Punch / Ice Shard"
+        ]
+      }
+    ]
+  },
+  "deoxysattack": {
+    "tier_usage": "B",
+    "typing": [
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Mixed Attacker",
+        "helditem": "Life Orb",
+        "ability": "Pressure",
+        "teratype": "Ghost",
+        "EVs": "4 Atk / 252 SpA / 252 Spe",
+        "nature": "Naive",
+        "Moves": [
+          "1: Psycho Boost",
+          "2: Shadow Ball",
+          "3. Low Kick",
+          "4. Rock Slide"
+        ]
+      }
+    ]
+  },
+  "deoxysspeed": {
+    "tier_usage": "B",
+    "typing": [
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Lead",
+        "helditem": "Rocky Helmet / Mental Herb",
+        "ability": "Pressue",
+        "teratype": "Steel / Ghost / Darl",
+        "EVs": "248 HP / 240 Def / 16 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Stealth Rock / Thunder Wave",
+          "2: Spikes",
+          "3. Psycho Boost",
+          "4. Taunt"
+        ]
+      }
+    ]
+  },
+  "eternatus": {
+    "tier_usage": "A+",
+    "typing": [
+      "Poison",
+      "Dragon"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Wall",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Pressure",
+        "teratype": "Fairy / Grass",
+        "EVs": "200 HP / 252 SpD / 56 Spe",
+        "IVs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Dynamx Cannon",
+          "2: Toxic",
+          "3. Toxic Spikes / Flamethrower",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "fluttermane": {
+    "tier_usage": "B",
+    "typing": [
+      "Ghost",
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Choice Specs",
+        "ability": "Protosynthesis",
+        "teratype": "Fairy / Stellar",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "Ivs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Shadow Ball",
+          "2: Moonblast",
+          "3. Psyshock / Mystical Fire",
+          "4. Power Gem"
+        ]
+      }
+    ]
+  },
+  "giratinaorigin": {
+    "tier_usage": "B+",
+    "typing": [
+      "Dragon",
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Griseous Core",
+        "ability": "Levitate",
+        "teratype": "Steel / Poison / Ghost",
+        "EVs": "248 HP / 104 Atk / 112 Def/ 44 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Poltergeist",
+          "2: Dragon Tail",
+          "3. Will-O-Wisp / Thunder Wave",
+          "4. Defog / Shadow Sneak / Stone Edge"
+        ]
+      }
+    ]
+  },
+  "glimmora": {
+    "tier_usage": "B",
+    "typing": [
+      "Rock",
+      "Poison"
+    ],
+    "Movesets": [
+      {
+        "role": "Lead",
+        "helditem": "Focus Sash",
+        "ability": "Toxic Debris",
+        "teratype": "Ghost",
+        "EVs": "172 Def / 84 SpA / 252 Spe OR 4 Def / 252 SpA / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Stealth Rock / Spikes",
+          "2: Mortal Spin",
+          "3. Mud Shot",
+          "4. Dazzling Gleam / Momento"
+        ]
+      }
+    ]
+  },
+  "gliscor": {
+    "tier_usage": "A-",
+    "typing": [
+      "Ground",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Mixed Wall",
+        "helditem": "Toxic Orb",
+        "ability": "Poison Heal",
+        "teratype": "Fairy / Water",
+        "EVs": "244 HP / 252 Def / 12 SpD OR 244 HP / 12 Def / 252 SpD",
+        "nature": "Careful / Impish",
+        "Moves": [
+          "1: Spikes / Toxic Spikes",
+          "2: Knock Off / Earthquake",
+          "3. Toxic / Knock Off",
+          "4. Protect "
+        ]
+      }
+    ]
+  },
+  "grimmsnarl": {
+    "tier_usage": "B",
+    "typing": [
+      "Dark",
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Light Clay",
+        "ability": "Prankster",
+        "teratype": "Ghost / Steel",
+        "EVs": "248 HP / 180 Def / 80 SpD",
+        "nature": "Impish",
+        "Moves": [
+          "1: Reflect",
+          "2: Light Screen",
+          "3. Taunt",
+          "4. Play Rough / Parting Shot"
+        ]
+      }
+    ]
+  },
+  "hooh": {
+    "tier_usage": "A+",
+    "typing": [
+      "Fire",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Wall",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Regenerator",
+        "teratype": "Ground / Fairy / Grass",
+        "EVs": "248 HP / 252 Def / 8 SpD",
+        "nature": "Impish",
+        "Moves": [
+          "1: Sacred Fire",
+          "2: Brave Bird",
+          "3. Whirlwind / Earthquake",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "kingambit": {
+    "tier_usage": "A-",
+    "typing": [
+      "Dark",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Lum Berry / Black Glasses / Air Balloon",
+        "ability": "Supreme Overlord",
+        "teratype": "Fire / Dark / Flying",
+        "EVs": "248 HP / 252 Atk / 8 SpD",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Sucker Punch",
+          "3. Kowtow Cleave",
+          "4. Iron Head"
+        ]
+      }
+    ]
+  },
+  "koraidon": {
+    "tier_usage": "S",
+    "typing": [
+      "Water",
+      "Dragon"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Choice Scarf",
+        "ability": "Orichalcum Pulse",
+        "teratype": "Fire / Ghost",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Low Kick / Close Combat",
+          "2: Outrage / Dragon Claw",
+          "3. U-turn",
+          "4. Flare Blitz"
+        ]
+      }
+    ]
+  },
+  "kyogre": {
+    "tier_usage": "A+",
+    "typing": [
+      "Water"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Drizzle",
+        "teratype": "Fairy . Poison",
+        "EVs": "240 HP / 76 Def / 176 SpA / 16 Spe OR 248 HP / 164 Def / 80 SpA / 16 Spe",
+        "nature": "Modest / Bold",
+        "Moves": [
+          "1: Calm mind",
+          "2: Origin Pulse / Surf",
+          "3. Ice Beam",
+          "4. Thunder / Thunder Wave"
+        ]
+      }
+    ]
+  },
+  "kyuremblack": {
+    "tier_usage": "B+",
+    "typing": [
+      "Dragon",
+      "Ice"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Loaded Dice",
+        "ability": "Teravolt",
+        "teratype": "Electric",
+        "EVs": "252 Atk / 4 Def / 252 Spe",
+        "nature": "Jolly / Adamant",
+        "Moves": [
+          "1: Dragon Dance",
+          "2: Fusion Bolt",
+          "3. Icicle Spear",
+          "4. Scale Shot / Substitute"
+        ]
+      }
+    ]
+  },
+  "landorustherian": {
+    "tier_usage": "A",
+    "typing": [
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Wall",
+        "helditem": "Rocky Helmet / Leftovers",
+        "ability": "Intimidate",
+        "teratype": "Water / Fairy",
+        "EVs": "248 HP / 8 Atk / 252 Def",
+        "nature": "Impish",
+        "Moves": [
+          "1: Stealth Rock",
+          "2: Earthquake",
+          "3. U-turn",
+          "4. Taunt / Stone Edge / Rock Tomb"
+        ]
+      }
+    ]
+  },
+  "lunala": {
+    "tier_usage": "A-",
+    "typing": [
+      "Psychic",
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Power Herb",
+        "ability": "Shadow Shield",
+        "teratype": "Ghost / Fighting / Fairy",
+        "EVs": "56 HP / 252 SpA / 200 Spe",
+        "IVs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Agility",
+          "2: Moongeist Beam",
+          "3. Focus Blast / Moonblast",
+          "4. Meteor Beam"
+        ]
+      }
+    ]
+  },
+  "mewtwo": {
+    "tier_usage": "B+",
+    "typing": [
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots / Leftovers / Life Orb",
+        "ability": "Pressure",
+        "teratype": "Steel",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Nasty Plot",
+          "2: Psystrike",
+          "3. Grass Knot / Flamethrower",
+          "4. Taunt / Earth Power / Grass Knot"
+        ]
+      }
+    ]
+  },
+  "necrozmaduskmane": {
+    "tier_usage": "A",
+    "typing": [
+      "Psychic",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Prism Armor",
+        "teratype": "Fire",
+        "EVs": "252 HP / 204 Def / 52 Spe",
+        "nature": "Impish",
+        "Moves": [
+          "1: Dragon Dance",
+          "2: Sunsteel Strike / Photon Geyser",
+          "3. Knock Off / Earthquake",
+          "4. Morning Sun"
+        ]
+      }
+    ]
+  },
+  "rayquaza": {
+    "tier_usage": "B",
+    "typing": [
+      "Dragon",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Focus Sash / Life Orb",
+        "ability": "Air Lock",
+        "teratype": "Flying / Normal / Ground / Steel",
+        "EVs": "252 Atk / 4 Def / 252 Spe",
+        "nature": "Jolly / Adamant",
+        "Moves": [
+          "1: Dragon Dance",
+          "2: Dragon Ascent",
+          "3. Earthquake",
+          "4. Extreme Speed"
+        ]
+      }
+    ]
+  },
+  "ribombee": {
+    "tier_usage": "B+",
+    "typing": [
+      "Bug",
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Focus Sash",
+        "ability": "Shield Dust",
+        "teratype": "Steel",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Sticky Web",
+          "2: Moonblast",
+          "3. Stun Spore / Psychic Noise",
+          "4. Tailwind / Pounce"
+        ]
+      }
+    ]
+  },
+  "skeledirge": {
+    "tier_usage": "B",
+    "typing": [
+      "Fire",
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Wall",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Unaware",
+        "teratype": "Fairy",
+        "EVs": "252 HP / 252 Def / 4 SpA",
+        "nature": "Bold",
+        "Moves": [
+          "1: Torch Song",
+          "2: Will-O-Wisp",
+          "3. Hex / Earth Power",
+          "4. Slack Off"
+        ]
+      }
+    ]
+  },
+  "tinglu": {
+    "tier_usage": "B+",
+    "typing": [
+      "Dark",
+      "Ground"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Wall",
+        "helditem": "Leftovers",
+        "ability": "Vessel of Ruin",
+        "teratype": "Water / Ghost / Steel / Fairy",
+        "EVs": "252 HP / 4 Atk / 252 SpD",
+        "nature": "Careful",
+        "Moves": [
+          "1: Spikes / Stealth Rock",
+          "2: Earthquake",
+          "3. Whirlwind / Protect / Stealth Rock",
+          "4. Ruination"
+        ]
+      }
+    ]
+  },
+  "zaciancrowned": {
+    "tier_usage": "S",
+    "typing": [
+      "Fairy",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Rusted Sword",
+        "ability": "Intrepid Sword",
+        "teratype": "Fighting / Flying / Fire",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Behemoth Blade / Play Rough",
+          "3. Close Combat",
+          "4. Wild Charge"
+        ]
+      }
+    ]
+  }
+}

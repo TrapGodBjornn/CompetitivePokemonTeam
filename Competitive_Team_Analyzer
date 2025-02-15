@@ -1,16 +1,20 @@
 import json
+from pprint import pprint
+from collections import defaultdict
+
+
 
 # Load the Pokémon data from pokedex.json
 with open("pokedex.json", "r", encoding="utf-8") as f:
     pokemon_data = json.load(f)
 
-with open("uber.json", "r", encoding ="utf-8") as h:
+with open("converted_uber.json", "r", encoding ="utf-8") as h:
     uber_data = json.load(h)
 
-with open("uu.json", "r", encoding ="utf-8") as k:
+with open("converted_UU.json", "r", encoding ="utf-8") as k:
     uu_data = json.load(k)
 
-with open("uber.json", "r", encoding ="utf-8") as e:
+with open("converted_OU.json", "r", encoding ="utf-8") as e:
     ou_data = json.load(e)
 
 cringe = input("Select tier (Uber, OU, or UU): ").lower()
@@ -186,6 +190,7 @@ def all_combos(pokemon_data, team_size=6):
     from collections import defaultdict
 
     resultys = []
+    names = []
 
     totals = {
         "4x": defaultdict(int),
@@ -196,6 +201,7 @@ def all_combos(pokemon_data, team_size=6):
 
     for i in range(team_size):
         name = input(f"Enter name of Pokemon {i+1} :").strip()
+        names.append(name)
         resultado = get_weaknesses(name, pokemon_data)
         resultys.append(resultado)
 
@@ -222,33 +228,70 @@ def all_combos(pokemon_data, team_size=6):
             print(", ".join(lines))
         else:
             print("None")
-    return totals
+    return totals, names
 
     #Check weaknesses. For (4x), if more than 1, suggest replacement. For (2x), if more than 2, suggest replacement. 
     #Combos
     #If a single (4x), no more than 1 (2x) weakness
     #If there are 2 (2x), no (4x) allowed
 
+
+def aggregate_roles(tierdata, names, team_size=6):
+    """
+    Aggregates the roles of team Pokémon based on their primary moveset.
+    
+    Assumes each Pokémon's data has a "movesets" field, which is an array.
+    The primary moveset is taken as the first element, and its "role" is used.
+    
+    Parameters:
+      pokemon_data (dict): A dictionary of Pokémon data keyed by Pokémon name.
+      team_size (int): Number of Pokémon to process.
+    
+    Returns:
+      dict: A dictionary (defaultdict(int)) counting the occurrences of each role.
+    """
+    role_counts = defaultdict(int)
+
+    
+    for i in names:
+        data = tierdata.get(i)
+        if not data:
+            print(f"{i} not found in data.")
+            continue
+        
+        # Assume that the primary moveset is the first element of the "movesets" array.
+        if "Movesets" in data and isinstance(data["Movesets"], list) and data["Movesets"]:
+            primary_moveset = data["Movesets"][0]
+            role = primary_moveset.get("role")
+            if role:
+                role_counts[role] += 1
+                print(f"Added {i} with role {role}.")
+            else:
+                print(f"{i} has no defined role in its primary moveset.")
+        else:
+            print(f"{i} has no movesets defined.")
+    
+    # Optionally, print out the aggregated roles:
+    print("\n=== Aggregated Roles ===")
+    for role, count in role_counts.items():
+        print(f"{role}: {count}")
+    
+    return role_counts
+
+# Example usage:
+# Assuming 'pokemon_data' is your dictionary loaded from your JSON file.
+
+
 def analyzer(sponge):
     recommendations = {}
 
     for atk_type in ALL_TYPES:
-        fourx = sponge["4x"].get(atk_type, 0)
-        twox = sponge["2x"].get(atk_type, 0)
+        fourx_count = sponge["4x"].get(atk_type, 0)
+        twox_count = sponge["2x"].get(atk_type, 0)
         rec = None
+        bonus = 1 if fourx_count < 6 and fourx_count > 0 else 0
+        weighted_vulnerability = (fourx_count + bonus) + twox_count
 
-        if fourx > 1:
-            rec = f"Uno"
-
-        elif twox > 2:
-            rec = f"Dos"
-
-        else: 
-            if fourx == 1 and twox > 1:
-                rec = f"Tres"
-
-            if twox == 2 and fourx > 1:
-                rec = f"Quattro"
 
         if rec:
             print(f"Adding recommendation for {atk_type}: {rec}")
@@ -260,9 +303,17 @@ def analyzer(sponge):
     return recommendations
 
 
-totals = all_combos(pokemon_data, 6)
-recs = analyzer(totals)
-print("Final recommendations:", recs)
+totals, names = all_combos(pokemon_data, 6)
+if cringe == "ou":
+    role_totals = aggregate_roles(ou_data, names, team_size=6)
+if cringe == "uu":
+        role_totals = aggregate_roles(uu_data, names, team_size=6)
+if cringe == "uber":
+        role_totals = aggregate_roles(uber_data, names, team_size=6)
+
+
+#recs = analyzer(totals)
+#print(f"Final recommendations:, {recs}")
 
 
 

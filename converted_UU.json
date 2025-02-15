@@ -1,0 +1,966 @@
+{
+  "arcaninehisui": {
+    "tier_usage": "B",
+    "typing": [
+      "Fire",
+      "Rock"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Rock Head",
+        "teratype": "Normal",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Head Smash",
+          "2: Flare Blitz",
+          "3. Extreme Speed",
+          "4. Stealth Rock / Morning Sun"
+        ]
+      }
+    ]
+  },
+  "azumarill": {
+    "tier_usage": "B-",
+    "typing": [
+      "Water",
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Choice Band / Leftovers",
+        "ability": "Huge Power",
+        "teratype": "Water / Steel / Electric",
+        "EVs": "252 Atk / 4 SpD / 252 Spe OR 124 HP / 252 Atk / 132 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Liquidation",
+          "2: Play Rough",
+          "3. Aqua Jet",
+          "4. Knock Off"
+        ]
+      }
+    ]
+  },
+  "clodsire": {
+    "tier_usage": "B+",
+    "typing": [
+      "Poison",
+      "Ground"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Water Absorb",
+        "teratype": "Dark",
+        "EVs": "248 HP / 176 Def / 84 SpD",
+        "nature": "Impish / Careful",
+        "Moves": [
+          "1: Earthquake",
+          "2: Toxic",
+          "3. Spikes / Stealth Rock",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "cobalion": {
+    "tier_usage": "A+",
+    "typing": [
+      "Steel",
+      "Fighting"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Rocky Helmet / Leftovers / Shuca Berry",
+        "ability": "Justified",
+        "teratype": "Dragon / Ghost / Flying",
+        "EVs": "252 Def / 4 SpD / 252 Spe OR 252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Stealth Rock",
+          "2: Body Press / Close Combat",
+          "3. Volt Switch",
+          "4. Thunder Wave / Stone Edge / Taunt"
+        ]
+      }
+    ]
+  },
+  "comfey": {
+    "tier_usage": "B-",
+    "typing": [
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Life Orb",
+        "ability": "Triage",
+        "teratype": "Ground",
+        "EVs": "240 HP / 252 SpA / 16 Spe",
+        "nature": "Modest",
+        "Moves": [
+          "1: Calm Mind",
+          "2: Draining Kiss",
+          "3. Tera Blast",
+          "4. Taunt"
+        ]
+      }
+    ]
+  },
+  "conkeldurr": {
+    "tier_usage": "B-",
+    "typing": [
+      "Fighting"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Life Orb / Flame Orb",
+        "ability": "Sheer Force / Guts",
+        "teratype": "Any",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Combat Torque / Close Combat",
+          "2: Earthquake / Thunder Punch",
+          "3. Ice Punch",
+          "4. Mach Punch"
+        ]
+      }
+    ]
+  },
+  "enamorustherian": {
+    "tier_usage": "B+",
+    "typing": [
+      "Fairy",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Overcoat",
+        "teratype": "Ground / Fairy ",
+        "EVs": "128 HP / 252 SpA / 128 Spe",
+        "nature": "Modest",
+        "Moves": [
+          "1: Moonblast",
+          "2: Earth Power",
+          "3. Draining Kiss / Mystical Fire",
+          "4. Healing Wish / Mystical Fire"
+        ]
+      }
+    ]
+  },
+  "excadrill": {
+    "tier_usage": "S-",
+    "typing": [
+      "Ground",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Leftovers / Air Balloon",
+        "ability": "Mold Breaker",
+        "teratype": "Ghost / Dragon",
+        "EVs": "156 HP / 252 SpD / 100 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Earthquake",
+          "2: Rapid Spin",
+          "3. Iron Head",
+          "4. Stealth Rock"
+        ]
+      }
+    ]
+  },
+  "gastrodon": {
+    "tier_usage": "B+",
+    "typing": [
+      "Water",
+      "Ground"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Wall",
+        "helditem": "Leftovers / Heavy-Duty Boots",
+        "ability": "Storm Drain",
+        "teratype": "Fairy / Poison",
+        "EVs": "252 HP / 4 Def / 252 SpD",
+        "nature": "Calm",
+        "Moves": [
+          "1: Spikes / Stealth Rock",
+          "2: Ice Beam / Sludge Bomb",
+          "3. Earth Power",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "gardevoir": {
+    "tier_usage": "B",
+    "typing": [
+      "Psychic",
+      "Fairy"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Choice Scarf",
+        "ability": "Trace",
+        "teratype": "Fairy",
+        "EVs": "252 SpA / 4 SpD/ 252 Spe",
+        "IVs": "0 Atk",
+        "nature": "Modest",
+        "Moves": [
+          "1: Moonblast",
+          "2: Psychic",
+          "3. Focus Blast / Trick",
+          "4. Healing Wish"
+        ]
+      }
+    ]
+  },
+  "greninja": {
+    "tier_usage": "A",
+    "typing": [
+      "Water"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Choice Specs",
+        "ability": "Protean",
+        "teratype": "Water",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Surf / Hydro Pump",
+          "2: Dark Pulse",
+          "3. Ice Beam",
+          "4. Sludge Wave / Spikes / U-turn"
+        ]
+      }
+    ]
+  },
+  "hawlucha": {
+    "tier_usage": "B",
+    "typing": [
+      "Fighting",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Psychic Seed / White Herb",
+        "ability": "Unburden",
+        "teratype": "Fire",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Close Combat",
+          "3. Acrobatics",
+          "4. Encore / Taunt"
+        ]
+      }
+    ]
+  },
+  "heatran": {
+    "tier_usage": "A",
+    "typing": [
+      "Fire",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Air Balloon / Leftovers",
+        "ability": "Flame Body / Flash Fire",
+        "teratype": "Grass / Fairy",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "nature": "Modest",
+        "Moves": [
+          "1: Stealth Rock",
+          "2: Magma Storm",
+          "3. Earth Power",
+          "4. Tera Blast / Taunt / Protect"
+        ]
+      }
+    ]
+  },
+  "hydrapple": {
+    "tier_usage": "A",
+    "typing": [
+      "Grass",
+      "Dragon"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Regenerator",
+        "teratype": "Steel / Fairy / Poison",
+        "EVs": "252 HP / 92 Def / 164 SpA",
+        "nature": "Modest",
+        "Moves": [
+          "1: Nasty Plot",
+          "2: Draco Meteor / Fickle Beam",
+          "3. Giga Drain",
+          "4. Earth Power"
+        ]
+      }
+    ]
+  },
+  "keldeo": {
+    "tier_usage": "B",
+    "typing": [
+      "Water",
+      "Fighting"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Justified",
+        "teratype": "Water",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "nature": "Modest",
+        "Moves": [
+          "1: Surf",
+          "2: Focus Blast / Secret Sword",
+          "3. Vacuum Wave",
+          "4. Flip Turn"
+        ]
+      }
+    ]
+  },
+  "latios": {
+    "tier_usage": "A-",
+    "typing": [
+      "Dragon",
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Choice Specs",
+        "ability": "Levitate",
+        "teratype": "Dragon / Steel",
+        "EVs": "4 Def / 252 SpA / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Draco Meteor",
+          "2: Luster Purge",
+          "3. Surf / Flip Turn",
+          "4. Flip Turn / Trick"
+        ]
+      }
+    ]
+  },
+  "lokix": {
+    "tier_usage": "A+",
+    "typing": [
+      "Bug",
+      "Dark"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Blackglasses",
+        "ability": "Tinted Lens",
+        "teratype": "Dark",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly / Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Knock Off",
+          "3. Sucker Punch",
+          "4. Protect / First Impression"
+        ]
+      }
+    ]
+  },
+  "manaphy": {
+    "tier_usage": "B+",
+    "typing": [
+      "Water"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Leftovers",
+        "ability": "Hydration",
+        "teratype": "Fairy",
+        "EVs": "4 Def / 252 SpA / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Tail Glow",
+          "2: Scald",
+          "3. Ice Beam",
+          "4. Substitute"
+        ]
+      }
+    ]
+  },
+  "mandibuzz": {
+    "tier_usage": "B",
+    "typing": [
+      "Dark",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Mixed Wall",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Overcoat",
+        "teratype": "Steel / Fairy",
+        "EVs": "248 HP / 136 Def / 108 SpD / 16 Spe",
+        "nature": "Impish",
+        "Moves": [
+          "1: Foul Play",
+          "2: Defog / U-turn",
+          "3. Toxic / U-turn",
+          "4. Roost"
+        ]
+      }
+    ]
+  },
+  "metagross": {
+    "tier_usage": "B-",
+    "typing": [
+      "Steel",
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Leftovers",
+        "ability": "Clear Body",
+        "teratype": "Dark / Water",
+        "EVs": "252 HP / 160 Atk / 96 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Heavy Slam",
+          "2: Psychic Fangs",
+          "3. Knock Off / Earthquake",
+          "4. Stealth Rock / Bullet Punch"
+        ]
+      }
+    ]
+  },
+  "mew": {
+    "tier_usage": "B",
+    "typing": [
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Lead",
+        "helditem": "Red Card / Mental Herb / Colbur Berry",
+        "ability": "Synchronize",
+        "teratype": "Ghost",
+        "EVs": "252 SpA / 96 Def / 160 Spe",
+        "IVs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Spikes",
+          "2: Stealth Rock",
+          "3. Will-O-Wisp",
+          "4. Taunt"
+        ]
+      }
+    ]
+  },
+  "ogerpon": {
+    "tier_usage": "A-",
+    "typing": [
+      "Grass"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Defiant",
+        "teratype": "Grass",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Ivy Cudgel",
+          "2: Knock Off",
+          "3. U-turn",
+          "4. Stomping Tantrum / Encore / Spikes"
+        ]
+      }
+    ]
+  },
+  "ogerponcornerstone": {
+    "tier_usage": "A-",
+    "typing": [
+      "Grass",
+      "Rock"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Cornerstone Mask",
+        "ability": "Sturdy",
+        "teratype": "Rock",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Ivy Cudgel",
+          "2: Stomping Tantrum / Spiky Shield",
+          "3. Swords Dance",
+          "4. Power Whip / Horn Leech"
+        ]
+      }
+    ]
+  },
+  "polteageist": {
+    "tier_usage": "B+",
+    "typing": [
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "White Herb / Focus Sash",
+        "ability": "Cursed Body / Weak Armor",
+        "teratype": "Steel / Fairy / Fighting",
+        "EVs": "248 HP / 186 Def / 76 Spe OR 252 SpA / 4 SpD / 252 S[e",
+        "nature": "Bold / Modest",
+        "Moves": [
+          "1: Shell Smash",
+          "2: Shadow Ball",
+          "3. Stored Power / Will-O-Wisp",
+          "4. Strength Sap / Tera Blast"
+        ]
+      }
+    ]
+  },
+  "quaquaval": {
+    "tier_usage": "A",
+    "typing": [
+      "Water",
+      "Fighting"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Leftovers / Lum Berry",
+        "ability": "Moxie",
+        "teratype": "Steel",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Aqua Step",
+          "3. Close Combat",
+          "4. Knock Off / Triple Axel"
+        ]
+      }
+    ]
+  },
+  "revavroom": {
+    "tier_usage": "B+",
+    "typing": [
+      "Steel",
+      "Poison"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Air Balloon",
+        "ability": "Filter",
+        "teratype": "Ground",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Shift Gear",
+          "2: Iron Head",
+          "3. Gunk Shot",
+          "4. High Horsepower"
+        ]
+      }
+    ]
+  },
+  "rotomwash": {
+    "tier_usage": "A",
+    "typing": [
+      "Electric",
+      "Water"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Leftovers",
+        "ability": "Levitate",
+        "teratype": "Steel",
+        "EVs": "252 HP / 168 SpD / 88 Spe OR 252 HP / 168 Def / 88 Spe",
+        "nature": "Bold / Calm",
+        "Moves": [
+          "1: Hydro Pump",
+          "2: Volt Switch",
+          "3. Will-O-Wisp / Thunder Wave",
+          "4. Pain Split"
+        ]
+      }
+    ]
+  },
+  "salamence": {
+    "tier_usage": "B",
+    "typing": [
+      "Dragon",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Intimidate",
+        "teratype": "Water",
+        "EVs": "160 HP / 252 SpA / 96 Spe",
+        "IVs": "0 Atk",
+        "nature": "Modest",
+        "Moves": [
+          "1: Draco Meteor",
+          "2: Hurricane",
+          "3. Hydro Pump",
+          "4. Roost"
+        ]
+      }
+    ]
+  },
+  "sandyshocks": {
+    "tier_usage": "B",
+    "typing": [
+      "Electric",
+      "Ground"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots / Leftovers",
+        "ability": "Flame Body / Flash Fire",
+        "teratype": "Ground / Water / Ice",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "IVs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Stealth Rock / Spikes",
+          "2: Volt Switch",
+          "3. Earth Power",
+          "4. Thunder Bolt / Tera Blast"
+        ]
+      }
+    ]
+  },
+  "scizor": {
+    "tier_usage": "A",
+    "typing": [
+      "Bug",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Technician",
+        "teratype": "Steel / Fire",
+        "EVs": "120 HP / 252 Atk / 136 Spe",
+        "nature": "Adamant",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Bullet Punch",
+          "3. U-turn",
+          "4. Knock Off"
+        ]
+      }
+    ]
+  },
+  "serperior": {
+    "tier_usage": "B",
+    "typing": [
+      "Grass"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Light Clay",
+        "ability": "Contrary",
+        "teratype": "Electric",
+        "EVs": "252 SpA / 4 SpD / 252 Spe",
+        "IVs": "0 Atk",
+        "nature": "Timid",
+        "Moves": [
+          "1: Leaf Storm",
+          "2: Glare",
+          "3. Reflect",
+          "4. Light Screen"
+        ]
+      }
+    ]
+  },
+  "sinistcha": {
+    "tier_usage": "B",
+    "typing": [
+      "Grass",
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots / Leftovers",
+        "ability": "Heatproof",
+        "teratype": "Poison / Fairy",
+        "EVs": "252 HP / 160 Def / 96 Spe",
+        "IVs": "0 Atk",
+        "nature": "Bold",
+        "Moves": [
+          "1: Calm Mind",
+          "2: Matcha Gotcha",
+          "3. Shadow Ball",
+          "4. Strength Sap"
+        ]
+      }
+    ]
+  },
+  "skarmory": {
+    "tier_usage": "B+",
+    "typing": [
+      "Steel",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Rocky Helmet",
+        "ability": "Sturdy",
+        "teratype": "Dragon / Water",
+        "EVs": "252 HP / 208 Def / 48 Spe",
+        "nature": "Impish",
+        "Moves": [
+          "1: Body Press",
+          "2: Brave Bird / Whirlwind / Iron Defense",
+          "3. Spikes",
+          "4. Roost"
+        ]
+      }
+    ]
+  },
+  "skeledirge": {
+    "tier_usage": "A-",
+    "typing": [
+      "Fire",
+      "Ghost"
+    ],
+    "Movesets": [
+      {
+        "role": "Mixed Wall",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Unaware",
+        "teratype": "Poison / Fairy / Water",
+        "EVs": "252 HP / 92 Def / 164 SpD",
+        "nature": "Bold",
+        "Moves": [
+          "1: Torch Song",
+          "2: Will-O-Wisp",
+          "3. Hex",
+          "4. Slack Off"
+        ]
+      }
+    ]
+  },
+  "slowking": {
+    "tier_usage": "A-",
+    "typing": [
+      "Water",
+      "Psychic"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Regenerator",
+        "teratype": "Fairy / Water",
+        "EVs": "252 HP / 252 Def / 4 SpD OR 252 HP / 172 Def / 84 SpD",
+        "IVs": "0 Atk / 0 Spe",
+        "nature": "Relaxed / Sassy",
+        "Moves": [
+          "1: Scald",
+          "2: Thunder Wave / Future Sight",
+          "3. Chilly Reception",
+          "4. Slack Off"
+        ]
+      }
+    ]
+  },
+  "thundurustherian": {
+    "tier_usage": "A",
+    "typing": [
+      "Electric",
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Volt Absorb",
+        "teratype": "Steel / Water",
+        "EVs": "4 Def / 252 Spa / 252 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Nasty Plot",
+          "2: Thunderbolt",
+          "3. Sludge Bomb",
+          "4. Focus Blast"
+        ]
+      }
+    ]
+  },
+  "tinkaton": {
+    "tier_usage": "A-",
+    "typing": [
+      "Fairy",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Utility",
+        "helditem": "Air Balloon / Leftovers",
+        "ability": "Mold Breaker / Pickpocket",
+        "teratype": "Flying / Ghost / Dark / Dragon",
+        "EVs": "252 HP / 12 Atk / 180 Def / 64 SpD",
+        "nature": "Careful",
+        "Moves": [
+          "1: Stealth Rock / Thunder Wave",
+          "2: Gigaton Hammer",
+          "3. Knock Off",
+          "4. Encore"
+        ]
+      }
+    ]
+  },
+  "tornadustherian": {
+    "tier_usage": "S",
+    "typing": [
+      "Flying"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Heavy-Duty Boots / Assault Vest",
+        "ability": "Regenerator",
+        "teratype": "Steel / Water",
+        "EVs": "252 HP / 64 SpD / 192 Spe",
+        "nature": "Timid",
+        "Moves": [
+          "1: Bleakwind Storm",
+          "2: Focus Blast",
+          "3. Knock Off",
+          "4. U-turn"
+        ]
+      }
+    ]
+  },
+  "toxapex": {
+    "tier_usage": "B",
+    "typing": [
+      "Poison",
+      "Water"
+    ],
+    "Movesets": [
+      {
+        "role": "Mixed Wall",
+        "helditem": "Heavy-Duty Boots / Leftovers / Rocky Helmet",
+        "ability": "Regenerator",
+        "teratype": "Fairy / Ground",
+        "EVs": "248 HP / 152 Def / 108 SpD",
+        "nature": "Regenerator",
+        "Moves": [
+          "1: Surf / Liquidation",
+          "2: Toxic",
+          "3. Haze",
+          "4. Recover"
+        ]
+      }
+    ]
+  },
+  "tyranitar": {
+    "tier_usage": "A-",
+    "typing": [
+      "Fire",
+      "Steel"
+    ],
+    "Movesets": [
+      {
+        "role": "Special Wall",
+        "helditem": "Leftovers",
+        "ability": "Sand Stream",
+        "teratype": "Ghost / Fairy",
+        "EVs": "252 HP / 212 SpD / 44 Spe",
+        "nature": "Careful",
+        "Moves": [
+          "1: Stone Edge",
+          "2: Knock Off",
+          "3. Thunder Wave",
+          "4. Stealth Rock"
+        ]
+      }
+    ]
+  },
+  "weavile": {
+    "tier_usage": "A+",
+    "typing": [
+      "Dark",
+      "Ice"
+    ],
+    "Movesets": [
+      {
+        "role": "Physical Attacker",
+        "helditem": "Heavy-Duty Boots",
+        "ability": "Pickpocket",
+        "teratype": "Ghost / Ice / Dark",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Jolly",
+        "Moves": [
+          "1: Swords Dance",
+          "2: Triple Axel / Icicle Crash",
+          "3. Knock Off",
+          "4. Low Kick / Ice Shard"
+        ]
+      }
+    ]
+  },
+  "zarude": {
+    "tier_usage": "A",
+    "typing": [
+      "Dark",
+      "Grass"
+    ],
+    "Movesets": [
+      {
+        "role": "Pivot",
+        "helditem": "Choice Scarf",
+        "ability": "Leaf Guard",
+        "teratype": "Dark / Fighting",
+        "EVs": "252 Atk / 4 SpD / 252 Spe",
+        "nature": "Modest",
+        "Moves": [
+          "1: Knock Off",
+          "2: Power Whip",
+          "3. U-turn",
+          "4. Close Combat / Jungle Healing"
+        ]
+      }
+    ]
+  }
+}
