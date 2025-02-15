@@ -174,7 +174,6 @@ def get_weaknesses(pokemon_name, pokemon_data):
         #else:
         #    neutral.add(attacking_type)
     
-    # Return a dictionary with results
     return {
         "4x": x4_weak,
         "2x": x2_weak,
@@ -212,12 +211,10 @@ def all_combos(pokemon_data, team_size=6):
             print("Error cousin", res)
             continue 
 
-               # Accumulate
         for category in ["4x", "2x", "0.5x", "0x"]:
             for atk_type in res[category]:
                 totals[category][atk_type] += 1
 
-    # After collecting data, display results
     print("\n=== Team Totals ===")
     for category in ["4x", "2x", "0.5x", "0x"]:
         print(f"\n{category} results:")
@@ -259,7 +256,6 @@ def aggregate_roles(tierdata, names, team_size=6):
             print(f"{i} not found in data.")
             continue
         
-        # Assume that the primary moveset is the first element of the "movesets" array.
         if "Movesets" in data and isinstance(data["Movesets"], list) and data["Movesets"]:
             primary_moveset = data["Movesets"][0]
             role = primary_moveset.get("role")
@@ -271,15 +267,13 @@ def aggregate_roles(tierdata, names, team_size=6):
         else:
             print(f"{i} has no movesets defined.")
     
-    # Optionally, print out the aggregated roles:
     print("\n=== Aggregated Roles ===")
     for role, count in role_counts.items():
         print(f"{role}: {count}")
     
     return role_counts
 
-# Example usage:
-# Assuming 'pokemon_data' is your dictionary loaded from your JSON file.
+
 
 
 def analyzer(sponge):
