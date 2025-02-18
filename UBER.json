@@ -1,6 +1,7 @@
 {
   "arceus": {
     "tier_usage": "A",
+    "typing": "Normal",
     "Movesets" : [
       {
       "role": "Physical Attacker",
@@ -75,7 +76,7 @@
   },
   "arceuswater": {
     "tier_usage": "A",
-    "typing": "Fairy",
+    "typing": "Water",
     "Movesets" : [
       {
       "role": "Physical Wall",

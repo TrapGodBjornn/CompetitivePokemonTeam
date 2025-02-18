@@ -1,6 +1,9 @@
 {
   "arceus": {
     "tier_usage": "A",
+    "typing": [
+      "Normal"
+    ],
     "Movesets": [
       {
         "role": "Physical Attacker",
@@ -180,7 +183,7 @@
         "role": "Lead",
         "helditem": "Rocky Helmet / Mental Herb",
         "ability": "Pressue",
-        "teratype": "Steel / Ghost / Darl",
+        "teratype": "Steel / Ghost / Dark",
         "EVs": "248 HP / 240 Def / 16 Spe",
         "nature": "Timid",
         "Moves": [

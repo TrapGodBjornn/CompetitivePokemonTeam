@@ -19,6 +19,8 @@ with open("converted_OU.json", "r", encoding ="utf-8") as e:
 
 cringe = input("Select tier (Uber, OU, or UU): ").lower()
 
+pokemon_data=pokemon_data
+
 
 ALL_TYPES = [
     "Normal", "Fire", "Water", "Electric", "Grass",
@@ -26,6 +28,18 @@ ALL_TYPES = [
     "Psychic", "Bug", "Rock", "Ghost", "Dragon",
     "Dark", "Steel", "Fairy"
 ]
+
+# Add tier rankings as a global constant
+TIER_RANKINGS = {
+    "S": 7,
+    "S-": 6,
+    "A+": 5,
+    "A": 4,
+    "A-": 3,
+    "B+": 2,
+    "B": 1,
+    "Unknown": 0
+}
 
 
 def type_effectiveness():
@@ -274,173 +288,425 @@ def aggregate_roles(tierdata, names, team_size=6):
     return role_counts
 
 
+def calculate_vulnerability_multiplier(num_weak_pokemon):
+    """Returns multiplier based on how many Pokemon share a weakness"""
+    if num_weak_pokemon >= 6: return 2.5
+    if num_weak_pokemon == 5: return 2.0
+    if num_weak_pokemon == 4: return 1.5
+    if num_weak_pokemon == 3: return 1.2
+    return 1.0
 
-def analyzer(sponge, role_totals, names):
-    # Get the tier data based on the first Pokemon's tier
-    sample_pokemon = names[0]
-    tier_map = {
+def calculate_role_multiplier(num_same_role):
+    """Returns multiplier for role overlap"""
+    if num_same_role >= 4: return 2.0
+    if num_same_role == 3: return 1.5
+    return 0
+
+def calculate_pokemon_score(pokemon, team_weaknesses, role_counts, tier_data):
+    """Calculate how problematic a Pokemon is based on its weaknesses and role"""
+    score = 0
+    weaknesses = get_weaknesses(pokemon, pokemon_data)
+    
+    # Type vulnerability score
+    for type, pokemon_weak in team_weaknesses.items():
+        if pokemon in pokemon_weak:
+            num_weak = len(pokemon_weak)
+            multiplier = calculate_vulnerability_multiplier(num_weak)
+            
+            if isinstance(weaknesses, dict):
+                if type in weaknesses['4x']:
+                    score += 2 * multiplier
+                elif type in weaknesses['2x']:
+                    score += 1 * multiplier
+    
+    # Role score
+    mon_data = tier_data.get(pokemon)
+    if mon_data and "Movesets" in mon_data and mon_data["Movesets"]:
+        role = mon_data["Movesets"][0].get("role")
+        if role in role_counts:
+            score += 5 * calculate_role_multiplier(role_counts[role])
+    
+    return score
+
+def calculate_candidate_score(candidate, problem_types, needed_role, tier_data):
+    """Calculate how good a replacement a candidate would be"""
+    score = 0
+    pokemon_data = tier_data.get(candidate['name'])
+    if not pokemon_data:
+        return 0
+        
+    # Base tier score
+    tier_score = TIER_RANKINGS.get(pokemon_data.get("tier_usage", "B"), 0)
+    score += tier_score * 3
+    
+    # Type resistance scoring
+    resisted_types = 0
+    candidate_types = pokemon_data.get("typing", [])
+    _, _, resistances, immunities = type_effectiveness()
+    
+    for prob_type in problem_types:
+        for type in candidate_types:
+            if (prob_type in resistances.get(type, {}) or 
+                prob_type in immunities.get(type, {})):
+                resisted_types += 1
+                break
+    
+    # Bonus for resisting multiple types
+    if resisted_types > 0:
+        type_score = resisted_types * 5
+        type_score *= (1 + (resisted_types - 1) * 0.5)
+        score += type_score
+    
+    # Role score
+    if needed_role and "Movesets" in pokemon_data and pokemon_data["Movesets"]:
+        if pokemon_data["Movesets"][0].get("role") != needed_role:
+            score += 4
+    
+    return score
+
+def get_replacement_threshold(scores):
+    max_score = max(scores.values())
+    if max_score >= 8.0:  # Highly problematic team
+        return 6.0  # Will catch Pokemon with significant issues
+    elif max_score >= 5.0:  # Moderately problematic
+        return 4.0
+    else:  # Minor issues
+        return 2.0
+
+def analyzer(sponge, role_totals, names, tier_choice):
+    global pokemon_data
+    
+    # Map user's tier choice to correct data
+    tier_data = {
         "uber": uber_data,
         "ou": ou_data,
         "uu": uu_data
-    }
-    tier_data = None
-    for tier, data in tier_map.items():
-        if sample_pokemon in data:
-            tier_data = data
-            break
-    
-    if not tier_data:
-        return []  # Return empty if tier not found
+    }[tier_choice.lower()]
 
-    # Define tier rankings for sorting
-    tier_rankings = {
-        "S": 7, "S-": 6, "A+": 5, "A": 4, "A-": 3, "B+": 2, "B": 1
-    }
-
-    # Find Pokemon that could address both type and role issues
-    replacement_candidates = []
-    
-    # Check each Pokemon in the tier data
-    for pokemon_name, pokemon_data in tier_data.items():
-        #if pokemon_name in sponge["pokemon"]:
-        #    continue  # Skip Pokemon already in team
-            
-        # Check if this Pokemon addresses type weaknesses
-        addresses_type = False
-        for atk_type in ALL_TYPES:
-            if (sponge["4x"].get(atk_type, 0) > 1 or sponge["2x"].get(atk_type, 0) > 2):
-                # Check if this Pokemon resists or is immune to the problem type
-                resistances = pokemon_data.get("Resistances", {})
-                if resistances.get(atk_type, 1) < 1:  # Resists or immune
-                    addresses_type = True
-                    break
-        
-        # Check if this Pokemon addresses role imbalances
-        addresses_role = False
-        if "Movesets" in pokemon_data and pokemon_data["Movesets"]:
-            pokemon_role = pokemon_data["Movesets"][0].get("role")
-            if pokemon_role and role_totals.get(pokemon_role, 0) <= 2:
-                addresses_role = True
-        
-        if addresses_type or addresses_role:
-            tier_rank = tier_rankings.get(pokemon_data.get("Tier", "B"), 0)
-            replacement_candidates.append({
-                "name": pokemon_name,
-                "tier_rank": tier_rank,
-                "addresses_type": addresses_type,
-                "addresses_role": addresses_role,
-                "tier": pokemon_data.get("Tier", "B")
-            })
-    
-    # Sort candidates by tier ranking and whether they address both issues
-    replacement_candidates.sort(key=lambda x: (
-        x["addresses_type"] and x["addresses_role"],  # Prioritize Pokemon that fix both
-        x["tier_rank"]
-    ), reverse=True)
-
-    type_recommendations = []
+    # First identify all problem types
+    problem_types = {}
     for atk_type in ALL_TYPES:
-        fourx_count = sponge["4x"].get(atk_type, 0)
-        twox_count = sponge["2x"].get(atk_type, 0)
+        fourx_weak = []
+        twox_weak = []
         
-        if fourx_count > 1 or twox_count > 2:
-            type_recommendations.append({
-                "type": atk_type,
-                "severity": "High" if fourx_count > 1 else "Medium",
-                "suggestion": f"Replace Pokemon weak to {atk_type}"
-            })
+        for name in names:
+            weaknesses = get_weaknesses(name, pokemon_data)
+            if isinstance(weaknesses, dict):
+                if atk_type in weaknesses['4x']:
+                    fourx_weak.append(name)
+                elif atk_type in weaknesses['2x']:
+                    twox_weak.append(name)
+        
+        total_weak = len(fourx_weak) + len(twox_weak)
+        if total_weak > 2:  # This is a problem type
+            problem_types[atk_type] = {
+                "fourx": fourx_weak,
+                "twox": twox_weak,
+                "total": total_weak,
+                "excess": total_weak - 2
+            }
+            print(f"\nVulnerability to {atk_type}: {total_weak} Pokemon")
+            if fourx_weak:
+                print(f"4x weak: {', '.join(fourx_weak)}")
+            print(f"2x weak: {', '.join(twox_weak)}")
 
-    # Analyze role overlap
-    role_recommendations = []
+    # Count how many problem types each Pokemon is weak to
+    pokemon_problem_count = defaultdict(lambda: {"problem_types": set(), "role": None})
+    
+    for atk_type, data in problem_types.items():
+        for pokemon in data["fourx"]:
+            pokemon_problem_count[pokemon]["problem_types"].add(atk_type)
+        for pokemon in data["twox"]:
+            pokemon_problem_count[pokemon]["problem_types"].add(atk_type)
+    
+    # Add role information but don't count it in initial prioritization
     for role, count in role_totals.items():
         if count > 2:
-            role_recommendations.append({
-                "role": role,
-                "count": count,
-                "suggestion": f"Too many {role} Pokemon (count: {count}). Consider replacing {count-2} Pokemon"
-            })
+            for name in names:
+                mon_data = tier_data.get(name)
+                if mon_data and "Movesets" in mon_data and mon_data["Movesets"]:
+                    if mon_data["Movesets"][0].get("role") == role:
+                        pokemon_problem_count[name]["role"] = role
 
-    # Build final recommendations
-    recommendations = {
-        "type_weaknesses": type_recommendations,
-        "role_overlap": role_recommendations
-    }
-
-    # Print analysis results
-    total_issues = len(type_recommendations) + len(role_recommendations)
+    # Sort Pokemon by number of problem types they're weak to
+    replacement_order = []
+    for pokemon, issues in pokemon_problem_count.items():
+        if issues["problem_types"]:  # Only consider Pokemon with problem type weaknesses
+            tier = tier_data.get(pokemon, {}).get("tier_usage", "B")
+            tier_rank = TIER_RANKINGS.get(tier, 0)
+            replacement_order.append((
+                pokemon, 
+                len(issues["problem_types"]),
+                -tier_rank,  # Negative so higher tiers are replaced first
+                issues
+            ))
     
-    if total_issues > 0:
-        print("\n=== Team Analysis Warnings ===")
-        
-        if type_recommendations:
-            print("\nType Weakness Issues:")
-            for rec in type_recommendations:
-                # Find which Pokemon are contributing to this weakness
-                vulnerable_pokemon = []
-                atk_type = rec['type']
-                for name in names:
-                    pokemon_weaknesses = get_weaknesses(name, pokemon_data)
-                    if isinstance(pokemon_weaknesses, dict):
-                        if atk_type in pokemon_weaknesses['4x'] or atk_type in pokemon_weaknesses['2x']:
-                            vulnerable_pokemon.append(name)
-                
-                print(f"- {rec['severity']} vulnerability to {atk_type}")
-                print(f"  Vulnerable Pokemon: {', '.join(vulnerable_pokemon)}")
-                
-                # Print top candidates that would help fix this specific weakness
-                print("\n  Recommended replacements:")
-                candidates_shown = 0
-                for candidate in replacement_candidates:
-                    # Only show Pokemon that actually resist/are immune to this type
-                    pokemon_data = tier_data.get(candidate['name'])
-                    if pokemon_data and pokemon_data.get("Resistances", {}).get(atk_type, 1) < 1:
-                        if candidates_shown < 3:
-                            tier = pokemon_data.get("Tier")  # Get tier directly from pokemon_data
-                            print(f"    • Replace {vulnerable_pokemon[0]} with {candidate['name']} ({tier})")
-                            candidates_shown += 1
-                            vulnerable_pokemon.pop(0)
-        
-        if role_recommendations:
-            print("\nRole Balance Issues:")
-            for rec in role_recommendations:
-                # Find Pokemon with this role
-                role_pokemon = []
-                for name in names:
-                    pokemon_data = tier_data.get(name)
-                    if pokemon_data and "Movesets" in pokemon_data and pokemon_data["Movesets"]:
-                        if pokemon_data["Movesets"][0].get("role") == rec["role"]:
-                            role_pokemon.append(name)
-                
-                print(f"- {rec['suggestion']}")
-                print(f"  Pokemon with this role: {', '.join(role_pokemon)}")
-                
-                # Suggest specific replacements
-                excess = len(role_pokemon) - 2  # We want max 2 of each role
-                print(f"\n  Recommended replacements for {excess} Pokemon:")
-                candidates_shown = 0
-                for candidate in replacement_candidates:
-                    if candidate["addresses_role"] and candidates_shown < excess:
-                        pokemon_data = tier_data.get(candidate['name'])
-                        tier = pokemon_data.get("Tier")  # Get tier directly from pokemon_data
-                        print(f"    • Replace {role_pokemon[candidates_shown]} with {candidate['name']} ({tier})")
-                        candidates_shown += 1
+    replacement_order.sort(key=lambda x: (x[1], x[2]), reverse=True)
+    print("\nPokemon ordered by problem type contributions:")
+    for pokemon, num_problems, _, issues in replacement_order:
+        print(f"{pokemon}: weak to {len(issues['problem_types'])} problem types: {', '.join(issues['problem_types'])}")
 
-        # Adjust overall recommendation based on actual number of needed replacements
-        total_replacements = sum(len(rec.get("vulnerable_pokemon", [])) for rec in type_recommendations)
-        total_replacements += sum(max(0, rec["count"] - 2) for rec in role_recommendations)
-        
-        print("\nOverall Recommendation:")
-        if total_replacements == 0:
-            print("Team looks balanced!")
-        else:
-            print(f"Replace {total_replacements} Pokemon with suggested alternatives above")
-            if total_replacements > len(replacement_candidates):
-                print("Warning: Not enough suitable replacements found in the current tier.")
-    else:
-        print("\n=== Team Analysis ===")
-        print("No significant weaknesses or role overlaps found.")
+    # Create replacement candidates list
+    replacement_candidates = []
+    for pokemon_name, tier_mon_data in tier_data.items():
+        tier_rank = TIER_RANKINGS.get(tier_mon_data.get("tier_usage", "Unknown"), 0)
+        replacement_candidates.append({
+            "name": pokemon_name,
+            "tier_rank": tier_rank,
+            "tier": tier_mon_data.get("tier_usage", "B")
+        })
+    
+    # Sort candidates by tier ranking
+    replacement_candidates.sort(key=lambda x: x["tier_rank"], reverse=True)
 
-    return replacement_candidates
+    # Gather team weaknesses
+    team_weaknesses = defaultdict(list)
+    for name in names:
+        weaknesses = get_weaknesses(name, pokemon_data)
+        if isinstance(weaknesses, dict):
+            for type in ALL_TYPES:
+                if type in weaknesses['4x'] or type in weaknesses['2x']:
+                    team_weaknesses[type].append(name)
+    
+    # Calculate scores for current team members
+    pokemon_scores = {}
+    for pokemon in names:
+        score = calculate_pokemon_score(pokemon, team_weaknesses, role_totals, tier_data)
+        pokemon_scores[pokemon] = score
+    
+    # Sort Pokemon by their problematic score, using tier as secondary sort
+    sorted_pokemon = sorted(
+        [(pokemon, score, TIER_RANKINGS.get(tier_data.get(pokemon, {}).get("tier_usage", "B"), 0)) 
+         for pokemon, score in pokemon_scores.items()],
+        key=lambda x: (x[1], -x[2]),  # Sort by score first, then by negative tier rank
+        reverse=True
+    )
+    
+    print("\n=== Pokemon Scores (Higher = More Problematic) ===")
+    for pokemon, score, _ in sorted_pokemon:
+        print(f"{pokemon}: {score:.2f}")
+    
+    # Calculate baseline threshold based on team average
+    average_score = sum(pokemon_scores.values()) / len(pokemon_scores)
+    # Set threshold at 1.5x average or minimum of 2.0, whichever is higher
+    replacement_threshold = get_replacement_threshold(pokemon_scores)
+    
+    # Check for missing essential roles
+    essential_roles = {
+        "Physical Wall": False,
+        "Special Wall": False,
+        "Physical Attacker": False,
+        "Special Attacker": False
+    }
+    
+    for role, count in role_totals.items():
+        if role in essential_roles:
+            essential_roles[role] = count > 0
+    
+    # Add warnings for missing roles with examples
+    warnings = []
+    for role, has_role in essential_roles.items():
+        if not has_role:
+            example = None
+            for mon, data in tier_data.items():
+                if "Movesets" in data and data["Movesets"] and data["Movesets"][0].get("role") == role:
+                    example = f"{mon} ({data.get('tier_usage', 'Unknown')})"
+                    break
+            if example:
+                warnings.append(f"Warning: Team has no {role}. Example of this role: {example}")
+    
+    # Check for hazard removal
+    has_hazard_removal = False
+    hazard_removal_moves = {"Defog", "Rapid Spin"}
+    for name in names:
+        mon_data = tier_data.get(name)
+        if mon_data and "Movesets" in mon_data and mon_data["Movesets"]:
+            moveset = mon_data["Movesets"][0]
+            if "Moves" in moveset:
+                for move_entry in moveset["Moves"]:
+                    # Handle different possible move formats
+                    if isinstance(move_entry, str):
+                        # Clean up the move string
+                        move_parts = move_entry.replace(":", "").split()
+                        # Remove numbers and clean up
+                        move_name = " ".join(part for part in move_parts if not part[0].isdigit()).strip()
+                        if any(hazard_move.lower() in move_name.lower() for hazard_move in hazard_removal_moves):
+                            has_hazard_removal = True
+                            break
+        if has_hazard_removal:
+            break
+    
+    if not has_hazard_removal:
+        warnings.append("Warning: No hazard removal moves (Defog/Rapid Spin) found. Team may be susceptible to entry hazards.")
+    
+    # Check for Lead role
+    has_lead = False
+    for role, count in role_totals.items():
+        if role == "Lead":
+            has_lead = True
+            break
+    
+    if not has_lead:
+        # Find an example Lead
+        example = None
+        for mon, data in tier_data.items():
+            if "Movesets" in data and data["Movesets"] and data["Movesets"][0].get("role") == "Lead":
+                example = f"{mon} ({data.get('tier_usage', 'Unknown')})"
+                break
+        if example:
+            warnings.append(f"Note: Consider adding a Lead for entry hazard control. Example: {example}")
+    
+    # Print warnings before balance check
+    if warnings:
+        print("\nRole Coverage Warnings:")
+        for warning in warnings:
+            print(f"• {warning}")
+    
+    # Check if team is well-balanced
+    is_balanced = True
+    
+    # Check type balance
+    for type, pokemon_list in team_weaknesses.items():
+        if len(pokemon_list) > 2:
+            is_balanced = False
+            break
+    
+    # Check role balance and coverage
+    for role, count in role_totals.items():
+        if count > 2:
+            is_balanced = False
+            break
+    
+    if is_balanced:
+        print("\n══════════════════════════════════════")
+        print("Team is well-balanced!")
+        print("• No type has more than 2 Pokemon weak to it")
+        print("• No role has more than 2 Pokemon")
+        print("\nNo changes recommended.")
+        print("══════════════════════════════════════")
+        return {}
+        
+    # Track all suggested replacements to ensure uniqueness
+    suggested_replacements = set()
+    to_replace = {}
+    
+    print(f"\nReplacement threshold score: {replacement_threshold:.2f}")
+    
+    for pokemon, score, _ in sorted_pokemon:
+        if (score >= replacement_threshold or 
+            (score >= 5.0 and len(to_replace) < 4)):
+            weaknesses = get_weaknesses(pokemon, pokemon_data)
+            if isinstance(weaknesses, dict):
+                current_role = None
+                mon_data = tier_data.get(pokemon)
+                if mon_data and "Movesets" in mon_data and mon_data["Movesets"]:
+                    current_role = mon_data["Movesets"][0].get("role")
+                
+                # Find best replacements that haven't been suggested yet
+                candidate_scores = []
+                for candidate in replacement_candidates:
+                    if (candidate['name'] != pokemon and 
+                        candidate['name'] not in suggested_replacements and
+                        candidate['name'] not in names):
+                        candidate_score = calculate_candidate_score(
+                            candidate,
+                            [type for type in problem_types if pokemon in team_weaknesses[type]],
+                            current_role if role_totals.get(current_role, 0) > 2 else None,
+                            tier_data
+                        )
+                        if candidate_score > 0:
+                            candidate_scores.append((candidate, candidate_score))
+                
+                # Sort and get top replacements
+                candidate_scores.sort(key=lambda x: x[1], reverse=True)
+                if candidate_scores and len(to_replace) < 4:
+                    replacements = []
+                    for candidate, cand_score in candidate_scores[:3]:
+                        tier = tier_data.get(candidate['name'], {}).get("tier_usage", "Unknown")
+                        improvement = cand_score - score
+                        replacements.append(f"{candidate['name']} ({tier}) [Score improvement: +{improvement:.1f}]")
+                        suggested_replacements.add(candidate['name'])
+                    
+                    if replacements:
+                        to_replace[pokemon] = {
+                            'reason': f"Problem Score: {score:.2f}" + 
+                                    (f" (Above threshold of {replacement_threshold:.2f})" if score >= replacement_threshold else 
+                                     " (Additional replacement needed for team balance)"),
+                            'replacements': replacements
+                        }
+        
+        elif score > 0:  # For Pokemon with issues but below threshold
+            print(f"\nNote: {pokemon} has minor issues (Score: {score:.2f}) but below replacement threshold")
+
+    # Print recommendations with additional context
+    if to_replace:
+        print("\n══════════════════════════════════════")
+        print("     RECOMMENDED TEAM CHANGES")
+        print("══════════════════════════════════════")
+        
+        print(f"\nFound {len(suggested_replacements)} unique replacement suggestions")
+        print("\nOverview:")
+        for pokemon, info in to_replace.items():
+            print(f"• {pokemon} - {info['reason']}")
+        
+        print("\nDetailed Recommendations:")
+        for pokemon, info in to_replace.items():
+            print(f"\n{'-'*50}")
+            print(f"Replace: {pokemon.upper()}")
+            print(f"Reason: {info['reason']}")
+            print("\nSuggested replacements (with improvement scores):")
+            for replacement in info['replacements']:
+                print(f"  ▶ {replacement}")
+        
+        print(f"\n{'-'*50}")
+        print("Note: Consider implementing changes in order shown above")
+        print("══════════════════════════════════════")
+    
+    return to_replace
+
+def find_replacements(pokemon, weakness_types, current_role, tier_data, replacement_candidates):
+    """Find replacement Pokemon that address both type and role issues"""
+    replacements = []
+    _, _, resistances, immunities = type_effectiveness()
+    
+    print(f"\nFinding replacements for {pokemon}:")
+    print(f"Must resist: {', '.join(weakness_types)}")
+    if current_role:
+        print(f"Must not have role: {current_role}")
+    
+    for candidate in replacement_candidates:
+        pokemon_data = tier_data.get(candidate['name'])
+        if not pokemon_data or candidate['name'] == pokemon:
+            continue
+        
+        # Check type resistances
+        resists_all = True
+        candidate_types = pokemon_data.get("typing", [])
+        
+        for weakness_type in weakness_types:
+            resists_this_type = False
+            for type in candidate_types:
+                if (weakness_type in resistances.get(type, {}) or 
+                    weakness_type in immunities.get(type, {})):
+                    resists_this_type = True
+                    break
+            if not resists_this_type:
+                resists_all = False
+                break
+        
+        # Check role
+        valid_role = True
+        if current_role and "Movesets" in pokemon_data and pokemon_data["Movesets"]:
+            if pokemon_data["Movesets"][0].get("role") == current_role:
+                valid_role = False
+        
+        if resists_all and valid_role:
+            tier = pokemon_data.get("tier_usage", "Unknown")
+            replacements.append(f"{candidate['name']} ({tier})")
+            if len(replacements) >= 3:
+                break
+    
+    return replacements
 
 """def analyz(sponge):
     recommendations = {}
@@ -464,15 +730,20 @@ def analyzer(sponge, role_totals, names):
 """
 
 totals, names = all_combos(pokemon_data, 6)
+
+# Initialize role_totals based on tier choice
+role_totals = None
 if cringe == "ou":
     role_totals = aggregate_roles(ou_data, names, team_size=6)
-if cringe == "uu":
-        role_totals = aggregate_roles(uu_data, names, team_size=6)
-if cringe == "uber":
-        role_totals = aggregate_roles(uber_data, names, team_size=6)
+elif cringe == "uu":
+    role_totals = aggregate_roles(uu_data, names, team_size=6)
+elif cringe == "uber":
+    role_totals = aggregate_roles(uber_data, names, team_size=6)
 
-
-analyzer(totals, role_totals, names)
+if role_totals is None:  # Add error handling
+    print("Error: Invalid tier selected")
+else:
+    analyzer(totals, role_totals, names, cringe)
 
 #recs = analyzer(totals)
 #print(f"Final recommendations:, {recs}")
