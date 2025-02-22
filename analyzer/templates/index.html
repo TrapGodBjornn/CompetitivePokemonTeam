@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon Team Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .pokemon-input {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #results {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .warning {
+            color: #d63031;
+            margin: 5px 0;
+        }
+        
+        .balanced {
+            color: #00b894;
+            font-weight: bold;
+        }
+        
+        .replacement {
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+            background: #f9f9f9;
+        }
+        
+        .critical {
+            background-color: #ffebee;
+            border-left: 3px solid #f44336;
+        }
+        
+        .replacement-suggestions {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+        }
+        
+        .replacement-suggestions ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        
+        .replacement-suggestions ul ul {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .critical .replacement-suggestions {
+            background: #fbe9e7;
+        }
+        
+        .team-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .pokemon-entry {
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        
+        .pokemon-entry.balanced {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .pokemon-entry.warning {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .pokemon-entry.critical {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .pokemon-name {
+            font-weight: bold;
+        }
+        
+        .pokemon-role {
+            color: #666;
+        }
+        
+        .type-vulnerability {
+            margin: 10px 0;
+            padding: 10px;
+            background: #fff3e0;
+            border-radius: 4px;
+        }
+        
+        .role-coverage {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+        }
+        
+        .pokemon-analysis {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #f8f9fa;
+        }
+        
+        .pokemon-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .pokemon-header .pokemon-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .pokemon-header .pokemon-role {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .weakness-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        
+        .replacement-item {
+            margin: 10px 0;
+        }
+        
+        .replacement-item strong {
+            color: #2196F3;
+        }
+        
+        .meta-team {
+            margin: 20px 0;
+        }
+        
+        .pokemon-meta {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .pokemon-meta.replacement {
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .meta-details {
+            margin-left: 15px;
+        }
+        
+        .moveset {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .moveset ul {
+            list-style-type: none;
+            padding-left: 15px;
+        }
+        
+        .type-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 2px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        
+        .type-bug { background-color: #92BC2C; }
+        .type-dark { background-color: #595761; }
+        .type-dragon { background-color: #0C69C8; }
+        .type-electric { background-color: #F2D94E; color: black; }
+        .type-fairy { background-color: #EE90E6; }
+        .type-fighting { background-color: #D3425F; }
+        .type-fire { background-color: #FBA54C; }
+        .type-flying { background-color: #A1BBEC; }
+        .type-ghost { background-color: #5F6DBC; }
+        .type-grass { background-color: #5FBD58; }
+        .type-ground { background-color: #DA7C4D; }
+        .type-ice { background-color: #75D0C1; }
+        .type-normal { background-color: #A0A29F; }
+        .type-poison { background-color: #B763CF; }
+        .type-psychic { background-color: #FA8581; }
+        .type-rock { background-color: #C9BB8A; }
+        .type-steel { background-color: #5695A3; }
+        .type-water { background-color: #539DDF; }
+        
+        .type-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .type-header span {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokemon Team Analyzer</h1>
+    <form id="analyzerForm">
+        <div class="pokemon-input">
+            <label for="tier">Select Tier:</label>
+            <select name="tier" id="tier">
+                <option value="uber">Uber</option>
+                <option value="ou">OU</option>
+                <option value="uu">UU</option>
+            </select>
+        </div>
+        
+        <div id="teamInputs">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <button type="submit">Analyze Team</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        // Create 6 Pokemon input fields
+        const teamInputs = document.getElementById('teamInputs');
+        for (let i = 1; i <= 6; i++) {
+            const div = document.createElement('div');
+            div.className = 'pokemon-input';
+            div.innerHTML = `
+                <label for="pokemon${i}">Pokemon ${i}:</label>
+                <input type="text" id="pokemon${i}" name="pokemon${i}" required>
+            `;
+            teamInputs.appendChild(div);
+        }
+
+        // Add this helper function
+        function normalizeNameForLookup(name) {
+            // Remove spaces, hyphens, periods and convert to lowercase
+            return name.toLowerCase().replace(/[\s\-\.]/g, '');
+        }
+
+        // Handle form submission
+        document.getElementById('analyzerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const team = [];
+            for (let i = 1; i <= 6; i++) {
+                // Store the display name but normalize it for lookup
+                const displayName = document.getElementById(`pokemon${i}`).value.trim();
+                team.push({
+                    display: displayName,
+                    lookup: normalizeNameForLookup(displayName)
+                });
+            }
+            
+            const tier = document.getElementById('tier').value;
+            
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        team: team.map(t => t.lookup), // Send normalized names
+                        displayNames: team.map(t => t.display), // Send display names
+                        tier 
+                    })
+                });
+                
+                const data = await response.json();
+                if (data.error) {
+                    document.getElementById('results').innerHTML = `<div class="warning">${data.error}</div>`;
+                } else {
+                    displayResults(data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = '<div class="warning">An error occurred while analyzing the team.</div>';
+            }
+        });
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            let html = '<h2>Analysis Results</h2>';
+            
+            // Show input team without roles
+            html += '<h3>Your Team:</h3>';
+            const sortedTeam = Object.entries(data.pokemon_problems)
+                .sort((a, b) => b[1].score - a[1].score);
+            
+            html += '<div class="team-summary">';
+            sortedTeam.forEach(([pokemon, info]) => {
+                html += `
+                    <div class="pokemon-entry ${info.score >= 6 ? 'critical' : info.score > 0 ? 'warning' : 'balanced'}">
+                        <span class="pokemon-name">${pokemon}</span>
+                        ${info.score > 0 ? ` - Problem Score: ${info.score}` : ' - No Issues'}
+                    </div>`;
+            });
+            html += '</div>';
+
+            // Show overall type problems
+            if (data.problem_types) {
+                html += '<h3>Team Type Vulnerabilities:</h3>';
+                const significantProblems = Object.entries(data.problem_types)
+                    .filter(([_, info]) => info.total > 2);
+                
+                if (significantProblems.length > 0) {
+                    significantProblems.forEach(([type, info]) => {
+                        html += `<div class="type-vulnerability">
+                            <div class="type-header">
+                                ${createTypeBadge(type)} 
+                                <span>(${info.total} Pokémon weak)</span>
+                            </div>
+                            ${info.fourx.length ? `<p>4x weak: ${info.fourx.join(', ')}</p>` : ''}
+                            ${info.twox.length ? `<p>2x weak: ${info.twox.join(', ')}</p>` : ''}
+                        </div>`;
+                    });
+                } else {
+                    html += '<p>No significant type vulnerabilities found (3+ Pokémon weak to the same type)</p>';
+                }
+            }
+
+            // Update the Problem Analysis section
+            html += '<h3>Type Analysis:</h3>';
+            for (const [pokemon, info] of sortedTeam) {
+                if (info.problem_types.length > 0) {
+                    const severityClass = info.score >= 6 ? 'critical' : 'warning';
+                    html += `
+                        <div class="pokemon-analysis ${severityClass}">
+                            <div class="pokemon-header">
+                                <span class="pokemon-name">${pokemon}</span>
+                                ${info.score >= 6 ? ' ⚠️' : ''}
+                            </div>
+                            <div class="weakness-info">
+                                <p>Overlap with Team Type Vulnerabilities: ${info.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
+                                <p>Problem Score: ${info.score}</p>
+                            </div>`;
+                    
+                    // Only show recommendations for high problem scores
+                    if (info.score >= 6 && info.replacements && info.replacements.length > 0) {
+                        html += `
+                            <div class="replacement-suggestions">
+                                <p><strong>Recommended Replacements:</strong></p>
+                                <ul>`;
+                        info.replacements.forEach(r => {
+                            html += `
+                                <li class="replacement-item">
+                                    <strong>${r.name}</strong>
+                                    <ul>
+                                        <li>Role: ${r.role}</li>
+                                        <li>Resists ${r.resists} problem type(s)</li>
+                                        <li>Usage Tier: ${r.tier_usage}</li>
+                                    </ul>
+                                </li>`;
+                        });
+                        html += '</ul></div>';
+                    }
+                    html += '</div>';
+                }
+            }
+
+            // Get the optimized team composition
+            const optimizedTeam = [];
+            sortedTeam.forEach(([pokemon, info]) => {
+                if (info.score >= 6 && info.replacements && info.replacements.length > 0) {
+                    // Add best replacement
+                    optimizedTeam.push({
+                        name: info.replacements[0].name,
+                        isReplacement: true,
+                        replacedPokemon: pokemon,
+                        ...info.replacements[0]
+                    });
+                } else {
+                    // Keep original Pokemon
+                    optimizedTeam.push({
+                        name: pokemon,
+                        isReplacement: false,
+                        role: info.role,
+                        tier_usage: data.tier_data?.[pokemon.toLowerCase()]?.tier_usage || "Unknown"
+                    });
+                }
+            });
+
+            // Display New Meta Team
+            html += '<h3>New Meta for Team:</h3>';
+            html += '<div class="meta-team">';
+            optimizedTeam.forEach(pokemon => {
+                const movesetData = data.tier_data?.[pokemon.name.toLowerCase()]?.Movesets?.[0];
+                const pokemonTypes = data.tier_data?.[pokemon.name.toLowerCase()]?.typing || [];
+                
+                html += `
+                    <div class="pokemon-meta ${pokemon.isReplacement ? 'replacement' : 'original'}">
+                        <h4>${pokemon.name} ${pokemon.isReplacement ? `(Replacing ${pokemon.replacedPokemon})` : ''}</h4>
+                        <div class="meta-details">
+                            <p><strong>Types:</strong> ${pokemonTypes.map(type => createTypeBadge(type)).join(' ')}</p>
+                            <p><strong>Role:</strong> ${pokemon.role}</p>
+                            <p><strong>Tier Usage:</strong> ${pokemon.tier_usage}</p>
+                            ${movesetData ? `
+                                <div class="moveset">
+                                    <p><strong>Held Item:</strong> ${movesetData.helditem}</p>
+                                    <p><strong>Ability:</strong> ${movesetData.ability}</p>
+                                    <p><strong>Tera Type:</strong> ${createTypeBadge(movesetData.teratype.split(' / ')[0])}</p>
+                                    <p><strong>EVs:</strong> ${movesetData.EVs}</p>
+                                    <p><strong>Nature:</strong> ${movesetData.nature}</p>
+                                    <p><strong>Moves:</strong></p>
+                                    <ul>
+                                        ${movesetData.Moves.map(move => `<li>${move}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : '<p>No moveset data available</p>'}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            // Show role coverage for optimized team
+            const optimizedRoles = {};
+            optimizedTeam.forEach(pokemon => {
+                if (pokemon.role) {
+                    optimizedRoles[pokemon.role] = (optimizedRoles[pokemon.role] || 0) + 1;
+                }
+            });
+
+            html += '<h3>Role Coverage for Optimized Team:</h3>';
+            const roleAnalysis = analyzeRoleCoverage(optimizedRoles);
+            html += '<div class="role-coverage">';
+            
+            // Group Pokemon by their roles
+            const pokemonByRole = {};
+            optimizedTeam.forEach(pokemon => {
+                if (pokemon.role) {
+                    if (!pokemonByRole[pokemon.role]) {
+                        pokemonByRole[pokemon.role] = [];
+                    }
+                    pokemonByRole[pokemon.role].push(pokemon.name);
+                }
+            });
+            
+            // Display each role with its Pokemon
+            for (const [role, count] of Object.entries(optimizedRoles)) {
+                const pokemonWithRole = pokemonByRole[role] || [];
+                html += `<p>${role} (${count}): ${pokemonWithRole.join(', ')}</p>`;
+            }
+            html += '</div>';
+
+            if (roleAnalysis.missing.length > 0) {
+                html += `<p class="warning">Missing Roles: ${roleAnalysis.missing.join(', ')}</p>`;
+            }
+            if (roleAnalysis.tooMany.length > 0) {
+                html += `<p class="warning">Too Many: ${roleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
+            }
+
+            resultsDiv.innerHTML = html;
+        }
+
+        function analyzeRoleCoverage(roleTotals) {
+            const expectedRoles = [
+                'Lead', 'Special Attacker', 'Physical Attacker', 
+                'Utility', 'Pivot', 'Special Wall', 'Physical Wall'
+            ];
+            const missing = expectedRoles.filter(role => !roleTotals[role]);
+            const tooMany = Object.entries(roleTotals)
+                .filter(([_, count]) => count > 2)
+                .map(([role, count]) => ({role, count}));
+            
+            return { missing, tooMany };
+        }
+
+        // Helper function to create type badge
+        function createTypeBadge(type) {
+            return `<span class="type-badge type-${type.toLowerCase()}">${type}</span>`;
+        }
+    </script>
+</body>
+</html> 
