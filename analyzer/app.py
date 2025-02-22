@@ -78,10 +78,11 @@ def analyze():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    print("\n=== Starting Flask Application ===\n")  # Debug print
-    try:
-        print("Data loaded successfully, starting server...")  # Debug print
-        app.run(debug=True, host='127.0.0.1', port=8080)
-    except Exception as e:
-        print(f"Failed to start application: {str(e)}")  # Debug print
-        raise 
+    if os.environ.get('RENDER'):
+        # Production on Render
+        port = int(os.environ.get('PORT', 10000))
+        app.run(host='0.0.0.0', port=port)
+    else:
+        # Local development
+        print("Starting The Battle Lab...")
+        app.run(port=8080, debug=True) 
