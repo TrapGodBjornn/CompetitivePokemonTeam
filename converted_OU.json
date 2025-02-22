@@ -20,7 +20,8 @@
   "araquanid": {
     "tier_usage": "B",
     "typing": [
-      "Water, Bug"
+      "Water", 
+      "Bug"
     ],
     "Movesets": [
       {
