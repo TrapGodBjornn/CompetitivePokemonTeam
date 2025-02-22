@@ -41,9 +41,13 @@ def home():
 def analyze():
     try:
         data = request.get_json()
-        team = data.get('team', [])  # These are the normalized names
-        display_names = data.get('displayNames', [])  # These are the original names
+        print("Received data:", data)  # Debug print
+        team = data.get('team', [])
+        display_names = data.get('displayNames', [])
         tier = data.get('tier', '').lower()
+        
+        print("Processing team:", team)  # Debug print
+        print("Display names:", display_names)  # Debug print
         
         if not team or len(team) != 6:
             return jsonify({'error': 'Please provide exactly 6 Pokemon'})
@@ -69,7 +73,8 @@ def analyze():
         
         return jsonify(results)
     except Exception as e:
-        print(f"Analysis error: {e}")
+        print(f"Analysis error: {str(e)}")  # Debug print
+        print(f"Full error details: {e.__class__.__name__}")  # Print error type
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
