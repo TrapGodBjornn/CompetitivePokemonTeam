@@ -22,7 +22,11 @@ except Exception as e:
     raise
 
 def load_data():
-    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    # Look for data files in the data directory
+    base_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data')
+    if not os.path.exists(base_path):
+        # Fallback to project root if data directory doesn't exist
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     return load_pokemon_data(base_path)
 
 # Load data at startup
