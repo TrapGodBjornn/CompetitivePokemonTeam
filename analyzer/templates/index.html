@@ -5,11 +5,12 @@
     <style>
         /* Update base colors for better contrast */
         :root {
-            --dark-gold: #C4A484;
-            --medium-gold: #D4B88C;
-            --light-gold: #E6D5B9;
-            --cream-gold: #F2E2C4;
-            --text-dark: #2C1810;  /* Darker brown for text */
+            --dark-gold: #B8860B;      /* Darker reddish gold */
+            --medium-gold: #DAA520;    /* Medium reddish gold */
+            --light-gold: #DEB887;     /* Light reddish gold */
+            --cream-gold: #F5DEB3;     /* Cream with gold tint */
+            --text-dark: #2C1810;      /* Dark brown text */
+            --reddish-gold: #CD853F;   /* Peru - reddish gold */
         }
 
         body {
@@ -18,7 +19,7 @@
             margin: 0 auto;
             padding: 10px 40px;
             font-size: 16px;  /* Reduced from 18px */
-            background: linear-gradient(135deg, #F8ECD1, #DEB887);  /* New warmer gradient */
+            background: linear-gradient(135deg, #CD853F, #8B4513);  /* Reddish gold to saddle brown */
             background-attachment: fixed;
             position: relative;
         }
@@ -32,8 +33,8 @@
             height: 100%;
             background-image: 
                 repeating-linear-gradient(45deg, 
-                    rgba(218, 165, 32, 0.05) 0px,  /* Subtle gold pattern */
-                    rgba(218, 165, 32, 0.05) 2px,
+                    rgba(205, 133, 63, 0.1) 0px,  /* Subtle reddish gold pattern */
+                    rgba(205, 133, 63, 0.1) 2px,
                     transparent 2px, 
                     transparent 4px);
             pointer-events: none;
@@ -60,7 +61,7 @@
         }
         
         .pokemon-input, input, select, #results, .team-summary, .pokemon-meta, .pokemon-analysis { 
-            background: #E8D5BC;  /* Medium cream */
+            background: var(--cream-gold);
         }
         
         .pokemon-input {
@@ -879,6 +880,90 @@
             transform: translateY(-2px);
             box-shadow: 0 3px 6px rgba(139, 0, 0, 0.2);
         }
+
+        .welcome-section {
+            background: linear-gradient(165deg, var(--cream-gold), var(--light-gold));
+            border: 1px solid var(--medium-gold);
+            border-radius: 12px;
+            margin: 20px auto 30px;
+            padding: 25px;
+            max-width: 1000px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .welcome-content {
+            color: var(--text-dark);
+        }
+
+        .welcome-content h2 {
+            color: #8B0000;
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 2px solid var(--medium-gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-content h3 {
+            color: #8B0000;
+            margin-top: 20px;
+        }
+
+        .how-it-works {
+            background: linear-gradient(165deg, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .how-it-works ol {
+            padding-left: 20px;
+        }
+
+        .how-it-works ul {
+            padding-left: 30px;
+        }
+
+        .how-it-works li {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+
+        .important-note {
+            background: linear-gradient(to right, #A52A2A, #8B0000);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .viability-links {
+            background: linear-gradient(165deg, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .viability-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .viability-links li {
+            margin: 10px 0;
+        }
+
+        .viability-links a {
+            color: #8B0000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        .viability-links a:hover {
+            color: #A52A2A;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -896,6 +981,42 @@
         <img src="https://play.pokemonshowdown.com/sprites/gen5/charizard.png" 
              class="banner-sprite" id="pokemon6" alt="Charizard">
         <h1>The Battle Lab</h1>
+    </div>
+    <div class="welcome-section">
+        <div class="welcome-content">
+            <h2>Welcome to The Battle Lab</h2>
+            <p>Your companion for competitive team building. This tool is specifically designed to help newcomers create balanced, meta-relevant teams with confidence.</p>
+            
+            <div class="how-it-works">
+                <h3>How it works:</h3>
+                <ol>
+                    <li>Select your desired competitive tier</li>
+                    <li>Enter your team members</li>
+                    <li>Receive a comprehensive analysis including:
+                        <ul>
+                            <li>Most problematic Pokemon and suggested replacements</li>
+                            <li>Team-wide type weaknesses</li>
+                            <li>Individual Pokemon weaknesses and their overlap with team vulnerabilities</li>
+                            <li>Role distribution analysis</li>
+                            <li>Recommended competitive movesets</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="important-note">
+                <p><strong>Note:</strong> To ensure the highest quality recommendations, The Battle Lab only works with Pokemon ranked B or higher in their respective tiers. This aligns with the common advice that beginners should focus on proven options while learning competitive battling.</p>
+            </div>
+
+            <div class="viability-links">
+                <h3>Current Viability Rankings:</h3>
+                <ul>
+                    <li><a href="https://www.smogon.com/forums/threads/sv-ubers-viability-rankings.3724082/" target="_blank">Ubers Viability Rankings</a></li>
+                    <li><a href="https://www.smogon.com/forums/threads/sv-ou-indigo-disk-viability-ranking-thread-update-on-post-755.3734134/" target="_blank">OU Viability Rankings</a></li>
+                    <li><a href="https://www.smogon.com/forums/threads/sv-uu-dlc-2-viability-rankings-update-at-post-281.3735310/" target="_blank">UU Viability Rankings</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <form id="analyzerForm">
         <div class="tier-select">
