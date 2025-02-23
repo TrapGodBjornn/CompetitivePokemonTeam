@@ -964,6 +964,34 @@
             color: #A52A2A;
             text-decoration: underline;
         }
+
+        /* Add these styles in the <style> section */
+        .meta-main-header {
+            font-size: 1.8em;
+            padding: 20px 0;
+            margin: 25px 0;
+            border-bottom: 3px solid #2c3e50;
+            color: #2c3e50;
+        }
+
+        .meta-section-header {
+            font-size: 1.5em;
+            padding: 15px 0;
+            margin: 20px 0;
+            border-bottom: 2px solid #ddd;
+            color: #2c3e50;
+        }
+
+        .optimization-note {
+            font-size: 1.1em;
+            font-style: italic;
+            color: #555;
+            margin: 15px 0 25px;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            background-color: #f9f9f9;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -1312,7 +1340,7 @@
                 html += '</div>';
                 
                 // Add Role Coverage section
-                html += '<h3>Role Coverage:</h3>';
+                html += '<h3>Current Role Coverage:</h3>';
                 html += '<div class="role-coverage">';
                 const roleTotals = data.role_totals || {};
                 
@@ -1343,52 +1371,150 @@
                 }
                 html += '</div>';
                 
-                // Add Meta Team section
-                html += '<h3>New Meta for Team:</h3>';
-                html += '<div class="meta-team-container">';
-                html += '<div class="meta-team">';
+                // Add Optimized Role Coverage section if there are replacements
+                if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
+                    html += '<h3>Optimized Role Coverage:</h3>';
+                    html += '<div class="role-coverage">';
+                    
+                    // Get top 2 problematic Pokemon
+                    const topProblematic = sortedTeam
+                        .filter(([_, info]) => info.score > 0)
+                        .sort(([_, a], [__, b]) => b.score - a.score)
+                        .slice(0, 2);
+                    
+                    // Create new role totals starting with current team
+                    const newRoleTotals = {...roleTotals};
+                    const newPokemonByRole = {...pokemonByRole};
+                    const usedReplacements = new Set();
+                    
+                    // Process replacements for top problematic Pokemon
+                    topProblematic.forEach(([pokemon, info], index) => {
+                        const pokemonData = data.pokemon_problems[pokemon];
+                        if (!pokemonData?.replacements?.length) return;
+                        
+                        // Remove current Pokemon's role
+                        if (info.role && newPokemonByRole[info.role]) {
+                            newPokemonByRole[info.role] = newPokemonByRole[info.role].filter(p => p !== pokemon);
+                            newRoleTotals[info.role]--;
+                        }
+                        
+                        // Find appropriate replacement
+                        let replacement;
+                        if (index === 0) {
+                            // First Pokemon gets best replacement
+                            replacement = pokemonData.replacements[0];
+                        } else {
+                            // Second Pokemon gets best unused replacement
+                            replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
+                        }
+                        
+                        if (replacement) {
+                            usedReplacements.add(replacement.name);
+                            // Add new Pokemon's role
+                            const newRole = replacement.role;
+                            if (newRole) {
+                                if (!newPokemonByRole[newRole]) newPokemonByRole[newRole] = [];
+                                newPokemonByRole[newRole].push(replacement.name);
+                                newRoleTotals[newRole] = (newRoleTotals[newRole] || 0) + 1;
+                            }
+                        }
+                    });
+                    
+                    // Display updated roles
+                    for (const [role, count] of Object.entries(newRoleTotals)) {
+                        const pokemonWithRole = newPokemonByRole[role] || [];
+                        html += `<p><strong>${role} (${count})</strong>: ${pokemonWithRole.join(', ')}</p>`;
+                    }
+                    
+                    // Add role analysis for optimized team
+                    const newRoleAnalysis = analyzeRoleCoverage(newRoleTotals);
+                    if (newRoleAnalysis.missing.length > 0) {
+                        html += `<p class="warning"><strong>Missing Roles:</strong> ${newRoleAnalysis.missing.join(', ')}</p>`;
+                    }
+                    if (newRoleAnalysis.tooMany.length > 0) {
+                        html += `<p class="warning"><strong>Too Many:</strong> ${newRoleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
+                    }
+                    html += '</div>';
+                }
                 
+                // Add Meta Team section
+                html += '<h3 class="meta-main-header">Team Analysis & Recommended Movesets:</h3>';
+                html += '<div class="meta-team-container">';
+                
+                // Current team section
+                html += '<h4 class="meta-section-header">Current Team Competitive Sets:</h4>';
+                html += '<div class="meta-team">';
                 sortedTeam.forEach(([pokemon, info]) => {
                     const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
                     const pokemonTypes = data.tier_data[pokemon.toLowerCase()]?.typing || [];
-                    
-                    // Debug logging for Arceus
-                    if (pokemon.toLowerCase().includes('arceus')) {
-                        console.log('Arceus debug:');
-                        console.log('Pokemon:', pokemon);
-                        console.log('Tier data:', data.tier_data[pokemon.toLowerCase()]);
-                        console.log('Moveset data:', movesetData);
-                    }
-                    
-                    html += `
-                        <div class="pokemon-meta">
-                            <h4>
-                                <img src="${getPokemonSprite(pokemon)}" 
-                                     class="analysis-sprite" 
-                                     onerror="this.style.display='none'">
-                                ${pokemon}
-                            </h4>
-                            <div class="meta-details">
-                                <p><strong>Types:</strong> ${Array.isArray(pokemonTypes) ? pokemonTypes.map(type => createTypeBadge(type)).join(' ') : 'Unknown'}</p>
-                                <p><strong>Role:</strong> ${info.role || 'Unknown'}</p>
-                                ${movesetData ? `
-                                    <div class="moveset">
-                                        <p><strong>Held Item:</strong> ${movesetData.helditem || 'Unknown'}</p>
-                                        <p><strong>Ability:</strong> ${movesetData.ability || 'Unknown'}</p>
-                                        <p><strong>Tera Type:</strong> ${displayTeraTypes(movesetData.teratype)}</p>
-                                        <p><strong>EVs:</strong> ${movesetData.EVs || 'Unknown'}</p>
-                                        <p><strong>Nature:</strong> ${movesetData.nature || 'Unknown'}</p>
-                                        <p><strong>Moves:</strong></p>
-                                        <ul>
-                                            ${Array.isArray(movesetData.Moves) ? movesetData.Moves.map(move => `<li>${move}</li>`).join('') : '<li>No moves available</li>'}
-                                        </ul>
-                                    </div>
-                                ` : '<p>No moveset data available</p>'}
-                            </div>
-                        </div>`;
+                    html += generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes);
                 });
+                html += '</div>';
                 
-                html += '</div></div>';
+                // Only show optimized team if there are replacements
+                if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
+                    html += '<h4 class="meta-section-header">Optimized Team Suggestion:</h4>';
+                    html += `
+                        <p class="optimization-note">
+                            Consider implementing these changes gradually to evaluate their impact. 
+                            While these replacements address current type vulnerabilities, new team dynamics may emerge. 
+                            Experiment with each change to find the best balance for your playstyle.
+                        </p>`;
+                    html += '<div class="meta-team">';
+
+                    // Get top 2 problematic Pokemon by score
+                    const topProblematic = sortedTeam
+                        .filter(([_, info]) => info.score > 0)
+                        .sort(([_, a], [__, b]) => b.score - a.score)
+                        .slice(0, 2);
+                    
+                    // Track used replacements
+                    const usedReplacements = new Set();
+                    
+                    sortedTeam.forEach(([pokemon, info]) => {
+                        // Check if this is one of the top 2 problematic Pokemon
+                        const isTopProblematic = topProblematic.some(([p]) => p === pokemon);
+                        const pokemonData = data.pokemon_problems[pokemon];
+                        
+                        if (isTopProblematic && pokemonData?.replacements?.length > 0) {
+                            // For first Pokemon, use best replacement
+                            let replacement;
+                            if (usedReplacements.size === 0) {
+                                replacement = pokemonData.replacements[0];
+                                console.log(`First replacement for ${pokemon}:`, replacement.name);
+                            } else {
+                                // For second Pokemon, find first unused replacement
+                                replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
+                                console.log(`Finding unused replacement for ${pokemon}:`, replacement?.name);
+                            }
+                            
+                            if (replacement) {
+                                usedReplacements.add(replacement.name);
+                                const movesetData = data.tier_data[replacement.name.toLowerCase()]?.Movesets?.[0];
+                                const pokemonTypes = data.tier_data[replacement.name.toLowerCase()]?.typing || [];
+                                html += generatePokemonMetaCard(replacement.name, 
+                                    { role: replacement.role }, 
+                                    movesetData, 
+                                    pokemonTypes,
+                                    true,  // isReplacement flag
+                                    pokemon  // original Pokemon name
+                                );
+                            } else {
+                                // Fallback to original Pokemon if no valid replacement found
+                                const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
+                                const pokemonTypes = data.tier_data[pokemon.toLowerCase()]?.typing || [];
+                                html += generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes);
+                            }
+                        } else {
+                            // Keep original Pokemon
+                            const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
+                            const pokemonTypes = data.tier_data[pokemon.toLowerCase()]?.typing || [];
+                            html += generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes);
+                        }
+                    });
+                    html += '</div>';
+                }
+                html += '</div>';
                 
                 resultsDiv.innerHTML = html;
                 
@@ -1446,6 +1572,37 @@
             return teratype.split(' / ')
                 .map(type => createTypeBadge(type))
                 .join(' or ');
+        }
+
+        // Update the generatePokemonMetaCard function to handle replacement styling
+        function generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes, isReplacement = false, replacedPokemon = null) {
+            return `
+                <div class="pokemon-meta ${isReplacement ? 'replacement-card' : ''}">
+                    <h4>
+                        <img src="${getPokemonSprite(pokemon)}" 
+                             class="analysis-sprite" 
+                             onerror="this.style.display='none'">
+                        ${pokemon}
+                        ${isReplacement ? `<span class="replacement-tag">(Replacing ${replacedPokemon})</span>` : ''}
+                    </h4>
+                    <div class="meta-details">
+                        <p><strong>Types:</strong> ${Array.isArray(pokemonTypes) ? pokemonTypes.map(type => createTypeBadge(type)).join(' ') : 'Unknown'}</p>
+                        <p><strong>Role:</strong> ${info.role || 'Unknown'}</p>
+                        ${movesetData ? `
+                            <div class="moveset">
+                                <p><strong>Held Item:</strong> ${movesetData.helditem || 'Unknown'}</p>
+                                <p><strong>Ability:</strong> ${movesetData.ability || 'Unknown'}</p>
+                                <p><strong>Tera Type:</strong> ${displayTeraTypes(movesetData.teratype)}</p>
+                                <p><strong>EVs:</strong> ${movesetData.EVs || 'Unknown'}</p>
+                                <p><strong>Nature:</strong> ${movesetData.nature || 'Unknown'}</p>
+                                <p><strong>Moves:</strong></p>
+                                <ul>
+                                    ${Array.isArray(movesetData.Moves) ? movesetData.Moves.map(move => `<li>${move}</li>`).join('') : '<li>No moves available</li>'}
+                                </ul>
+                            </div>
+                        ` : '<p>No moveset data available</p>'}
+                    </div>
+                </div>`;
         }
     </script>
 </body>
