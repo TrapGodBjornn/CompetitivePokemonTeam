@@ -465,13 +465,19 @@ def analyzer(totals, role_totals, names, tier, pokemon_data, tier_data):
                 "total": total_weak
             }
 
+    # First identify team-wide problem types (affecting more than 2 Pokemon)
+    team_problem_types = []
+    for atk_type, info in problem_types.items():
+        if info['total'] > 2:  # Only types that affect more than 2 Pokemon
+            team_problem_types.append(atk_type)
+    
+    print(f"Team-wide problem types: {team_problem_types}")  # Debug log
+    
     # Find replacements for problematic Pokemon
     pokemon_problem_count = defaultdict(lambda: {"problem_types": [], "role": None, "replacements": [], "score": 0})
     
     for name in names_lower:
         name_display = capitalize_name(name)
-        
-        # Add the collected problem types for this Pokemon
         pokemon_problem_count[name_display]["problem_types"] = pokemon_weaknesses[name]
         
         mon_data = tier_data.get(name)
@@ -481,14 +487,9 @@ def analyzer(totals, role_totals, names, tier, pokemon_data, tier_data):
             pokemon_problem_count[name_display]["score"] = pokemon_scores[name]
             
             if pokemon_scores[name] > 0:
-                # Get all Pokemon in the tier
-                tier_pokemon = [name for name in tier_data.keys()]
-                
-                # Find replacements that resist the problem types
                 replacements = []
-                problem_types_list = pokemon_problem_count[name_display]["problem_types"]
                 
-                for candidate in tier_pokemon:
+                for candidate in tier_data.keys():
                     if candidate == name:
                         continue
                     
@@ -496,27 +497,24 @@ def analyzer(totals, role_totals, names, tier, pokemon_data, tier_data):
                     if isinstance(candidate_weaknesses, str):
                         continue
                     
-                    # Check if candidate resists the problem types
-                    resists_count = 0
-                    for prob_type in problem_types_list:
-                        if (prob_type in candidate_weaknesses["0x"] or 
-                            prob_type in candidate_weaknesses["0.5x"]):
-                            resists_count += 1
+                    # Count resistances to team-wide problem types
+                    resists_count = sum(1 for type_ in team_problem_types 
+                                      if type_ in candidate_weaknesses.get('0.5x', []) or 
+                                         type_ in candidate_weaknesses.get('0x', []))
                     
                     if resists_count > 0:
-                        cand_data = tier_data[candidate]
-                        cand_role = "Unknown"
-                        if "Movesets" in cand_data and cand_data["Movesets"]:
-                            cand_role = cand_data["Movesets"][0].get("role", "Unknown")
-                        
                         replacements.append({
-                            "name": capitalize_name(candidate),  # Capitalize replacement name
-                            "role": cand_role,
+                            "name": capitalize_name(candidate),
+                            "role": tier_data[candidate]["Movesets"][0].get("role", "Unknown") if tier_data[candidate].get("Movesets") else "Unknown",
                             "resists": resists_count,
-                            "tier_usage": cand_data.get("tier_usage", "Unknown")
+                            "tier_usage": tier_data[candidate].get("tier_usage", "Unknown")
                         })
                 
-                replacements.sort(key=lambda x: x["resists"], reverse=True)
+                # Add back the sorting and assignment
+                replacements.sort(
+                    key=lambda x: (x["resists"], {'S': 5, 'A+': 4, 'A': 3, 'A-': 2, 'B+': 1, 'B': 0}.get(x["tier_usage"], -1)),
+                    reverse=True
+                )
                 pokemon_problem_count[name_display]["replacements"] = replacements[:3]
 
     return {

@@ -1251,7 +1251,7 @@
                     html += '<div class="problem-pokemon-section">';
                     html += '<h4>Pokemon Needing Attention:</h4>';
                     html += '<div class="problem-pokemon-grid">';
-                    problemPokemon.forEach(([pokemon, info]) => {
+                    problemPokemon.forEach(([pokemon, info], index) => {
                         html += `
                             <div class="pokemon-analysis ${info.score >= 6 ? 'critical' : 'warning'}">
                                 <div class="pokemon-header">
@@ -1264,6 +1264,23 @@
                                     <p><strong>Weaknesses:</strong> ${info.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
                                     <p>Score: ${info.score}</p>
                                 </div>
+                                ${index < 2 && info.replacements && info.replacements.length > 0 ? `
+                                    <div class="replacement-suggestions">
+                                        <p><strong>Recommended Replacements:</strong></p>
+                                        <ul>
+                                            ${info.replacements.map(r => `
+                                                <li class="replacement-item">
+                                                    <strong>${r.name}</strong>
+                                                    <ul>
+                                                        <li>Role: ${r.role}</li>
+                                                        <li>Resists ${r.resists} problem type(s)</li>
+                                                        <li>Usage Tier: ${r.tier_usage}</li>
+                                                    </ul>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
                             </div>`;
                     });
                     html += '</div></div>';
