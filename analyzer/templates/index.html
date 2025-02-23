@@ -992,6 +992,40 @@
             background-color: #f9f9f9;
             line-height: 1.4;
         }
+
+        /* Add this to the style section */
+        .section-banner {
+            background: linear-gradient(90deg, #8B0000, #A52A2A);
+            color: white;
+            padding: 10px 20px;  /* Reduced padding */
+            border-radius: 8px;
+            margin: 25px 0 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 1.2em;    /* Reduced font size */
+            display: flex;
+            align-items: center;
+            justify-content: center;  /* Center the content */
+        }
+
+        .section-banner::before {
+            content: '◆';
+            margin-right: 10px;
+            font-size: 0.8em;
+            opacity: 0.8;        /* Slightly transparent diamonds */
+        }
+
+        .section-banner::after {
+            content: '◆';
+            margin-left: 10px;
+            font-size: 0.8em;
+            opacity: 0.8;        /* Slightly transparent diamonds */
+        }
+
+        /* Add hover effect */
+        .section-banner:hover {
+            background: linear-gradient(90deg, #A52A2A, #8B0000);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -1248,7 +1282,7 @@
                 
                 // Right: Team Type Vulnerabilities
                 html += '<div class="vulnerabilities-section">';
-                html += '<h3>Team Type Vulnerabilities:</h3>';
+                html += '<div class="section-banner">Team Type Vulnerabilities</div>';
                 html += '<div class="vulnerabilities-container">';
                 const significantProblems = Object.entries(data.problem_types)
                     .filter(([_, info]) => info.total > 2);
@@ -1270,14 +1304,13 @@
                 html += '</div></div></div>';
                 
                 // Middle: Type Analysis
-                html += '<h3>Type Analysis:</h3>';
+                html += '<div class="section-banner">Type Analysis</div>';
                 html += '<div class="type-analysis-container">';
                 
                 // Problem Pokemon section
                 const problemPokemon = sortedTeam.filter(([_, info]) => info.problem_types.length > 0);
                 if (problemPokemon.length > 0) {
                     html += '<div class="problem-pokemon-section">';
-                    html += '<h4>Pokemon Needing Attention:</h4>';
                     html += '<div class="problem-pokemon-grid">';
                     problemPokemon.forEach(([pokemon, info], index) => {
                         html += `
@@ -1318,7 +1351,7 @@
                 const balancedPokemon = sortedTeam.filter(([_, info]) => info.problem_types.length === 0);
                 if (balancedPokemon.length > 0) {
                     html += '<div class="no-problem-pokemon-section">';
-                    html += '<h4>Balanced Pokemon:</h4>';
+                    html += '<div class="section-banner">Balanced Pokemon</div>';
                     html += '<div class="no-problem-pokemon-grid">';
                     balancedPokemon.forEach(([pokemon, info]) => {
                         html += `
@@ -1340,7 +1373,7 @@
                 html += '</div>';
                 
                 // Add Role Coverage section
-                html += '<h3>Current Role Coverage:</h3>';
+                html += '<div class="section-banner">Current Role Coverage</div>';
                 html += '<div class="role-coverage">';
                 const roleTotals = data.role_totals || {};
                 
@@ -1373,7 +1406,7 @@
                 
                 // Add Optimized Role Coverage section if there are replacements
                 if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
-                    html += '<h3>Optimized Role Coverage:</h3>';
+                    html += '<div class="section-banner">Optimized Role Coverage</div>';
                     html += '<div class="role-coverage">';
                     
                     // Get top 2 problematic Pokemon
@@ -1438,11 +1471,11 @@
                 }
                 
                 // Add Meta Team section
-                html += '<h3 class="meta-main-header">Team Analysis & Recommended Movesets:</h3>';
+                html += '<h3 class="meta-main-header">Team Analysis & Recommended Movesets</h3>';
                 html += '<div class="meta-team-container">';
                 
                 // Current team section
-                html += '<h4 class="meta-section-header">Current Team Competitive Sets:</h4>';
+                html += '<div class="section-banner">Current Team Competitive Sets</div>';
                 html += '<div class="meta-team">';
                 sortedTeam.forEach(([pokemon, info]) => {
                     const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
@@ -1453,16 +1486,16 @@
                 
                 // Only show optimized team if there are replacements
                 if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
-                    html += '<h4 class="meta-section-header">Optimized Team Suggestion:</h4>';
+                    html += '<div class="section-banner">Optimized Team Suggestion</div>';
                     html += `
                         <p class="optimization-note">
                             Consider implementing these changes gradually to evaluate their impact. 
                             While these replacements address current type vulnerabilities, new team dynamics may emerge. 
                             Experiment with each change to find the best balance for your playstyle.
                         </p>`;
-                    html += '<div class="meta-team">';
-
-                    // Get top 2 problematic Pokemon by score
+                    html += '<div class="meta-team">';  // Changed back to meta-team from role-coverage
+                    
+                    // Get top 2 problematic Pokemon
                     const topProblematic = sortedTeam
                         .filter(([_, info]) => info.score > 0)
                         .sort(([_, a], [__, b]) => b.score - a.score)
