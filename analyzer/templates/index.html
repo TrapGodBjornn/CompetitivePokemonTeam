@@ -1012,10 +1012,21 @@
             
             // Special cases for Pokemon with different sprite names
             const spriteMap = {
+                // Necrozma forms
                 'necrozmaduskmane': 'necrozma-duskmane',
                 'necrozmadawnwings': 'necrozma-dawnwings',
                 'necrozmaultra': 'necrozma-ultra',
-                'arceus': 'arceus',  // Changed this
+                
+                // Giratina forms
+                'giratinaorigin': 'giratina-origin',
+                
+                // Deoxys forms
+                'deoxysattack': 'deoxys-attack',
+                'deoxysspeed': 'deoxys-speed',
+                'deoxysdefense': 'deoxys-defense',
+                
+                // Arceus forms
+                'arceus': 'arceus',
                 'arceusfairy': 'arceus-fairy',
                 'arceusground': 'arceus-ground',
                 'arceusghost': 'arceus-ghost',
@@ -1032,7 +1043,16 @@
                 'arceuspsychic': 'arceus-psychic',
                 'arceusrock': 'arceus-rock',
                 'arceussteel': 'arceus-steel',
-                'arceuswater': 'arceus-water'
+                'arceuswater': 'arceus-water',
+                
+                // Other special cases
+                'calyrexice': 'calyrex-ice',
+                'calyrexshadow': 'calyrex-shadow',
+                'zaciancrowned': 'zacian-crowned',
+                'zamazentacrowned': 'zamenta-crowned',
+                'hooh': 'ho-oh',
+                'kyuremblack': 'kyurem-black',
+                'kyuremwhite': 'kyurem-white'
             };
             
             const finalSpriteName = spriteMap[spriteName] || spriteName;
