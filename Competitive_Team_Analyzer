@@ -444,7 +444,7 @@ def analyzer(sponge, role_totals, names, tier_choice):
     replacement_order.sort(key=lambda x: (x[1], x[2]), reverse=True)
     print("\nPokemon ordered by problem type contributions:")
     for pokemon, num_problems, _, issues in replacement_order:
-        print(f"{pokemon}: weak to {len(issues['problem_types'])} problem types: {', '.join(issues['problem_types'])}")
+        print(f"{pokemon}: weak to {len(issues['problem_types'])} weaknesses: {', '.join(issues['problem_types'])}")
 
     # Create replacement candidates list
     replacement_candidates = []

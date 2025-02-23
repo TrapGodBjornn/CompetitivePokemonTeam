@@ -11,7 +11,13 @@
         "ability": "Multitype",
         "teratype": "Fire / Ghost / Normal",
         "EVs": "200 HP / 252 Atk / 56 Spe",
-        "nature": "Adamant"
+        "nature": "Adamant",
+        "Moves": [
+          "Extreme Speed",
+          "Swords Dance",
+          "Shadow Claw",
+          "Taunt / Recover / Earthquake / Double Edge"
+        ]
       }
     ]
   },
@@ -414,7 +420,7 @@
         "role": "Special Attacker",
         "helditem": "Heavy-Duty Boots",
         "ability": "Drizzle",
-        "teratype": "Fairy . Poison",
+        "teratype": "Fairy / Poison",
         "EVs": "240 HP / 76 Def / 176 SpA / 16 Spe OR 248 HP / 164 Def / 80 SpA / 16 Spe",
         "nature": "Modest / Bold",
         "Moves": [

@@ -45,13 +45,15 @@ def home():
 def analyze():
     try:
         data = request.get_json()
-        print("Received data:", data)  # Debug print
         team = data.get('team', [])
         display_names = data.get('displayNames', [])
         tier = data.get('tier', '').lower()
         
-        print("Processing team:", team)  # Debug print
-        print("Display names:", display_names)  # Debug print
+        # Debug the incoming data
+        print("\nReceived request:")
+        print(f"Team: {team}")
+        print(f"Display names: {display_names}")
+        print(f"Tier: {tier}")
         
         if not team or len(team) != 6:
             return jsonify({'error': 'Please provide exactly 6 Pokemon'})
@@ -66,10 +68,38 @@ def analyze():
         if not tier_data:
             return jsonify({'error': 'Invalid tier selected'})
 
-        # Run analysis with normalized names but keep display names
+        if tier == 'uber':
+            print("\nUber tier analysis:")
+            print(f"Team: {team}")
+            print(f"Display names: {display_names}")
+            
+            # Debug Arceus specifically
+            for pokemon in team:
+                if 'arceus' in pokemon.lower():
+                    print(f"\nArceus debug:")
+                    print(f"Pokemon name: {pokemon}")
+                    print(f"In uber_data: {pokemon in uber_data}")
+                    print(f"Available Arceus forms: {[k for k in uber_data.keys() if 'arceus' in k.lower()]}")
+                    print(f"Tier data entry: {uber_data.get(pokemon, 'Not found')}")
+                    print(f"Exact keys matching: {[k for k in uber_data.keys() if k.lower() == pokemon.lower()]}")
+
+        # Add debug prints before each major operation
+        print("\nStarting all_combos...")
         totals, names = all_combos(pokemon_data, team)
+        print("Completed all_combos")
+        
+        print("\nStarting aggregate_roles...")
         role_totals = aggregate_roles(tier_data, team)
+        print("Completed aggregate_roles")
+        
+        print("\nStarting analyzer...")
         results = analyzer(totals, role_totals, team, tier, pokemon_data, tier_data)
+        print("Completed analyzer")
+        
+        # Debug the results before sending
+        print("\nPreparing response:")
+        print(f"Results keys: {results.keys()}")
+        print(f"Pokemon problems: {results.get('pokemon_problems', {}).keys()}")
         
         # Add display names to results
         results['display_names'] = dict(zip(team, display_names))
@@ -77,8 +107,8 @@ def analyze():
         
         return jsonify(results)
     except Exception as e:
-        print(f"Analysis error: {str(e)}")  # Debug print
-        print(f"Full error details: {e.__class__.__name__}")  # Print error type
+        print(f"Analysis error: {str(e)}")
+        print(f"Full error details: {e.__class__.__name__}")
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
