@@ -1279,6 +1279,52 @@
     <div id="results"></div>
 
     <script>
+        // Add this before the getPokemonSprite function
+        const spriteMap = {
+            // Necrozma forms
+            'necrozmaduskmane': 'necrozma-duskmane',
+            'necrozmadawnwings': 'necrozma-dawnwings',
+            'necrozmaultra': 'necrozma-ultra',
+            
+            // Giratina forms
+            'giratinaorigin': 'giratina-origin',
+            
+            // Deoxys forms
+            'deoxysattack': 'deoxys-attack',
+            'deoxysspeed': 'deoxys-speed',
+            'deoxysdefense': 'deoxys-defense',
+            
+            // Arceus forms
+            'arceus': 'arceus',
+            'arceusfairy': 'arceus-fairy',
+            'arceusground': 'arceus-ground',
+            'arceusghost': 'arceus-ghost',
+            'arceusbug': 'arceus-bug',
+            'arceusdragon': 'arceus-dragon',
+            'arceusdark': 'arceus-dark',
+            'arceuselectric': 'arceus-electric',
+            'arceusfighting': 'arceus-fighting',
+            'arceusfire': 'arceus-fire',
+            'arceusflying': 'arceus-flying',
+            'arceusgrass': 'arceus-grass',
+            'arceusice': 'arceus-ice',
+            'arceuspoison': 'arceus-poison',
+            'arceuspsychic': 'arceus-psychic',
+            'arceusrock': 'arceus-rock',
+            'arceussteel': 'arceus-steel',
+            'arceuswater': 'arceus-water',
+            
+            // Other special cases
+            'calyrexice': 'calyrex-ice',
+            'calyrexshadow': 'calyrex-shadow',
+            'zaciancrowned': 'zacian-crowned',
+            'zamazentacrowned': 'zamenta-crowned',
+            'hooh': 'hooh',
+            'ho-oh': 'hooh',
+            'landorustherian': 'landorus-therian',
+            'landorus-therian': 'landorus-therian'
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
             // First, create the form inputs
             const teamInputs = document.getElementById('teamInputs');
@@ -1368,57 +1414,9 @@
             return normalized;
         }
 
-        function getPokemonSprite(name) {
-            const spriteName = normalizeNameForLookup(name);
-            console.log(`Getting sprite for: ${name} (${spriteName})`);
-            
-            // Special cases for Pokemon with different sprite names
-            const spriteMap = {
-                // Necrozma forms
-                'necrozmaduskmane': 'necrozma-duskmane',
-                'necrozmadawnwings': 'necrozma-dawnwings',
-                'necrozmaultra': 'necrozma-ultra',
-                
-                // Giratina forms
-                'giratinaorigin': 'giratina-origin',
-                
-                // Deoxys forms
-                'deoxysattack': 'deoxys-attack',
-                'deoxysspeed': 'deoxys-speed',
-                'deoxysdefense': 'deoxys-defense',
-                
-                // Arceus forms
-                'arceus': 'arceus',
-                'arceusfairy': 'arceus-fairy',
-                'arceusground': 'arceus-ground',
-                'arceusghost': 'arceus-ghost',
-                'arceusbug': 'arceus-bug',
-                'arceusdragon': 'arceus-dragon',
-                'arceusdark': 'arceus-dark',
-                'arceuselectric': 'arceus-electric',
-                'arceusfighting': 'arceus-fighting',
-                'arceusfire': 'arceus-fire',
-                'arceusflying': 'arceus-flying',
-                'arceusgrass': 'arceus-grass',
-                'arceusice': 'arceus-ice',
-                'arceuspoison': 'arceus-poison',
-                'arceuspsychic': 'arceus-psychic',
-                'arceusrock': 'arceus-rock',
-                'arceussteel': 'arceus-steel',
-                'arceuswater': 'arceus-water',
-                
-                // Other special cases
-                'calyrexice': 'calyrex-ice',
-                'calyrexshadow': 'calyrex-shadow',
-                'zaciancrowned': 'zacian-crowned',
-                'zamazentacrowned': 'zamenta-crowned',
-                'hooh': 'ho-oh',
-                'kyuremblack': 'kyurem-black',
-                'kyuremwhite': 'kyurem-white'
-            };
-            
-            const finalSpriteName = spriteMap[spriteName] || spriteName;
-            console.log(`Final sprite name: ${finalSpriteName}`);
+        function getPokemonSprite(pokemon) {
+            const spriteName = pokemon.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const finalSpriteName = spriteMap[spriteName] || spriteMap[pokemon.toLowerCase()] || spriteName;
             return `https://play.pokemonshowdown.com/sprites/gen5/${finalSpriteName}.png`;
         }
 
@@ -1508,7 +1506,8 @@
                 html += '<div class="problem-pokemon-grid">';
                 
                 // Show all Pokemon in one grid
-                sortedTeam.forEach(([pokemon, info], index) => {
+                const usedReplacements = new Set();
+                sortedTeam.forEach(([pokemon, info]) => {
                     const originalInfo = data.pokemon_problems[pokemon];  // Get original info with all weaknesses
                     html += `
                         <div class="pokemon-analysis ${info.score > 0 ? (info.score >= 6 ? 'critical' : 'warning') : 'balanced'}">
@@ -1525,7 +1524,7 @@
                                     : '<p>No type vulnerability issues</p>'
                                 }
                             </div>
-                            ${index < 2 && info.score > 0 && data.pokemon_problems[pokemon]?.replacements?.length > 0 ? `
+                            ${info.score > 0 && data.pokemon_problems[pokemon]?.replacements?.length > 0 ? `
                                 <div class="replacement-suggestions">
                                     <p><strong>Recommended Replacements:</strong></p>
                                     <ul>
@@ -1578,20 +1577,28 @@
                         .sort(([_, a], [__, b]) => b.score - a.score)
                         .slice(0, 2);
                     
-                    const usedReplacements = new Set();
                     sortedTeam.forEach(([pokemon, info]) => {
                         const isTopProblematic = topProblematic.some(([p]) => p === pokemon);
                         const pokemonData = data.pokemon_problems[pokemon];
 
                         if (isTopProblematic && pokemonData?.replacements?.length > 0) {
+                            // Get current team members to exclude
+                            const currentTeam = new Set(sortedTeam.map(([name]) => name.toLowerCase()));
+                            
+                            // Filter out replacements that are already in the team
+                            const validReplacements = pokemonData.replacements.filter(r => 
+                                !currentTeam.has(r.name.toLowerCase()) && !usedReplacements.has(r.name)
+                            );
+
                             let replacement;
-                            if (usedReplacements.size === 0) {
-                                // First problematic Pokemon gets its best replacement
-                                replacement = pokemonData.replacements[0];
+                            if (usedReplacements.size === 0 && validReplacements.length > 0) {
+                                // First problematic Pokemon gets its best valid replacement
+                                replacement = validReplacements[0];
                                 usedReplacements.add(replacement.name);
-                            } else {
-                                // Second problematic Pokemon needs to find an unused replacement
-                                replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
+                            } else if (validReplacements.length > 0) {
+                                // Second problematic Pokemon gets next best valid replacement
+                                replacement = validReplacements[0];
+                                usedReplacements.add(replacement.name);
                             }
 
                             if (replacement) {
