@@ -1263,7 +1263,30 @@
                 html += '<h3>Your Team:</h3>';
                 html += '<div class="team-summary">';
                 
+                // First calculate significant problems
+                const significantProblems = Object.entries(data.problem_types)
+                    .filter(([_, info]) => info.total >= 2)  // Changed from > 2 to >= 2
+                    .map(([type]) => type);
+                
+                console.log("Significant team problems:", significantProblems);
+                
                 const sortedTeam = Object.entries(data.pokemon_problems)
+                    .map(([pokemon, info]) => {
+                        // Only count weaknesses that overlap with the team's problem types
+                        const overlappingWeaknesses = info.problem_types.filter(type => 
+                            significantProblems.includes(type)
+                        );
+                        
+                        console.log(`${pokemon} weaknesses:`, info.problem_types);
+                        console.log(`${pokemon} overlapping weaknesses:`, overlappingWeaknesses);
+                        
+                        // Create a new info object with updated score and problem_types
+                        return [pokemon, {
+                            ...info,
+                            score: overlappingWeaknesses.length * 2,  // Adjust score based on overlaps only
+                            problem_types: overlappingWeaknesses  // Update problem types to only show overlaps
+                        }];
+                    })
                     .sort((a, b) => b[1].score - a[1].score);
                 
                 sortedTeam.forEach(([pokemon, info]) => {
@@ -1284,18 +1307,15 @@
                 html += '<div class="vulnerabilities-section">';
                 html += '<div class="section-banner">Team Type Vulnerabilities</div>';
                 html += '<div class="vulnerabilities-container">';
-                const significantProblems = Object.entries(data.problem_types)
-                    .filter(([_, info]) => info.total > 2);
-                
                 if (significantProblems.length > 0) {
-                    significantProblems.forEach(([type, info]) => {
+                    significantProblems.forEach((type) => {
                         html += `<div class="type-vulnerability">
                             <div class="type-header">
                                 ${createTypeBadge(type)} 
-                                <span>(${info.total} Pokémon weak)</span>
+                                <span>(${data.problem_types[type].total} Pokémon weak)</span>
                             </div>
-                            ${info.fourx.length ? `<p>4x weak: ${info.fourx.join(', ')}</p>` : ''}
-                            ${info.twox.length ? `<p>2x weak: ${info.twox.join(', ')}</p>` : ''}
+                            ${data.problem_types[type].fourx.length ? `<p>4x weak: ${data.problem_types[type].fourx.join(', ')}</p>` : ''}
+                            ${data.problem_types[type].twox.length ? `<p>2x weak: ${data.problem_types[type].twox.join(', ')}</p>` : ''}
                         </div>`;
                     });
                 } else {
@@ -1306,171 +1326,48 @@
                 // Middle: Type Analysis
                 html += '<div class="section-banner">Type Analysis</div>';
                 html += '<div class="type-analysis-container">';
+                html += '<div class="problem-pokemon-grid">';
                 
-                // Problem Pokemon section
-                const problemPokemon = sortedTeam.filter(([_, info]) => info.problem_types.length > 0);
-                if (problemPokemon.length > 0) {
-                    html += '<div class="problem-pokemon-section">';
-                    html += '<div class="problem-pokemon-grid">';
-                    problemPokemon.forEach(([pokemon, info], index) => {
-                        html += `
-                            <div class="pokemon-analysis ${info.score >= 6 ? 'critical' : 'warning'}">
-                                <div class="pokemon-header">
-                                    <img src="${getPokemonSprite(pokemon)}" 
-                                         class="analysis-sprite" 
-                                         onerror="this.style.display='none'">
-                                    <span class="pokemon-name">${pokemon}</span>
+                // Show all Pokemon in one grid
+                sortedTeam.forEach(([pokemon, info], index) => {
+                    html += `
+                        <div class="pokemon-analysis ${info.score > 0 ? (info.score >= 6 ? 'critical' : 'warning') : 'balanced'}">
+                            <div class="pokemon-header">
+                                <img src="${getPokemonSprite(pokemon)}" 
+                                     class="analysis-sprite" 
+                                     onerror="this.style.display='none'">
+                                <span class="pokemon-name">${pokemon}</span>
+                            </div>
+                            <div class="weakness-info">
+                                ${info.problem_types.length > 0 
+                                    ? `<p><strong>Weaknesses:</strong> ${info.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
+                                       <p>Score: ${info.score}</p>`
+                                    : '<p>No type vulnerability issues</p>'
+                                }
+                            </div>
+                            ${index < 2 && info.score > 0 && data.pokemon_problems[pokemon]?.replacements?.length > 0 ? `
+                                <div class="replacement-suggestions">
+                                    <p><strong>Recommended Replacements:</strong></p>
+                                    <ul>
+                                        ${data.pokemon_problems[pokemon].replacements.map(r => `
+                                            <li class="replacement-item">
+                                                <strong>${r.name}</strong>
+                                                <ul>
+                                                    <li>Role: ${r.role}</li>
+                                                    <li>Resists ${r.resists} problem type(s)</li>
+                                                    <li>Usage Tier: ${r.tier_usage}</li>
+                                                </ul>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
                                 </div>
-                                <div class="weakness-info">
-                                    <p><strong>Weaknesses:</strong> ${info.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
-                                    <p>Score: ${info.score}</p>
-                                </div>
-                                ${index < 2 && info.replacements && info.replacements.length > 0 ? `
-                                    <div class="replacement-suggestions">
-                                        <p><strong>Recommended Replacements:</strong></p>
-                                        <ul>
-                                            ${info.replacements.map(r => `
-                                                <li class="replacement-item">
-                                                    <strong>${r.name}</strong>
-                                                    <ul>
-                                                        <li>Role: ${r.role}</li>
-                                                        <li>Resists ${r.resists} problem type(s)</li>
-                                                        <li>Usage Tier: ${r.tier_usage}</li>
-                                                    </ul>
-                                                </li>
-                                            `).join('')}
-                                        </ul>
-                                    </div>
-                                ` : ''}
-                            </div>`;
-                    });
-                    html += '</div></div>';
-                }
-                
-                // Balanced Pokemon section
-                const balancedPokemon = sortedTeam.filter(([_, info]) => info.problem_types.length === 0);
-                if (balancedPokemon.length > 0) {
-                    html += '<div class="no-problem-pokemon-section">';
-                    html += '<div class="section-banner">Balanced Pokemon</div>';
-                    html += '<div class="no-problem-pokemon-grid">';
-                    balancedPokemon.forEach(([pokemon, info]) => {
-                        html += `
-                            <div class="pokemon-analysis balanced">
-                                <div class="pokemon-header">
-                                    <img src="${getPokemonSprite(pokemon)}" 
-                                         class="analysis-sprite" 
-                                         onerror="this.style.display='none'">
-                                    <span class="pokemon-name">${pokemon}</span>
-                                </div>
-                                <div class="weakness-info">
-                                    <p>No type vulnerability issues</p>
-                                </div>
-                            </div>`;
-                    });
-                    html += '</div></div>';
-                }
-                
-                html += '</div>';
-                
-                // Add Role Coverage section
-                html += '<div class="section-banner">Current Role Coverage</div>';
-                html += '<div class="role-coverage">';
-                const roleTotals = data.role_totals || {};
-                
-                // Group Pokemon by their roles
-                const pokemonByRole = {};
-                sortedTeam.forEach(([pokemon, info]) => {
-                    if (info.role) {
-                        if (!pokemonByRole[info.role]) {
-                            pokemonByRole[info.role] = [];
-                        }
-                        pokemonByRole[info.role].push(pokemon);
-                    }
+                            ` : ''}
+                        </div>`;
                 });
                 
-                // Display each role with its Pokemon
-                for (const [role, count] of Object.entries(roleTotals)) {
-                    const pokemonWithRole = pokemonByRole[role] || [];
-                    html += `<p><strong>${role} (${count})</strong>: ${pokemonWithRole.join(', ')}</p>`;
-                }
+                html += '</div></div>';
                 
-                // Add role analysis
-                const roleAnalysis = analyzeRoleCoverage(roleTotals);
-                if (roleAnalysis.missing.length > 0) {
-                    html += `<p class="warning"><strong>Missing Roles:</strong> ${roleAnalysis.missing.join(', ')}</p>`;
-                }
-                if (roleAnalysis.tooMany.length > 0) {
-                    html += `<p class="warning"><strong>Too Many:</strong> ${roleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
-                }
-                html += '</div>';
-                
-                // Add Optimized Role Coverage section if there are replacements
-                if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
-                    html += '<div class="section-banner">Optimized Role Coverage</div>';
-                    html += '<div class="role-coverage">';
-                    
-                    // Get top 2 problematic Pokemon
-                    const topProblematic = sortedTeam
-                        .filter(([_, info]) => info.score > 0)
-                        .sort(([_, a], [__, b]) => b.score - a.score)
-                        .slice(0, 2);
-                    
-                    // Create new role totals starting with current team
-                    const newRoleTotals = {...roleTotals};
-                    const newPokemonByRole = {...pokemonByRole};
-                    const usedReplacements = new Set();
-                    
-                    // Process replacements for top problematic Pokemon
-                    topProblematic.forEach(([pokemon, info], index) => {
-                        const pokemonData = data.pokemon_problems[pokemon];
-                        if (!pokemonData?.replacements?.length) return;
-                        
-                        // Remove current Pokemon's role
-                        if (info.role && newPokemonByRole[info.role]) {
-                            newPokemonByRole[info.role] = newPokemonByRole[info.role].filter(p => p !== pokemon);
-                            newRoleTotals[info.role]--;
-                        }
-                        
-                        // Find appropriate replacement
-                        let replacement;
-                        if (index === 0) {
-                            // First Pokemon gets best replacement
-                            replacement = pokemonData.replacements[0];
-                        } else {
-                            // Second Pokemon gets best unused replacement
-                            replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
-                        }
-                        
-                        if (replacement) {
-                            usedReplacements.add(replacement.name);
-                            // Add new Pokemon's role
-                            const newRole = replacement.role;
-                            if (newRole) {
-                                if (!newPokemonByRole[newRole]) newPokemonByRole[newRole] = [];
-                                newPokemonByRole[newRole].push(replacement.name);
-                                newRoleTotals[newRole] = (newRoleTotals[newRole] || 0) + 1;
-                            }
-                        }
-                    });
-                    
-                    // Display updated roles
-                    for (const [role, count] of Object.entries(newRoleTotals)) {
-                        const pokemonWithRole = newPokemonByRole[role] || [];
-                        html += `<p><strong>${role} (${count})</strong>: ${pokemonWithRole.join(', ')}</p>`;
-                    }
-                    
-                    // Add role analysis for optimized team
-                    const newRoleAnalysis = analyzeRoleCoverage(newRoleTotals);
-                    if (newRoleAnalysis.missing.length > 0) {
-                        html += `<p class="warning"><strong>Missing Roles:</strong> ${newRoleAnalysis.missing.join(', ')}</p>`;
-                    }
-                    if (newRoleAnalysis.tooMany.length > 0) {
-                        html += `<p class="warning"><strong>Too Many:</strong> ${newRoleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
-                    }
-                    html += '</div>';
-                }
-                
-                // Add Meta Team section
+                // First add the Team Analysis & Recommended Movesets header
                 html += '<h3 class="meta-main-header">Team Analysis & Recommended Movesets</h3>';
                 html += '<div class="meta-team-container">';
                 
@@ -1484,7 +1381,7 @@
                 });
                 html += '</div>';
                 
-                // Only show optimized team if there are replacements
+                // Optimized team section right after
                 if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
                     html += '<div class="section-banner">Optimized Team Suggestion</div>';
                     html += `
@@ -1493,7 +1390,7 @@
                             While these replacements address current type vulnerabilities, new team dynamics may emerge. 
                             Experiment with each change to find the best balance for your playstyle.
                         </p>`;
-                    html += '<div class="meta-team">';  // Changed back to meta-team from role-coverage
+                    html += '<div class="meta-team">';
                     
                     // Get top 2 problematic Pokemon
                     const topProblematic = sortedTeam
@@ -1501,28 +1398,23 @@
                         .sort(([_, a], [__, b]) => b.score - a.score)
                         .slice(0, 2);
                     
-                    // Track used replacements
                     const usedReplacements = new Set();
-                    
                     sortedTeam.forEach(([pokemon, info]) => {
-                        // Check if this is one of the top 2 problematic Pokemon
                         const isTopProblematic = topProblematic.some(([p]) => p === pokemon);
                         const pokemonData = data.pokemon_problems[pokemon];
-                        
+
                         if (isTopProblematic && pokemonData?.replacements?.length > 0) {
-                            // For first Pokemon, use best replacement
                             let replacement;
                             if (usedReplacements.size === 0) {
+                                // First problematic Pokemon gets its best replacement
                                 replacement = pokemonData.replacements[0];
-                                console.log(`First replacement for ${pokemon}:`, replacement.name);
-                            } else {
-                                // For second Pokemon, find first unused replacement
-                                replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
-                                console.log(`Finding unused replacement for ${pokemon}:`, replacement?.name);
-                            }
-                            
-                            if (replacement) {
                                 usedReplacements.add(replacement.name);
+                            } else {
+                                // Second problematic Pokemon needs to find an unused replacement
+                                replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
+                            }
+
+                            if (replacement) {
                                 const movesetData = data.tier_data[replacement.name.toLowerCase()]?.Movesets?.[0];
                                 const pokemonTypes = data.tier_data[replacement.name.toLowerCase()]?.typing || [];
                                 html += generatePokemonMetaCard(replacement.name, 
@@ -1532,21 +1424,105 @@
                                     true,  // isReplacement flag
                                     pokemon  // original Pokemon name
                                 );
-                            } else {
-                                // Fallback to original Pokemon if no valid replacement found
-                                const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
-                                const pokemonTypes = data.tier_data[pokemon.toLowerCase()]?.typing || [];
-                                html += generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes);
                             }
-                        } else {
-                            // Keep original Pokemon
-                            const movesetData = data.tier_data[pokemon.toLowerCase()]?.Movesets?.[0];
-                            const pokemonTypes = data.tier_data[pokemon.toLowerCase()]?.typing || [];
-                            html += generatePokemonMetaCard(pokemon, info, movesetData, pokemonTypes);
                         }
                     });
                     html += '</div>';
                 }
+                
+                html += '</div>';  // Close meta-team-container
+
+                // Add Role Analysis section at the bottom
+                html += '<div class="section-banner">Role Analysis</div>';
+                html += '<div class="role-analysis-container">';
+
+                // Current team roles
+                html += '<h4>Current Team Roles:</h4>';
+                html += '<div class="role-coverage">';
+                const roleTotals = data.role_totals || {};
+                const pokemonByRole = {};
+                sortedTeam.forEach(([pokemon, info]) => {
+                    if (info.role) {
+                        if (!pokemonByRole[info.role]) pokemonByRole[info.role] = [];
+                        pokemonByRole[info.role].push(pokemon);
+                    }
+                });
+
+                for (const [role, count] of Object.entries(roleTotals)) {
+                    const pokemonWithRole = pokemonByRole[role] || [];
+                    html += `<p><strong>${role} (${count})</strong>: ${pokemonWithRole.join(', ')}</p>`;
+                }
+
+                const roleAnalysis = analyzeRoleCoverage(roleTotals);
+                if (roleAnalysis.missing.length > 0) {
+                    html += `<p class="warning"><strong>Missing Roles:</strong> ${roleAnalysis.missing.join(', ')}</p>`;
+                }
+                if (roleAnalysis.tooMany.length > 0) {
+                    html += `<p class="warning"><strong>Too Many:</strong> ${roleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
+                }
+                html += '</div>';
+
+                // Optimized team roles (if there are replacements)
+                if (data.pokemon_problems && Object.values(data.pokemon_problems).some(p => p.replacements?.length > 0)) {
+                    html += '<h4>Optimized Team Roles:</h4>';
+                    html += '<div class="role-coverage">';
+                    
+                    // Calculate new role totals with replacements
+                    const newRoleTotals = {...roleTotals};
+                    const newPokemonByRole = {...pokemonByRole};
+                    const topProblematic = sortedTeam
+                        .filter(([_, info]) => info.score > 0)
+                        .sort(([_, a], [__, b]) => b.score - a.score)
+                        .slice(0, 2);
+                    
+                    // Track used replacements
+                    const usedReplacements = new Set();
+                    
+                    // Update roles based on replacements
+                    topProblematic.forEach(([pokemon, info]) => {
+                        const pokemonData = data.pokemon_problems[pokemon];
+                        if (!pokemonData?.replacements?.length) return;
+                        
+                        // Remove old Pokemon's role
+                        if (info.role && newPokemonByRole[info.role]) {
+                            newPokemonByRole[info.role] = newPokemonByRole[info.role].filter(p => p !== pokemon);
+                            newRoleTotals[info.role]--;
+                        }
+                        
+                        // Add replacement's role
+                        let replacement;
+                        if (usedReplacements.size === 0) {
+                            replacement = pokemonData.replacements[0];
+                        } else {
+                            replacement = pokemonData.replacements.find(r => !usedReplacements.has(r.name));
+                        }
+                        
+                        if (replacement) {
+                            usedReplacements.add(replacement.name);
+                            if (replacement.role) {
+                                if (!newPokemonByRole[replacement.role]) newPokemonByRole[replacement.role] = [];
+                                newPokemonByRole[replacement.role].push(replacement.name);
+                                newRoleTotals[replacement.role] = (newRoleTotals[replacement.role] || 0) + 1;
+                            }
+                        }
+                    });
+                    
+                    // Display updated roles
+                    for (const [role, count] of Object.entries(newRoleTotals)) {
+                        const pokemonWithRole = newPokemonByRole[role] || [];
+                        html += `<p><strong>${role} (${count})</strong>: ${pokemonWithRole.join(', ')}</p>`;
+                    }
+                    
+                    const newRoleAnalysis = analyzeRoleCoverage(newRoleTotals);
+                    if (newRoleAnalysis.missing.length > 0) {
+                        html += `<p class="warning"><strong>Missing Roles:</strong> ${newRoleAnalysis.missing.join(', ')}</p>`;
+                    }
+                    if (newRoleAnalysis.tooMany.length > 0) {
+                        html += `<p class="warning"><strong>Too Many:</strong> ${newRoleAnalysis.tooMany.map(r => `${r.role} (${r.count})`).join(', ')}</p>`;
+                    }
+                    html += '</div>';
+                }
+
                 html += '</div>';
                 
                 resultsDiv.innerHTML = html;
