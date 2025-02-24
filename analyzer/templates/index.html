@@ -305,13 +305,11 @@
         }
         
         .pokemon-meta {
-            margin: 0;  /* Remove margin since we're using grid gap */
-            min-width: 0;  /* Allow boxes to shrink if needed */
-            padding: 8px;  /* Reduced from 10px */
-            border-radius: 8px;
-            background: linear-gradient(165deg, var(--cream-gold), var(--light-gold));
-            border: 1px solid var(--medium-gold);
-            transition: transform 0.2s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;  /* Further reduced from 10px */
+            margin-bottom: 0;  /* Remove bottom margin */
         }
         
         .pokemon-meta:hover {
@@ -323,8 +321,10 @@
         }
         
         .meta-details {
-            margin-left: 12px;
-            color: var(--text-dark);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;  /* Reduced from 8px */
         }
         
         .meta-details p {
@@ -333,18 +333,23 @@
         }
         
         .moveset {
-            background: linear-gradient(165deg, var(--light-gold), var(--medium-gold));
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 8px;
-            border: 1px solid var(--medium-gold);
-            font-size: 1.1em;
-            color: var(--text-dark);
+            padding: 6px;  /* Further reduced from 8px */
+            margin-top: 3px;  /* Further reduced from 4px */
+            font-size: 0.85em;  /* Slightly smaller font */
+        }
+        
+        .moveset p {
+            margin: 3px 0;  /* Reduced from 5px */
         }
         
         .moveset ul {
             list-style-type: none;
-            padding-left: 15px;
+            padding-left: 0;
+            margin: 3px 0;  /* Reduced from 4px */
+        }
+        
+        .moveset li {
+            margin: 1px 0;  /* Reduced from 2px */
         }
         
         /* Regular type badges (current size) */
@@ -514,8 +519,9 @@
         .meta-team {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;  /* Reduced gap */
-            padding: 5px;  /* Reduced padding */
+            grid-auto-rows: minmax(450px, auto);  /* Reduced from 500px */
+            gap: 15px;
+            margin-bottom: 30px;  /* Add space after grid */
         }
         
         /* Individual Pokemon cards */
@@ -1013,7 +1019,7 @@
             font-size: 1.1em;
             font-style: italic;
             color: #555;
-            margin: 15px 0 25px;
+            margin: 15px 0 30px;  /* Increased bottom margin */
             padding: 15px;
             border-left: 4px solid #4CAF50;
             background-color: #f9f9f9;
@@ -1026,7 +1032,7 @@
             color: white;
             padding: 10px 20px;  /* Reduced padding */
             border-radius: 8px;
-            margin: 25px 0 15px;
+            margin: 35px 0 20px;  /* Increased top margin */
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             font-size: 1.2em;    /* Reduced font size */
             display: flex;
@@ -1145,6 +1151,59 @@
 
         .replacement-item li {
             margin: 3px 0;
+        }
+
+        /* Add this to make each row's boxes equal height */
+        .meta-team {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(450px, auto);  /* Reduced from 500px */
+            gap: 15px;
+            margin-bottom: 30px;  /* Add space after grid */
+        }
+
+        .pokemon-meta {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            background: linear-gradient(165deg, var(--cream-gold), var(--light-gold));
+            border: 1px solid var(--medium-gold);
+        }
+
+        .meta-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .moveset {
+            background: linear-gradient(165deg, var(--light-gold), var(--medium-gold));
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+            border: 1px solid var(--medium-gold);
+            min-height: 300px;  /* Set minimum height */
+        }
+
+        .meta-team-container {
+            margin-bottom: 40px;  /* Add space between sections */
+        }
+
+        .meta-team {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(450px, auto);  /* Reduced from 500px */
+            gap: 15px;
+            margin-bottom: 30px;  /* Add space after grid */
+        }
+
+        .optimization-note {
+            margin: 15px 0 30px;  /* Increased bottom margin */
+        }
+
+        .section-banner {
+            margin: 35px 0 20px;  /* Increased top margin */
         }
     </style>
 </head>
