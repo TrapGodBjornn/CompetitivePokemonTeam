@@ -80,7 +80,7 @@ def analyze_team(team, display_names, tier_data):
                 else:
                     twox.append(display_names[i])
         
-        if total_weak >= 2:  # If 2 or more Pokemon are weak to this type
+        if total_weak >= 3:  # Changed from >= 2 to >= 3 for team-wide vulnerabilities
             problem_types[type_name] = {
                 'total': total_weak,
                 'fourx': fourx,

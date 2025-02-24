@@ -755,21 +755,21 @@
         
         .replacement-suggestions ul {
             list-style-type: none;
-            padding-left: 20px;
+            padding: 0;
             margin: 10px 0;
         }
         
         .replacement-item {
-            margin: 12px 0;
+            margin: 10px 0;
         }
         
         .replacement-item ul {
+            padding-left: 20px;
             margin: 5px 0;
-            line-height: 1.4;
         }
         
         .replacement-item li {
-            margin: 5px 0;
+            margin: 3px 0;
         }
         
         /* Results Section Improvements */
@@ -1385,7 +1385,7 @@
                 
                 // First calculate significant problems
                 const significantProblems = Object.entries(data.problem_types)
-                    .filter(([_, info]) => info.total >= 2)  // Changed from > 2 to >= 2
+                    .filter(([_, info]) => info.total >= 3)  // Changed from >= 2 to >= 3 to match backend
                     .map(([type]) => type);
                 
                 console.log("Significant team problems:", significantProblems);
@@ -1450,6 +1450,7 @@
                 
                 // Show all Pokemon in one grid
                 sortedTeam.forEach(([pokemon, info], index) => {
+                    const originalInfo = data.pokemon_problems[pokemon];  // Get original info with all weaknesses
                     html += `
                         <div class="pokemon-analysis ${info.score > 0 ? (info.score >= 6 ? 'critical' : 'warning') : 'balanced'}">
                             <div class="pokemon-header">
@@ -1459,8 +1460,8 @@
                                 <span class="pokemon-name">${pokemon}</span>
                             </div>
                             <div class="weakness-info">
-                                ${info.problem_types.length > 0 
-                                    ? `<p><strong>Weaknesses:</strong> ${info.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
+                                ${originalInfo.problem_types.length > 0  // Use originalInfo instead of filtered info
+                                    ? `<p><strong>Weaknesses:</strong> ${originalInfo.problem_types.map(type => createTypeBadge(type)).join(' ')}</p>
                                        <p>Score: ${info.score}</p>`
                                     : '<p>No type vulnerability issues</p>'
                                 }
